@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ol>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ol>
+    <script>
+        //  语法          用法              描述
+        //  :first      $('li:first')    获取第一个 li 元素
+        //  :last       $('li:last')     获取最后一个 li 元素
+        //  :eq(index)  $('li:eq(2)')    获取到的 li 元素中，选择索引号为 2 的元素，索引号index从 0 开始
+        //  :odd        $('li:odd')        获取到的 li 元素中，选择索引号为 奇数 的元素
+        //  :even       $('li:even')     获取到的 li 元素中，选择索引号为 偶数 的元素
+    $(function() {
+        $('ul li:first').css('background','red')  // ul 里面的第一个小 li 背景颜色改为红色
+        $('ul li:last').css('background','pink')
+        $('ul li:eq(2)').css('background','skyblue')  // 把索引号为 2 的 li 背景颜色改为 蓝色 索引号从 0 开始
+        $('ol li:odd').css('background','blue')  // 把ol 里面的索引号为 奇数的 li 背景颜色改为蓝色
+        $('ol li:even').css('background','green')  //  把ol 里面的索引号为 偶数的 li 背景颜色改为绿色
+    })
+
+    </script>
+</body>
+</html>

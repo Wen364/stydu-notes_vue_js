@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        li {
+            list-style: none;
+            width: 300px;
+            margin-left: 50px;
+            border-bottom: 1px solid #ccc;
+        }
+        a {
+            text-decoration: none;
+            float: right;
+        }
+        div {
+            /* height: 200px; */
+            width: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        textarea {
+            margin-left: 78px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+    
+    <script>
+        $(function() {
+            // 点击发布按钮，动态创建一个li 放入文本框的内容和删除内容，并且添加到ul中
+            $('button').on('click',function() {
+                var li = $('<li></li>')
+                li.html($('textarea').val() + "<a href='javascript:;'>删除</a>")
+                $('ul').prepend(li)
+                li.stop().slideDown()
+                $('textarea').val('')
+            })
+            // 2.点击的删除按钮.可以删除当前的留言微博
+            //  on可以给动态创建的元素绑定事件
+            $('ul').on('click','a',function() {
+                $(this).parent().stop().slideUp(function() {
+                    $(this).remove()
+                })
+            })
+        })
+    </script>
+</body>
+</html>

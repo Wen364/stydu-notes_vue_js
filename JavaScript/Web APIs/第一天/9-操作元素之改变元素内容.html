@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div ,p {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>111</p>
+    <script>
+        // 当我们点击了按钮 div里面的文字会发生改变
+        var btn = document.querySelector('button')
+        var date = new Date()
+        var div = document.querySelector('div')
+        btn.onclick = function() {
+            div.innerText = getTimeAll()
+            //  element.innerText 可以改变文字内容  他是一个属性
+        }
+
+        function getTimeAll() {
+            var date = new Date()
+            var year = date.getFullYear()
+            var month = date.getMonth() + 1
+            var dates = date.getDate() 
+            var day = date.getDay()
+            var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+            var times = date.getTime() / 1000   // 把毫秒转换为秒
+            var h = date.getHours() 
+            var m = date.getMinutes()
+            var s = date.getSeconds()
+            h =  h < 10 ? '0' + h : h
+            m =  m < 10 ? '0' + m : m
+            s =  s < 10 ? '0' + s : s
+            return '今天是：' + year + ' 年 ' + month + ' 月 ' + dates + ' 日 '  + h + ':' + m + ':' + s 
+        }
+        // 我们元素可以不用添加事件
+        var p = document.querySelector('p')
+        p.innerText = getTimeAll()
+        //  因为没有添加事件 所以它不需要要触发 可以直接就在页面上面显示
+    </script>
+</body>
+</html>

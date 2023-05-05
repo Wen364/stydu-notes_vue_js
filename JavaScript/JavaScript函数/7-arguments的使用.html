@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  arguments 是当前函数的内置对象  它存储了传递的所有实参
+        function fn() {
+            console.log(arguments);    // 存储了所有传递来的实参
+            console.log(arguments.length);
+            console.log(arguments[0]);
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn(1,2,3)
+        //  arguments 相当于伪数组 
+        //  1. 具有数组的 length 属性
+        //  2. 按照索引的方式存储
+        //  3. 它没有真正数组的一些方法 例如 pop(),  push()  等等
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

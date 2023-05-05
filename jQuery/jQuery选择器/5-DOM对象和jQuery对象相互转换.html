@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <video src="mov/mov.mp4" muted></video>
+    <script>
+        // 因为 jQuery对象里面没有 play 方法 所以让 jQuery 对象转换为 DOM对象 来使用 play方法
+
+        // 1.DOM对象转换为 jQuery对象
+        // (1) 先获取 DOM 对象
+        var vid = document.querySelector('video')  // DOM对象
+        // 然后再把 DOM 对象转换成 jQuery 对象
+        $(vid)  // 直接把 DOM 对象的名字写在jQuery里面就行
+
+        // 2.jQuery对象转换为 DOM对象
+        // (1) 转换为DOM对象 有两种方法 
+        // 第一种 
+        $('video')[0].play() 
+        // jQuery对象是以伪数组存储的，其实就是把这个jQuery对象里面的第一个元素拿出来，就是DOM对象
+        
+        // 第二种
+        $('video').get(0).play()
+    </script>
+</body>
+</html>

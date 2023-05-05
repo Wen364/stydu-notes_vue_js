@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2 :style="{opacity}">你好，哈哈</h2>
+        <h2>当前n值为：{{n}}</h2>
+        <button @click="add()">点击n+1</button>
+        <button @click="bye">点击销毁vm</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#root',
+        data() {
+            return{
+                opacity:1,
+                n:1
+            }
+        },
+        methods: {
+            add() {
+                this.n++
+            },
+            bye(){
+                this.$destroy()
+            }
+        },
+        beforeCreate() {
+            // console.log(this);
+            console.log('beforeCreate');
+            // debugger;
+        },
+        created() {
+            // console.log('-------------------');
+            console.log('create');
+            // console.log(this);
+            // debugger;
+        },
+        beforeMount() {
+            // console.log('----------');
+            console.log('beforeMount');
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            // 这个阶段 数据是 新的，但页面时旧的 
+            // 意思就是，如果刚修改，这个阶段里的 n是刚修改的值 ，但是页面上的数据还是未修改的原来的值
+          console.log('beforeUpdate');
+        //   debugger;  
+        },
+        updated() {
+            // 这个阶段 数据是 新的 页面也是 新的
+          console.log('update');
+            // debugger;
+        },
+        beforeDestroy() {
+            // beforeDestroy：清除定时器、解绑定义事件、取消订阅消息等【收尾工作】
+            console.log('beforeDestroy');
+        },
+        destroyed() {
+            console.log('destroy');
+        },
+    })
+</script>
+</html>

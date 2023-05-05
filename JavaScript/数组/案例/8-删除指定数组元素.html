@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  创建一个新的数组来存取不含有 0 的元素 
+        //  遍历原来的数组,把不是 0 的数据添加到新数组里面
+        
+        var arr = [2,0,6,1,77,0,52,0,25,7]
+        var newArr = []
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != 0 ) {
+                newArr[newArr.length] = arr[i]  // 这样写更加方便, 减少代码行数 length存入一个后会自动加1
+            }
+        }
+        console.log(newArr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

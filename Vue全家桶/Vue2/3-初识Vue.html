@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 
+        总结：
+        1.想让 Vue 开始工作，就必须先创建一个 Vue 实例， 然后再传入一个 配置对象（容器）
+        2. 容器里面的代码还是 遵循 html规范， 但是会有一些 特殊的 vue 语法
+        3. 容器里的代码被称为 【Vue模板】
+        4. Vue实例和容器是 一一对应 的
+        5. 真是开发中只有一个 Vue实例，并且会配合着组件一起使用
+        6. {{xxx}} 中的 xxx 要写 js表达式，并且 xxx 可以自动获取到 data 中的所有属性
+        7. 一旦 data 中的数据发生改变，那么页面中用到该数据的地方也会自动更新
+
+        区分 js表达式 和 js代码(语句)
+         1.表达式 ： 一个表达式会产生一个值，可以放在任何一个需要值的地方：
+             (1) a
+             (2) a+b
+             (3) demo(1)
+             (4) x === y ? 'a' : 'b'
+         2.js代码(语句)
+            (1) if() {}
+            (2) for() {}   
+    -->
+
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h3>你好，{{name.toUpperCase()}} {{address}} {{Date.now()}}</h3>
+    </div>
+
+    <script>
+        // 创建一个 Vue 实例
+        new Vue({
+            el:'#root', // 用于指定当前 Vue 实例 为哪一个容器服务 ，值通常为 css选择器字符串
+            data:{  // data 中 用于存储数据， 数据是给当前 容器 用的 ，容器外的用不了，值暂时先写成一个对象
+                name:'wen',
+                address:'黑龙江'
+            }
+        })
+    </script>
+</body>
+</html>

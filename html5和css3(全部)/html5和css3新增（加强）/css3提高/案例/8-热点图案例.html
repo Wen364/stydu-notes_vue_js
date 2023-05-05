@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+        .map {
+            position: relative;
+            height: 617px;
+            width: 747px;
+            background: url(../media/map.png) no-repeat;
+            margin: 0 auto;
+        }
+        .city {
+            position: absolute;
+            top: 220px;
+            right: 190px;
+            color: #fff;
+        }
+        .gz {
+            position: absolute;
+            right: 190px;
+            top: 537px;
+        }
+        .tb {
+            position: absolute;
+            right: 80px;
+            top: 495px;
+        }
+        .botted {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+        .city div[class^="pause"] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 20px #009dfd;
+            border-radius: 50%;
+            animation: pause 2s linear infinite ;
+        }
+        .city div.pause2 {
+            animation-delay: 0.4s;
+        }
+        .city div.pause3 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes pause {
+            0% {
+
+            }
+            70% {
+                /* 不要用scale 因为他会让盒子阴影变大 */
+                width: 50px;
+                height: 50px;
+                opacity: 1;
+                /* 透明度opacity */
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="botted"></div>
+            <div class="pause1"></div>
+            <div class="pause2"></div>
+            <div class="pause3"></div>
+        </div>
+        <div class="city gz">
+            <div class="botted"></div>
+            <div class="pause1"></div>
+            <div class="pause2"></div>
+            <div class="pause3"></div>
+        </div>
+        <div class="city tb">
+            <div class="botted"></div>
+            <div class="pause1"></div>
+            <div class="pause2"></div>
+            <div class="pause3"></div>
+        </div>
+    </div>
+</body>
+</html>

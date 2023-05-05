@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 300px;
+            margin: 200px auto;
+        }
+        table {
+            width: 300px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        thead {
+            height: 40px;
+            color: #fff;
+            background-color: skyblue;
+        }
+        thead th {
+            border-left: 1px solid #999;
+        }
+        tbody tr {
+            height: 40px;
+            background-color: #eee;
+            
+            border: 1px solid #999;
+        }
+        tbody tr td {
+            border-left: 1px solid #999;
+        }
+        .jg {
+            background-color: red;
+        }
+        .gq {
+            background-color: '';
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var tr = document.querySelector('tbody').querySelectorAll('tr')
+        var checkAll = document.getElementById('j_cbAll')
+        var check = document.querySelector('tbody').querySelectorAll('input')
+        
+        //  鼠标经过变背景颜色
+        for (var i = 0; i < tr.length; i++) {
+            tr[i].onmouseover = function() {
+                this.className = 'jg'
+            }
+            tr[i].onmouseout = function() {
+                this.className = 'gq'
+            }
+        }
+
+        //  复选框
+        checkAll.onclick = function () {
+            for (var i = 0; i < check.length; i++) {
+                check[i].checked = this.checked
+                //  让下面的复选框 跟着上面的复选框状态一样
+            }
+        }
+
+        // 下面复选框需要全部选中 上面复选框才会选中    
+        for (var i = 0; i < check.length; i++) {
+            check[i].onclick = function () {
+                //  给 flag 定义不能写在 for 循环外面 因为是4次点击事件 所以需要四个flag
+                var flag = true
+                // 每次点击下面的复选框都要循环检查这四个按钮是否全被选中
+                for (var i = 0; i < check.length; i++) {
+                    if (!check[i].checked) {  // 这个条件等价于 if(check[i].checked == false)
+                        flag = false 
+                        break // 这个break 只是为了提高执行效率，有没有都不影响复选框效果
+                        //  只要有一个没选中 h 就是false 上面的复选框就为 false
+                        // 都选中的话 跳出循环 上面 h 赋值为 true 代表下面 全选中了 上面的直接继承 h 的 true
+                    }
+                }
+                checkAll.checked = flag
+            }
+        }
+        
+        
+        
+
+        
+    </script>
+</body>
+</html>

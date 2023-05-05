@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* box-sizing是用来防止撑大盒子的 */
+        /* box-sizing是用来防止撑大盒子的 */
+        /* box-sizing是用来防止撑大盒子的 */
+        * {
+            padding: 0;
+            margin: 0;
+            /* box-sizing: border-box; */
+            
+            /* 防止增加内外边距来撑大盒子 */
+        }
+        div {
+            height: 200px;
+            width: 200px;
+            border: 20px solid red;
+            background-color: pink;
+            box-sizing: border-box;
+        }
+        /* 一个用了box-sizing的，一个没用box-sizing的 */
+        p {
+            height: 200px;
+            width: 200px;
+            border: 20px solid skyblue;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+</body>
+</html>

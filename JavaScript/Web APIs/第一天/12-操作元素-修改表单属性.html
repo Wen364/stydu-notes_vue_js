@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+        // 1.获取元素
+        var btn = document.querySelector('button')
+        var input = document.querySelector('input')
+        // 2.注册事件 处理程序
+        btn.onclick = function() {
+            // input.innerHTML = '点击了'  // innerHTML是普通盒子用的 表单用不了 
+            // 表单里面的值是通过 value 修改的
+            input.value = '点击了'
+            // 如果想要某个表单被禁用 不能再点击 这时候用 disabled 
+            // btn.disabled = true  // 禁用按钮
+            this.disabled = true   // this 是指向 事件函数的调用者  如果把 true 改为 false 则表示启用按钮
+        }
+    </script>
+</body>
+</html>

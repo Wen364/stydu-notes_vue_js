@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        // // 1.变量名必须先声明再使用
+        // num = 10
+        // console.log(num);
+        var num = 20
+        console.log(num);
+        // 2.不能随便删除已经定义的变量
+        // delete num; // 'delete' cannot be called on an identifier in strict mode
+        // 3.严格模式下全局作用域中函数的 this 指向的是 undefined
+        // function fn () {
+        //     console.log(this); // undefined
+        // }
+        // fn() 
+
+        // 4.在严格模式下，如果 构造函数 不加 new调用，this会报错
+        function Star() {
+            this.sex = '男'
+        }
+        // Star() // Cannot set properties of undefined (setting 'sex')
+
+        // 5.定时器里的 this 还是指向 window
+        setTimeout(function() {
+            console.log(this);
+        },2000)
+
+        // 6.严格模式下函数里面的参数不允许有相同的名字
+        // function sum(a,a) {
+        //     console.log(a+a); // 这样不允许有相同的参数名
+        // }
+        // sum()
+
+        
+    </script>
+    
+</body>
+</html>

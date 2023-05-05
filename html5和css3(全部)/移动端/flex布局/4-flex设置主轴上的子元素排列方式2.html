@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            /* 给父级加 flex */
+            box-sizing: border-box;
+            height: 300px;
+            width: 80%;
+            background-color: pink;
+            flex-direction: row;
+            /* justify-content: flex-start; */
+            /* 默认是贴着左边对齐 */
+            /* justify-content: flex-end; */
+            /* 从尾部开始对齐 */
+            /* justify-content: center; */
+            /* 让子元素居中对齐 */
+            /* justify-content: space-around; */
+            /* 平分剩余空间 */
+            justify-content: space-between;
+            /* 先两边贴边 然后再分配剩余空间 (重要) */
+        }
+        span {
+            height: 150px;
+            width: 150px;
+            background-color: skyblue;
+            margin: 10px;   
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btn">发起get请求</button>
+    <button id="btn1">发起post请求</button>
+    <script>
+        // $.ajax({
+        //     type:'', // 请求的方式  例如 get 或者 post
+        //     url:'',  // 请求的 url 地址
+        //     data: {}, // 这次请求要携带的数据
+        //     success: function() {}  // 请求成功之后的回调函数
+        // })
+
+        // 使用 $.ajax() 发起 get 请求
+        $('#btn').on('click', function () {
+            $.ajax({
+                type: 'get',
+                url: 'http://www.liulongbin.top:3006/api/getbooks',
+                data: {},
+                success: (res) =>{
+                    console.log(res);
+                }
+
+            })
+        })
+
+        // 使用 $.ajax() 发起 post 请求
+        $('#btn1').on('click',function() {
+            $.ajax({
+                type:'post',
+                url:'http://www.liulongbin.top:3006/api/addbook',
+                data:{bookname:'哈哈嗨',author:'哈哈哈哈',publisher:'温'},
+                success: (res) => {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

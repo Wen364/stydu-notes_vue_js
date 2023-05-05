@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script>
+
+    // 定义 一个 student 组件
+    const student = {
+        // 指定组件在开发者工具中呈现的名字       
+        name:'xs',
+        template:`
+        <div>
+            <h2>学生姓名:{{name}} </h2>  
+            <h2>年龄:{{age}} </h2>  
+        </div>
+        `,
+        data() {
+            return {
+                name:'小红',
+                age:18
+            }
+        }
+    }
+
+    // 定义 school 组件
+    const school = Vue.extend({
+        template:`
+        <div>
+            <h2>学校名称: {{name}} </h2>
+            <h2>学校地址: {{address}} </h2>
+            <student></student>  
+        </div>
+        `,
+        data() {
+            return {
+                name:'冷云',
+                address:'佳木斯'
+            }
+        },
+        // 注册组件 <局部>
+        components:{
+            student
+        }
+    })
+
+    const hello = {
+        template:`
+        <div>
+            <h1>欢迎来到{{msg}}</h1>    
+        </div>
+        `,
+        data() {
+            return {
+                msg:'佳木斯'
+            }
+        }
+    }
+
+    const app = Vue.extend({
+        template:`
+        <div>
+            <hello></hello>
+            <school></school>    
+        </div>
+        `,
+        components:{
+            hello,
+            school
+        }
+    })
+    new Vue({
+        el:'#root',
+        template:`<app></app>`,
+        // 注册组件 <局部>
+        components:{
+            app
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  .then.then 链式调用
+        let pro = new Promise(function(resolve,reject) {
+            // 执行器函数
+            setTimeout(() => {
+                resolve(1000)
+                // reject(0)
+                // 带参数就是传给下面 pro.then 里面
+            },2000)
+        })
+
+        pro.then((res) => {
+            console.log('奖金',res);
+            // 如果 return 非promise类型的话 则是 pending 到 fulfilled
+            // 如果 return promise类型的话 则要根据这个新的 promise 对象的结果来决定是 pending 到 fulfilled，
+            //  还是 pending 到 rejected
+            // 如果成功了 就继续 执行下面的 then  如果失败则执行 catch
+            return res
+        }).then((res) => {
+            console.log('奖金',res);
+        }).catch((err) => {
+            console.log('无',err);
+        })
+    </script>
+    
+</body>
+</html>

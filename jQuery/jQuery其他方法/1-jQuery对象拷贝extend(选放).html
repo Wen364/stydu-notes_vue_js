@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        $(function() {
+            // var targetObj = {
+            //     id: 0
+            // }
+            // var obj = {
+            //     name: 'andy',
+            //     id: 1
+            // }
+            // // $.extend(targetObj,obj) 浅拷贝 (拷贝的是地址，不是内容)
+            // $.extend(targetObj,obj); // {name: 'andy', id: 1}
+            // console.log(targetObj);  // 会覆盖原来里面的数据
+
+            var targetObj = {
+                id: 0,
+                msg: {
+                    sex: '男'
+                }
+            }
+            var obj = {
+                id: 1,
+                name: 'andy',
+                msg: {
+                    age: 18
+                }
+            }
+            // $.extend(targetObj,obj) // msg里面的内容冲突了，也会覆盖掉  
+            // console.log(targetObj);   // 会把所有内容都拷贝出来
+
+            // 浅拷贝 存储的msg里面的地址存储起来，这样当修改了targetObj的msg的数据，也会影响原来obj的数据
+            // targetObj.msg.age = 20
+            // console.log(targetObj);  // msg里面的值 变成了 20
+            // console.log(obj);  // msg里面的值 变成了 20
+
+            //  $.extend(true,target,obj) 深拷贝 (拷贝的是内容，不是地址)
+            $.extend(true,targetObj,obj)
+            targetObj.msg.age = 20
+            console.log(targetObj);  
+            console.log(obj);
+
+            // 不会覆盖原来msg里面的数据，并且修改targetObj的msg的数据，也不会影响原来obj里面的数据
+            
+        })
+    </script>
+</body>
+</html>

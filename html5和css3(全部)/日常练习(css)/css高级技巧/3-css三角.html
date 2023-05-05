@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            /* border: 10px solid pink; */
+            border-top: 100px solid pink;
+            border-bottom: 100px solid green;
+            border-left: 100px solid red;
+            border-right: 100px solid blue;
+            /* margin: 100px auto; */
+        }
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            border-top-color: red;
+            /* margin: 200px auto; */
+        }
+        .box3 {
+            position: relative;
+            height: 150px;
+            width: 298px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        .box3 span  {
+            position: absolute;
+            right: -40px;
+            bottom: 75px;
+            border: 20px solid transparent;
+            border-left-color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">
+        <span></span>
+    </div>
+</body>
+</html>

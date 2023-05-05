@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            /* width: 1000px; */
+            height: 1000px;
+
+        }
+        .box {
+            /* position: relative; */
+            float:left;
+            height: 400px;
+            width: 400px;
+            border: 1px solid black;
+            margin-right: 300px;
+            /* background-color: yellow; */
+            /* opacity: .5; */
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 200px;
+            width: 200px;
+            background-color: #fede4f;
+            opacity: .5;
+            cursor: all-scroll;
+            /* pointer-events: none; */
+        }
+        .big {
+            position: relative;
+            /* display: none; */
+            float: left;
+            height: 500px;
+            width: 500px;
+        }
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* vertical-align: middle; */
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="box">
+            <img src="../images/b3.png" alt="" id="small">
+            <div class="mask"></div>
+        </div>
+        <div class="big">
+            <img src="../images/big.jpg" alt="" id="bigImg">
+        </div>
+    </div>
+    
+    <script>
+        var mask = document.querySelector('.mask')
+        var big = document.querySelector('.big')
+        var box = document.querySelector('.box') 
+        window.addEventListener('load',function() {
+            box.addEventListener('mouseover',function() {
+                mask.style.display = 'block'
+                big.style.display = 'block'
+            })
+            box.addEventListener('mouseout',function() {
+                mask.style.display = 'none'
+                big.style.display = 'none'
+            })
+            // (1)鼠标移动的时候，让黄色的盒子跟着鼠标来走
+            box.addEventListener('mouseover',function(e) {
+                var x = e.pageX - this.offsetLeft
+                var y = e.pageY - this.offsetTop
+                //(2) 减去盒子高度和宽度一半 就是让鼠标在黄色遮挡层的中间
+                // (3) 如果x坐标小于0 则让他停在 0 的位置
+                var maskX = x - mask.offsetWidth/2
+                var maskY = y - mask.offsetHeight/2
+                var maskMax = box.offsetWidth - mask.offsetWidth
+                if(maskX <= 0) {
+                    maskX = 0
+                }else if (maskX > 200) {
+                    maskX = 200
+                }
+                if(maskY <= 0) {
+                    maskY = 0
+                }
+                else if (maskY > 200) {
+                    maskY = 200
+                }
+                mask.style.top = maskY + 'px'
+                mask.style.left = maskX + 'px'
+    // 大图片移动的距离 = 遮挡层移动距离 * 大图片最大移动距离 / 遮挡层的最大移动距离 
+                var bigImg = document.getElementById('bigImg')
+                // 大图片最大移动距离
+                var bigMax = bigImg.offsetWidth  - big.offsetWidth  
+                var bigX = maskX * bigMax / maskMax
+                var bigY = maskY * bigMax / maskMax
+                bigImg.style.left = -bigX + 'px'
+                bigImg.style.top = -bigY + 'px'
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .son {
+            height: 100px;
+            width: 100px;
+            background-color: skyblue;
+            margin-left: 45px;
+        }
+        .w {
+            height: 200px;
+            width: 200px;
+            background-color: purple;
+            margin-left: 200px;
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="w"></div>
+    <script>
+        var father = document.querySelector('.father')
+        var son = document.querySelector('.son')
+        var w = document.querySelector('.w')
+        // 1. element.offsetTop  返回的是相对带有定位父元素上方的偏移量
+        // 2. element.offsetLeft 返回的是相对带有定位父元素左方的偏移量
+        console.log(father.offsetTop);
+        console.log(father.offsetLeft);
+        console.log(son.offsetTop);  // 返回的是带有定位的父元素 如果父元素没有定位则用body的
+        console.log(son.offsetLeft); 
+        // 3. element.offsetWidth  返回的是元素的宽度 包括 padding border
+        // 4. element.offsetHeight  返回的是元素的高度
+        console.log(father.offsetHeight);  // 200
+        console.log(son.offsetWidth);  // 100
+
+        // 5. element.offsetParent 返回作为该元素带有定位的父级元素，如果父级没有定位，则返回body
+        console.log(son.offsetParent);  // 返回作为该元素带有定位的父级元素，如果父级没有定位，则返回body
+        console.log(son.parentNode); // 返回的是离他最近的父元素 不管有没有定位都返回
+
+    </script>
+</body>
+</html>

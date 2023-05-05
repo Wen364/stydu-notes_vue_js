@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+   
+    <script>
+        // $("div").each(function(index,domEle) {})
+        // 1.each() 方法遍历匹配的每一个元素，主要用DOM处理，each每一个元素都会遍历一遍
+        // 2.里面的回调函数有2个参数：index是每个元素的索引号，domEle是每一个DOM元素对象，不是query对象
+        // 如果针对同一类元素做不同操作，需要用到遍历元素，(类似for 但是比 for 强大)
+        var sum = 0
+        $('div').each(function(index,domEle) {
+            console.log(index);
+            arr = ['red','blue','green']
+            // domEle 是DOM对象 不是query对象
+            $(domEle).css('background',arr[index])
+            // 每一个元素的背景颜色跟随着数组下标决定
+            // sum += $(domEle).text() - 0  // 把字符串类型改为数字类型 他与下面的写法等价
+            sum += parseInt($(domEle).text())
+        })
+        console.log(sum);
+        // 2.$.each()   方法遍历元素 主要用于遍历数据，处理数据
+        arr = ['red','blue','green'] 
+        // 这个遍历的是div
+        $.each($('div'),function(i,ele) {  
+            console.log(i);
+            console.log(ele);
+        })
+        // 这个遍历的是 数组 arr
+        $.each(arr,function(i,ele) {
+            console.log(i);
+            console.log(ele);
+        })
+        // 这个遍历的是 对象
+        $.each({name:'andy',age:18},function(i,ele) {
+            console.log(i);  // 输出的是 name 的属性名
+            console.log(ele); // 输出的是 name 的属性值
+        })
+    </script>
+</body>
+</html>

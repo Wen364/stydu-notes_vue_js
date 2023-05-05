@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // window.onload = function () {}
+    // window.onload 是窗口(页面)加载事件，当文档内容完全加载完成会触发该事件(包括图像、脚本文件、css文件等)
+    // 有了window.onload就可以把JS代码写道页面元素的上方，因为Onload是等页面内容全部加载完毕，再去执行处理函数
+    // 注意：window.onload 这种传统写法只能写一次，如果有多个，会以最后一个window.onload为准
+        // window.onload = function () {
+        //     var btn = document.querySelector('button')
+        //     btn.addEventListener('click',function() {
+        //     alert(111)
+        // })
+        // }
+        // window.onload = function () {
+        //     alert(22)  
+        // }
+
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button')
+            btn.addEventListener('click',function() {
+            alert(111)
+            })
+        })
+        window.addEventListener('load', function () {
+            alert(22)
+        })
+        // 如果使用 addEventListener 则没有限制
+
+        // DOMContentLoaded事件触发时,仅当DOM加载完成，不包括样式表、图片、flash等
+        // 并且 ie9 以上才支持
+        // 如果页面图片很多，从用户访问到onLoad触发可能需要较长时间，交互效果就不能实现，会影响用户体验，这个时候DOMContentLoaded就比较适合
+        document.addEventListener('DOMContentLoaded', function () {
+            alert(33)
+        })
+        // 加载速度： DOMContentLoaded 比 load 加载速度快 所以会先弹出 33
+
+        // 3.pageshow 事件 和load 差不多 但是火狐浏览器有一个往返缓存的特点load在这里后退不会刷新页面
+        // 所以这时候可以用 pageshow 事件来触发 这个事件是在页面显示时出发的，无论页面是否来自缓存，在重新加载页面中，pageshow会在load事件出发后触发，根据事件对象中的persisted来判断是否时缓存中的也买你出发的pageshow事件，注意：这个事件是给window添加
+        window.addEventListener('pageshow', function(e) {
+        // e.persisted 返回的是true 就是说这个页面是从缓存取过来的页面，也需要重新执行下函数
+            if (e.persisted) {
+                // 函数
+            }
+        })
+    </script>
+    <button>按钮</button>
+    
+</body>
+</html>

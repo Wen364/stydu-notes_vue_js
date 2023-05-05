@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js运行分为两步： 预解析和代码运行
+        //  预解析： js引擎会把js 里面的所有的 var 还有 function 提升到当前作用域的最前面
+        //  代码执行： 按照代码书写的顺序从上到下执行
+        //    预解析分为 变量预解析 和 函数预解析
+        //  变量预解析 就是把变量声明提升到当前作用域的最前面 不提升赋值操作
+        //  函数预解析 就是把函数声明提升到当前作用域的最前面 不调用函数
+
+        //  1.
+        // console.log(num);   
+
+        //  2. 
+        console.log(number);
+        var number = 10   //  输出 undefined
+
+        // 他的预解析操作为
+        var number 
+        console.log(number);
+        number = 10
+
+        //  3. 
+        fn()
+        function fn() {
+            var num = 10 
+            console.log(num);
+        }
+        fn()
+
+        //  他的预解析操作为
+        function fn() {
+            var num = 10 
+            console.log(num);
+        }
+        fn()
+        fn()
+
+        // 4. 
+        fun()
+        var fun = function fn1() {
+            var num = 20
+            console.log(num);    
+        }                         // 输出结果为 fun is not a function
+        // 他的预解析操作为
+        var fun
+        fun()
+        fun = function fn1() {
+            var num = 20
+            console.log(num);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

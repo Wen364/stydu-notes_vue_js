@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 动画实现原理：
+        // 核心原理：通过定时器Interval()不断移动盒子的位置
+        // 实现步骤：
+        // 1.获得盒子当前位置
+        // 2.在当前位置基础上加一个移动距离
+        // 3.利用定时器不断重复这个步骤
+        // 4.加一个定时器结束的条件
+        // 5.注意此元素需要添加定位!!!，才能使用element.style.left
+        var box = document.querySelector('.box')
+        var timer = setInterval(function() {
+            if (box.offsetLeft >= 400) {  
+                clearInterval(timer)
+            }else {
+                box.style.left = box.offsetLeft + 10 +'px' // // 必须先获取元素位置，利用offsetLeft获取元素当前位置
+            }    
+        }, 30)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // JS 是一个单线程语言 就是程序只能按照顺序依次执行 假如有定时器一类的话会浪费时间，不能很好的渲染页面
+        // 所以现在JS出现了同步和异步的做法
+        // 同步就是按照顺序执行代码
+        // 异步就是同时做多个任务
+        console.log(11);
+        setTimeout(function() {
+            console.log(33);
+        },1000)
+        console.log(22);
+
+        //   同步执行过程和异步执行过程
+        // 1.先执行栈中的同步任务
+        // 2.异步任务(回调函数) 放入任务队列中去
+        // 3.一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行
+        // 4.当有多个异步任务的话，哪个先执行就先输出哪个
+    </script>
+</body>
+</html>

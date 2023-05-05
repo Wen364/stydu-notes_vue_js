@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 把所有偶数的孩子选择出来 */
+        ul li:nth-child(even) {
+            background-color: pink;
+        }
+        /* 把所有奇数行的孩子选择出来 */
+        ul li:nth-child(odd) {
+            background-color: skyblue;
+        }
+        /* 这中是从第0个开始，到第n个结束，相当于选择了所有的孩子 */
+        ol li:nth-child(n) {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>我是第一个</li> 
+        <li>我是第二个</li>
+        <li>我是第三个</li>
+        <li>我是第四个</li>
+        <li>我是第五个</li>
+        <li>我是第六个</li>
+        <li>我是第七个</li>
+        <li>我是第八个</li>
+    </ul>
+    <ol>
+        <li>我是第一个</li> 
+        <li>我是第二个</li>
+        <li>我是第三个</li>
+        <li>我是第四个</li>
+        <li>我是第五个</li>
+        <li>我是第六个</li>
+        <li>我是第七个</li>
+        <li>我是第八个</li>
+    </ol>
+</body>
+</html>

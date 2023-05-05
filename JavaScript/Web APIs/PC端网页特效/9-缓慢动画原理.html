@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button class="btn">点击后盒子开始减速移动到800</button>
+    <script>
+        // 缓慢动画即使让元素运动速度有所变化，最常见的就是让速度慢慢停下来
+        function animate(obj,distance) {
+            clearInterval(obj.timer)
+            // 缓慢函数原理：
+            // 1.让盒子每次移动的距离慢慢变小，速度就会慢慢降下来
+            // 2.核心算法：（目标值 - 当前位置） / 10 作为每次移动的距离 step
+            // 3.停止的条件是：让当前盒子位置等于目标位置就清除计时器
+            obj.timer = setInterval(function() {   
+                var step = Math.ceil((distance - obj.offsetLeft) / 10)
+            // 向上取整才能最后走到500，否则因为是除法，他会让最后没跑到800就自己停止了
+
+            // 这个每次移动距离需要放到定时器里面，因为需要每次定时器之后都会重新获取一个obj.offsetLeft的值 
+                if (obj.offsetLeft == distance) { // 当值相等，就停止定时器
+                    clearInterval(obj.timer)  
+                } else {
+                    obj.style.left = obj.offsetLeft + step + 'px'
+                    // 是沿着当前位置向前走，所以需要obj.offsetLeft
+                }
+            },15)
+        }
+        var div = document.querySelector('div')
+        var btn = document.querySelector('.btn')
+       
+        // 调用函数
+        btn.addEventListener('click', function() {
+            animate(div,800)
+        })
+        
+        // 匀速动画 就是盒子当前位置 + 固定的值
+        // 减速动画 就是盒子当前位置 + 变化的值( (目标值 - 当前位置) / 10) )
+    </script>
+</body>
+</html>

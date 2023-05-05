@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        .qb {
+            height: 800px;
+            width: 800px;
+            margin: auto;
+        }
+        .top, .bottom{
+            height: 50px;
+            width: 500px;
+            background-color: #eee;
+        }
+        .top {
+            margin-bottom: 10px;
+        }
+        .warp1, .warp2, .warp3 {
+            height: 200px;
+            width: 800px;
+            border: 1px solid #000;
+            border-left: 0;
+            border-right: 0;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="qb">
+        <div class="top">
+            <input type="checkbox" name="" id="" class="checkall">全选(只全选商品)
+        </div>
+        <div class="content">
+            <div class="warp1">
+                <input type="checkbox" name="" id="" class="s-checkbox">
+            </div>
+            <div class="warp2">
+                <input type="checkbox" name="" id="" class="s-checkbox">
+            </div>
+            <div class="warp3">
+                <input type="checkbox" name="" id="" class="s-checkbox">
+            </div>
+        </div>
+        <div class="bottom">
+            <input type="checkbox" name="" id="" class="checkall">全选(全部)
+        </div>
+    </div>
+    <script>
+        $(function() {
+            // 全选 全不选功能模块
+            // 就是把全选按钮(checkall) 的状态赋值给三个小的按钮(s-checkbox)就可以了
+            // 事件可以使用change
+            // 内容区域的按钮全部选上 ，上面和下面的按钮也会被选上
+            $('.checkall').change(function() {
+                    $('.s-checkbox, .checkall').prop('checked',$(this).prop('checked'))
+            })
+            // 如果小复选框被选中的个数等于3 就应该把全选按钮选上，否则全选按钮不选
+            $('.s-checkbox').change(function() {
+                // if (被选中的小的复选框个数 == 3) {
+                //     就选中全选框按钮
+                // } else {
+                //     不要选中全选按钮
+                // }
+                //    :checked  就是用来查看当前有几个被选中的复选框的 length是长度
+                //   $('.s-checkbox').length  就是所有小复选框的个数
+                if ($('.s-checkbox:checked').length === $('.s-checkbox').length) {
+                    $('.checkall').prop('checked',true)
+                }else {
+                    $('.checkall').prop('checked',false)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

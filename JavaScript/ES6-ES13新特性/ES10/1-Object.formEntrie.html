@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [['name','andy'],['age',20]]
+        console.log(Object.fromEntries(arr));  // {name: 'andy', age: 20}
+        // 用处1
+        let m = new Map()
+        m.set('name','andy')
+        m.set('age',30)
+        console.log(Object.fromEntries(m));  // {name: 'andy', age: 30}
+
+        // 用处2
+        let str = 'name=xiaoming&age=8'
+        let searchParams = new URLSearchParams(str)
+        console.log(Object.fromEntries(searchParams)); // {name: 'xiaoming', age: '8'}
+
+        // 用处3
+        // 把这个对象改为  这种形式  'A':3   数字为长度
+        let obj = {
+            'A':['A1','A2','A3'],
+            'B':['B1','B2'],
+            "C":['C1']
+        }
+        let myarr = Object.entries(obj)
+        console.log(myarr);
+        let newarr = myarr.map(([key,value]) => {
+            return [key,value.length]
+        })
+        console.log(newarr);
+        // 再把数组转换为对象
+        console.log(Object.fromEntries(newarr));  // {A: 3, B: 2, C: 1}
+        
+    </script>
+    
+</body>
+</html>

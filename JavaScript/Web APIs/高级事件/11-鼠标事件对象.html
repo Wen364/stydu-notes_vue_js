@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <p id="screen-log"></p>
+    <script>
+        //  鼠标事件对象 MouseEvent
+        document.addEventListener('click', function(e) {
+            //  1. client 返回的是 鼠标在 可视区域的 x和y 坐标
+            console.log(e.clientX);  // 得到鼠标点击的 x 坐标
+            console.log(e.clientY);  // 得到鼠标点击的 y 坐标
+            console.log('-------------------------');
+            //  2. page 返回的是 鼠标在 页面文档的 x和y 坐标 !!!
+            console.log(e.pageX);  // 得到鼠标点击的 x 坐标
+            console.log(e.pageY);  // 得到鼠标点击的 y 坐标
+            
+            console.log('--------------------------');
+        })
+        //  3. screen 返回的是 鼠标在 全局(屏幕) x 和y 坐标 !!!
+        var p = document.getElementById('screen-log')
+        document.addEventListener('mousemove', logKey)
+        function logKey(e) {
+            p.innerText = `
+            Screen X/Y: ${e.screenX}, ${e.screenY}
+            Client X/Y: ${e.clientX}, ${e.clientY}`;
+    }
+    </script>
+</body>
+</html>

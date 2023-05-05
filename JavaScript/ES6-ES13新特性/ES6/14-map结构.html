@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  map结构 类似于对象，也就是键值对的集合，但是键的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+        let m1 = new Map([
+            ['name','andy'],
+            ['age',50],
+            [{a:1},'哈啊哈']
+        ])
+        console.log(m1);
+
+        let a = {a:1}
+        let m2 = new Map()
+        m2.set('name','red')
+        m2.set('age',20)
+        m2.set(a,'哈啊哈')
+        console.log(m2);
+        console.log([...m2]);
+
+        // get 获取  has 判断   size 长度  clear 清空  delete 删除 set 设置
+        console.log(m2.get('name'));
+
+        console.log(m2.get(a));
+
+        console.log(m2.has('age'));
+
+        console.log(m2.size);
+
+        m2.clear();
+
+        //  keys()  values()  entries()  for of   
+        // foreach()
+
+        for (let i of m1.keys()) {
+            console.log(i);
+        }
+
+        for (let i of m1.values()) {
+            console.log(i);
+        }
+
+        for (let [index,item] of m1.entries()) {
+            console.log(index,item);
+        }
+
+        for (let [index,item] of m1) {
+            console.log(index,item);
+        }
+
+        m1.forEach((index,item) => {
+            console.log(index,item);
+        })
+    </script>
+    
+</body>
+</html>

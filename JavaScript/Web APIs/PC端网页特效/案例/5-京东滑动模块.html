@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            right: 0;
+            top: 300px;
+            height: 300px;
+            width: 40px;
+            background-color: pink;
+            /* overflow: hidden; */
+            
+        }
+        span {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0px;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            line-height: 50px;
+            background-color: skyblue;
+        }
+        .con {
+            position: absolute;
+            /* right: -160px; */
+            left: 0;
+            top: 0px;
+            width: 200px;
+            height: 50px;
+            background-color: purple;
+            z-index: -1; 
+        }
+
+    </style>
+    <script src="../animate.js"></script>
+</head>
+<body>
+    <div class="slider-bar">
+        <span><-</span>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        var slider = document.querySelector('.slider-bar')
+        var con = document.querySelector('.con')
+        var span = document.querySelector('span')
+        span.addEventListener('mouseenter',function() {
+            animate(con,-80,function() {  // 利用回调函数，当动画执行完成后，再把内容改为右箭头
+                span.innerHTML = '->'
+            })
+        })
+        span.addEventListener('mouseleave',function() {
+            animate(con,0,function() {   // 利用回调函数，当动画执行完成后，再把内容改为左箭头
+                span.innerHTML = '<-'
+            })
+        })
+
+    </script>
+</body>
+</html>

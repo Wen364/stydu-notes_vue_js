@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let str = '你好，我是哈哈哈哈'
+        // 语法情况：
+        // obj.replace(obj1,target) obj1是要替换的内容  target是目标内容
+        // 如果有很多个这个，只能替换找到的第一个
+        // console.log(str.replace('哈','*'));
+
+        let str = '<div>我是{{name}}</div>'
+        let reg = /{{([a-zA-Z]+)}}/
+        let result = reg.exec(str)
+        console.log(result); // ['{{name}}', 'name', index: 7, input: '<div>我是{{name}}</div>', groups: undefined]
+        // 从中看到 result 的 数组第一项是{{name}} 第二项是name
+        str = str.replace(result[0],result[1])
+        console.log(str);  // <div>我是name</div>
+
+        // 多次 replace
+
+    </script>
+</body>
+</html>

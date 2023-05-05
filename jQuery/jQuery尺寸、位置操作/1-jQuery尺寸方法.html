@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+               语法                                         用法
+        width() / height()                          取得匹配元素宽度和高度值 只算width / height
+        innerWidth() / innerHeight()                取得匹配元素宽度和高度值 包括padding
+        outerWidth() / outerHeight()                取得匹配元素宽度和高度值 包括padding border
+        outerWidth(true) / outerHeight(true)        取得匹配元素宽度和高度值 包括padding、margin、border
+     -->
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1.width() / height()
+        console.log($('div').width());  // 200 只是宽度
+        console.log($('div').height()); // 200 只是高度
+        $('div').width(300)  // 修改宽度为 300
+        // 2.innerWidth() / innerHeight()  
+        console.log($('div').innerWidth());  // 320  包括了 左右padding值
+
+        // 3.outerWidth() / outerHeight() 
+        console.log($('div').outerWidth());  // 340 包括了 左右padding值和 border值
+
+        // 4.outerWidth(true) / outerHeight(true)  ！！！
+        console.log($('div').outerWidth(true));  // 360 包括了 左右padding值、border值、margin值
+    </script>
+</body>
+</html>

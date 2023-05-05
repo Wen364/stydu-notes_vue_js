@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {
+            name: '哈哈',
+            age: 18,
+            sex: '男',
+            fn : function() {
+
+            }
+        }
+        //  要遍历对象就要用到 for in 循环
+        //  for (变量 in 对象) {
+
+        for (var i in obj) {
+            console.log(i);  // i 是变量  输出的是属性名
+            console.log(obj[i]);  // 必须用这种格式  obj[i] 输出的是 属性值
+        }
+        //  for in 里面的变量 一般都写 k  或者 key
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

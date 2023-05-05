@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Wzry(name,type,blood,attack) {
+            this.name = name
+            this.type = type
+            this.blood = blood
+            this.attack = function(attacked) {
+                console.log(attacked);
+            }
+        }
+        var lp = new Wzry('廉颇','坦克','5000血量')
+        var hy = new Wzry('后羿','射手','3000血量')
+        console.log(lp.name);
+        console.log(lp['type']);
+        lp.attack('攻击:近战')
+        hy.attack('攻击:远程')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

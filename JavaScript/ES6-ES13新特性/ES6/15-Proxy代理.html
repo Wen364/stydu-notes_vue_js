@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // Proxy 作用是在对象和对象的属性值之间设置一个代理，获取该对象的值或者设置该对象的值，
+        // 以及实例化等等多种操作，都会被拦截，经过这一层我们可以统一处理，我们可以认为他就是代理器
+        let obj = {}
+        let proxy = new Proxy(obj,{
+            get(target,key) {
+                console.log('get');
+                // get 方法 必须要 return 否则自己调用不到
+                return  target[key]
+            },  
+            set(target,key,value) {
+                // target 就是 obj 
+                console.log('set',target,key,value);
+                // 当修改的是 data 的对象时，其内容就会被修改到页面上
+                if (key === 'data') {
+                    box.innerHTML = value
+                }
+                // 这个就是 obj[key] = value 可以把key当作对象里要存储的内容，然后放到对象target里
+                target[key] = value
+            }
+        })
+
+        // set map 代理都一样
+        let s = new Map()
+        
+        let proxy1 = new Proxy(s,{
+            get(target,key) {
+                console.log('get');
+                let value = target[key]
+                if (value instanceof Function) {
+                    // 如果是方法的话，需要改变this指向
+                    return value.bind(target)
+                }
+                return value
+            },  
+            set(target,key,value) {
+                // target 就是 obj 
+                console.log('set',target,key,value);
+            }
+        })
+    </script>
+    
+</body>
+</html>

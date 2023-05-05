@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = '{"name":"zs","age": 20}'
+        // 使用 JSON.parse(target) 使 json字符串 转化为 js 对象
+        let str = JSON.parse(obj)
+        console.log(str);
+        // {name: 'zs', age: 20}
+
+        // 要实现 js对象 转化为 json字符串 就需要 JSON.stringify() 方法了
+        let json = JSON.stringify({a:"wen",age:30})
+        console.log(json);
+        // {"a":"wen","age":30}
+    </script>
+</body>
+</html>

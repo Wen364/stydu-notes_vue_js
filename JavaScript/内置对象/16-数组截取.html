@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  数组截取 slice(begin,end)  
+        //  注意： 它包括 begin  但是不包括 end
+        var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+        var arr = animals.slice(2,4)   // 截取了  2 <= x < 4
+        console.log(arr);  // 输出 ['camel', 'duck']
+
+        var arr1 = animals.slice(2) 
+        console.log(arr1);
+
+        var arr2 = animals.slice(2,-1)   
+        //当参数为负数时 则是代表从倒数开始算，比如 slice(2,-1) 代表数组下标为2的到数组下标为倒数第一的 
+        //  即 [camel，duck，elephant) 中开始截取
+        console.log(arr2);  // 输出结果为 ['camel', 'duck']
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

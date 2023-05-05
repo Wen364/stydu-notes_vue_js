@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <!--
+    表单是在网页中主要负责数据采集功能， form标签就是用于采集用户输入的信息，并通过form标签的提交事件操作
+    把采集到的信息提交到服务器端进行处理 
+    -->
+    <!--
+        form标签里面的属性有 action target method  enctype
+        action是填写完表单然后点击提交后跳转的地址，如果没有填写，则默认原地址
+        target 默认是_self 表示会覆盖原页面打开新窗口  _blank 则是新建窗口
+        method属性用来规定以何种方式把表单数据 提交到 action URL 他有 get 和 post 两种属性
+        enctype 属性用来规定在发送表单数据之前如何对数据进行编码
+        它的可选值有三个，默认情况下，enctype的值为application/x-www-form-urlencoded，表示在发送前编码所有的字符
+         application/x-www-form-urlencoded   在发送前编码所有的字符
+         multipart/form-data     部队字符编码，在使用包含文件上传控件的表单时，必须使用该值
+         text/plain        空格转换为"+" 加号，但不对特殊字符编码（很少用）
+     -->
+    <form action="" target="_blank" method="post">
+        <input type="text" name="email"/>
+        <input type="password" name="password"/>
+        <input type="checkbox" name="remember_me" checked />
+        <button type="submit">提交</button>
+    </form>
+    <script>
+
+    </script>
+</body>
+</html>

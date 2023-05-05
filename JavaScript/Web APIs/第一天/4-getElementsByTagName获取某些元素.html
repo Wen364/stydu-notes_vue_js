@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!--  根据标签名获取元素 getElementsByTagName -->
+</head>
+<body>
+    <ul>
+        <li>哈哈哈,吼吼,喝1</li>
+        <li>哈哈哈,吼吼吼吼,喝喝喝</li>
+        <li>哈哈哈,吼吼吼吼,喝喝喝</li>
+        <li>哈哈哈,吼吼吼吼,喝喝喝</li>
+        <li>哈哈哈,吼吼吼吼,喝喝喝</li>
+    </ul>
+    <ol id="ol">
+        <li>哈哈哈1</li>
+        <li>哈哈哈</li>
+        <li>哈哈哈,</li>
+        <li>哈哈哈,吼</li>
+        <li>哈哈</li>
+    </ol>
+    <script>
+        // 1.返回的是获取过来元素对象的'集合' 以伪数组的形式存储的
+        var i = document.getElementsByTagName('li')
+        console.log(i);
+        console.log(i[0]);
+        console.dir(i)
+        // 2.我们想要一次打印里面的元素对象我们可以采取遍历的方式
+        for(var j = 0; j < i.length; j++) {
+            console.log(i[j]);
+        }
+        // 3. 如果页面中只有一个 li 返回的也是伪数组
+        //  4.如果页面中没有元素 返回的是一个空的伪数组
+        // 5. element.getElementsByNagName('标签名')  父元素必须是指定的单个元素
+        // var ol = ol.getElementsByTagName('ol')  // 因为打印出来是伪数组 所以不能写li 必须是ol
+        // console.log(ol);
+        // var ol = document.getElementsByTagName('ol')
+        // console.log(ol[0].getElementsByTagName('li')); // 这样指定了第一个ol 所以可以写 li
+
+        //  父元素一定要指明了是哪一个对象 !!!!!!!
+
+        var ol = document.getElementById('ol')  // 这样就指明了是ol 
+        console.log(ol.getElementsByTagName('li'));  // 这样调用是可以的 可以获取 ol 里面的 li
+    </script>
+
+    
+</body>
+</html>

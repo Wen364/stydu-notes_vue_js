@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+        // var re = /abc/  只要包含abc就可以
+        // 字符类： [] 表示有一系列字符可供选择，只要匹配其中一个就可以了
+        var re = /[abc]/  // 表示只要包含 a、b、c其中的一个就返回true
+        console.log(re.test('andy')); // true
+        console.log(re.test('baby')); // true
+        console.log(re.test('color')); // true
+        console.log(re.test('red')); // false
+        console.log('--------------------');
+
+        var reg = /^[abc]$/  // 三选一 当只出现 a 或者 b 或者 c 时，才会返回 true
+        console.log(reg.test('a')); // true
+        console.log(reg.test('b')); // true
+        console.log(reg.test('c')); // true
+        console.log(reg.test('abc')); // false
+        console.log('--------------------');
+
+        //  a-z 表示 a 到 z 这样就表示 26个英文字母
+        var reg1 = /^[a-z]$/  // 当出现26个英文字母其中的一个时 返回true
+        console.log(reg1.test('a')); // true
+        console.log(reg1.test('z')); // true
+        console.log(reg1.test('d')); // true
+        console.log(reg1.test('abc')); // false
+        console.log('--------------------');
+
+        // 字符组合
+        var reg2 = /^[a-zA-Z0-9_-]$/ // 表示 a到z A到Z 0到9 - 或者 _ 之间任意一个 返回true
+        console.log(reg2.test('a')); // true
+        console.log(reg2.test('-')); // true
+        console.log(reg2.test('_')); // true
+        console.log(reg2.test('A')); // true
+        console.log(reg2.test('abc')); // false
+        console.log('--------------------');
+
+        // 如果 [] 里面 有 ^ 则表示取反 千万要和区分好
+        var reg3 = /^[^a-zA-Z0-9_-]$/  // 表示不能包含其中的这些任意一个
+        console.log(reg3.test('a')); // false
+        console.log(reg3.test('-')); // false
+        console.log(reg3.test('_')); // false
+        console.log(reg3.test('@')); // true
+        console.log(reg3.test('#')); // true
+    </script>
+    
+</body>
+</html>

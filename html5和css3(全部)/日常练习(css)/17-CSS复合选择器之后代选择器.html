@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器之后代选择器</title>
+    <style>
+        /* 我想要把ol里面的li选择出来改为粉色 */
+        ol li {
+            /* ol和li间用空格隔开 ，并且前面必须是父级，后面必须是子级 */
+            color: pink;
+        }
+        ol li a {
+            color: red;
+        }
+        .nav li a {
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 后代选择器（重要） -->
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li ><a href="#">我是ol的孩子</a></li>
+    </ol>
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+    <ul class="nav">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">不会变化的</a></li>
+    </ul>
+</body>
+</html>

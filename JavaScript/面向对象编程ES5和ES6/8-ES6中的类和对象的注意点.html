@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <script>
+        var that = null
+        class Star {
+            constructor(x,y) {
+                // constructor 指向的是 ldh 实例对象
+                that = this
+                this.x = x
+                this.y = y
+                this.btn = document.querySelector('button')
+                this.btn.onclick = this.sing // 因为是要点击了才调用，所以不加括号
+                // 这里不能用监听器，要不然点击了不好使
+            }
+            sing() {
+                // 这个sing 指向的是 button 按钮 如果直接 this.x 则会返回 undefined
+                console.log(that.x);  // that 是 constructor 的 this 所以可以了
+            }
+        }
+        var ldh = new Star('刘德华')
+
+        // 1.在ES6中 类没有变量提升，所以必须先定义类 ，才能通过类实例化对象
+
+        // 2.类里面的共有的属性和方法一定要加 this 使用 ！！！
+    </script>
+</body>
+</html>

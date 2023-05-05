@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // FinalizationRegistry 清理注册表功能 用来指定目标对象被垃圾回收机制清除以后，所要执行的回调函数
+        let obj = {
+            name:'andy'
+        }
+        let registry = new FinalizationRegistry(data => {
+            console.log('销毁了',data);
+        })
+        registry.register(obj,'111111111111')
+     </script>
+</body>
+</html>

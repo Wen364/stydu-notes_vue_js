@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单域</title>
+</head>
+<body>
+    <!-- <form action="url地址" method="提交方法" name="表单域名称"> -->
+    <form action="demo.php" method="post" name="name1">
+        <input type="" name="" value=""><br/>
+        <!-- input 输入表单元素 <input type="属性值" name="定义input元素的名称" value="规定input的值">
+            属性值有button（按钮） checkbox（复选框） 
+             file（定义输入字段和“浏览”按钮，供文件上传） hidden（定义隐形藏的输入字段） 
+             image（定义图像形式的提交按钮） radio（单选按钮） password（密码字段，该字符中的字符被隐藏）
+             reset（重置按钮，会清除表单中的所有数据） submit（提交按钮） text（定义单行的输入字段，文本框/> 
+              -->
+        用户名：<input type="text" name="username" value="请输入用户名" maxlength="6" /> <br/>
+        <!-- text 文本框 用户可以里面输入任何文字  maxlength 规定输入字段字符的最大长度-->
+        密&nbsp;&nbsp;&nbsp;码： <input type="password" name="password" value="" /> <br/>
+        <!-- password 密码框 用户看不见输入的密码 -->
+        <!-- name 是表单元素名字 这里性别单选按钮必须起同一个名字 -->
+        <!-- 单选按钮和复选框可以设置checked属性，当页面打开的时候默认选中这个按钮 -->
+        性别: 男<input type="radio" name="sex" value="男" checked="checked" /> 女<input type="radio" name="sex" value="女" />  <br/>
+        <!-- radio 单选框 可以实现多选 -->
+        兴趣爱好: 唱跳<input type="checkbox" name="hobby" value="唱跳" checked="checked" /> rap<input type="checkbox" name="hobby" value="rap" /> 篮球<input type="checkbox" name="hobby" value="篮球" /><br/>
+        <!-- checkbox 复选框 可以实现多选 -->
+        <input type="submit" value="免费注册">
+        <input type="reset"  value="重新注册"><br/>
+        <!-- 普通按钮 button 后期结合js-->
+        <input type="button" value="获取短信验证码"><br/>
+        上传头像<input type="file">
+
+        
+    </form>
+</body>
+</html>

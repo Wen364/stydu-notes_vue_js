@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../template-web.js"></script>
+    <script src="../jquery.min.js"></script>
+    <!-- 
+        {{}} 就是 template 的标准语法 在它里面可以进行变量的输出、对象属性的输出、三元表达式的输出、逻辑或输出
+        加减乘除等表达式输出
+        例如：{{value}} {{ obj.key }} {{ obj['key'] }} {{ a ? b :c }} {{ a || b }} {{ a + b }}
+      -->
+</head>
+<body>
+    
+    <script>
+        // 标准语法：原文输出 如果数据里面带有 html 元素 ，则需要  {{ @ value}} 在value前加入 @
+        // 标准语法：条件输出 可以在{{}} 中使用 if...else if.../if 的方式 按需输出
+        // 例如： {{if value}} 按需输出内容 {{/if}}
+        //   {{if v1}} 按需输出的内容 {{else if v2}} 按需输出的内容 {{/if}}
+        // 标准语法：循环输出  {{each hobby}}
+                          // <li>索引是：{{$index}},循环项是{{$value}}</li>
+                          // {{/each}}
+    </script>
+</body>
+</html>

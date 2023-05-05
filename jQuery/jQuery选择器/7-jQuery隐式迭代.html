@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div>哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈</div>
+    <ul>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+        <li>相同的操作</li>
+    </ul>
+    <script>
+        // 1. 获取四个div元素
+        $(function() {
+            console.log($('div'));
+        })
+        // 2. 给四个div设置背景颜色为粉色 jquery 对象不能使用 style 属性
+        //   $('选择器').css('属性','值')
+        $('div').css('background','pink')
+        // 3.隐式迭代就是把匹配的所有元素内部进行遍历，给每一个元素添加css这个方法
+        $('ul li').css('color','red')  // 把 ul 里面的 所有 li 颜色改为红色
+
+    </script>
+</body>
+</html>

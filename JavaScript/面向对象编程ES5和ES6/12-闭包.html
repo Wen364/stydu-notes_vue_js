@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包就是指有权访问另一个函数作用域中变量的函数
+        // 简单理解就是 一个作用域可以访问另外一个函数内部的局部变量
+        // 我们 fn 外面的作用域可以访问 fn 内部的局部变量
+        function fn() {
+            var num = 2
+            function fun() {
+                console.log(num);
+                // 这其实就是一个闭包,因为fun函数可以访问到fn里面的局部变量nun
+            }
+            // fun()
+            return fun
+        }
+        fn()
+        var f = fn() // 相当于把 fun 函数返回给了 f 所以 f 可以在外面调用 fun函数 然后fun函数 可以调用 num值
+        f()
+        // 相当于 
+        // var f = function fun() {
+        //         console.log(num);
+        //     }
+    </script>
+    
+</body>
+</html>

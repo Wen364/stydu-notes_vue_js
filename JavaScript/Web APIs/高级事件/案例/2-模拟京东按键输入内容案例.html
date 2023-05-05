@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ccc;
+        }
+        .box {
+            height: 40px;
+            width: 500px;
+            /* background-color: pink; */
+            margin: 200px auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        input {
+            float: left;
+            width: 80%;
+            height: 100%;
+            color: #999;
+            border: 0;
+            /* outline: none; */
+            /* background-color: skyblue; */
+        }
+        button {
+            float: left;
+            width: 20%;
+            height: 100%;
+            border: 0;
+            color: #fff;
+            font-size: 20px;
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" value="哈哈">
+        <button>搜索</button>
+    </div>
+    
+    <script>
+        var text = document.querySelector('input')
+        document.addEventListener('keyup',function(e) { 
+     // 如果写 keydown 的话 要是键盘不松开s键 则会先触发到搜索框然后在搜索框里面一直输入s 所以一般都用keyup
+            if (e.keyCode === 83) {
+                text.focus(); // 这是个方法 必须带括号
+            }
+        })
+
+        //  搜索框内文字变化
+        text.addEventListener('focus',function() {
+            if (text.value === '哈哈') {
+                text.value = ''
+                
+            }
+            text.style.color = 'black'
+
+        })
+        text.addEventListener('blur',function() {
+            if (text.value === '') {
+                text.value = '哈哈'    
+            }
+            text.style.color = '#999'
+
+        })
+    </script>
+</body>
+</html>

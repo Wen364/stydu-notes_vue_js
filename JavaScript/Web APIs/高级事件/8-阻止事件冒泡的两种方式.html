@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            height: 300px;
+            width: 300px;
+            background-color: pink;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .son {
+            height: 150px;
+            width: 150px;
+            color: #fff;
+            line-height: 150px;
+            margin: 75px auto;
+            background-color: skyblue;
+
+        }
+        .document {
+            height: 500px;
+            width: 500px;
+            background-color: purple;
+            margin: 100px auto;
+            overflow: hidden;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <div class="father">
+            <div class="son">son盒子</div>
+        </div>
+    </div>
+    
+    <script>
+        // 常见的对象和属性
+        //  阻止冒泡 dom 推荐的标准 stopPropagation()  他是一个方法  ie678 不识别
+        var doc = document.querySelector('.document')
+        var father = document.querySelector('.father')
+        var son = document.querySelector('.son')
+        doc.addEventListener('click',function(e) {
+            alert('document')
+        ,false})
+        father.addEventListener('click',function(e) {
+            alert('father')
+            e.stopPropagation()
+        ,false})
+        son.addEventListener('click',function(e) {
+            alert('son')
+            e.stopPropagation()  // stop 停止 Propagation 向上
+            //  只给 son 添加阻止冒泡事件后 就不能向上传播了 点击 son 就只能返回son 但是点击father father 还是会向上传播给 document 的
+            e.cancelBubble = true  // 非标准  cancel 取消 Bubble 泡泡 ie678识别
+        ,false})
+
+    </script>
+    
+</body>
+</html>

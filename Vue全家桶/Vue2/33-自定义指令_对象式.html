@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 需求：定义一个 v-fbind指令，和v-bind功能类似，但会自动获取焦点 -->
+
+    <!-- 
+        自定义指令总结：
+            一、定义语法：
+                (1) 局部指令
+                new Vue{(                              new Vue {(
+                    directives:{指令名:配置对象} 或          directives:{指令名:回调函数}
+                )}                                     )}
+                (2) 全局指令：
+                    Vue.directive(指令名,配置对象) 或 Vue.directive(指令名,回调函数)
+
+            二、配置对象中常用的三个回调：
+                    (1) bind 指令与元素成功绑定时调用
+                    (2) inserted 指令所在元素被插入页面时调用
+                    (3) update 指令所在模板结构被重新解析时调用
+            
+            三、备注：
+                    1.指令定义时不加 v-  但使用时要加 v-
+                    2.指令名如果是多个单词，要使用kebab-case命名方式 不要用camelCase命名
+     -->
+    <div id="root">
+        <h2>当前n值是：{{n}}</h2>
+        <h2>放大10倍后的n值是：<span v-big="n"></span></h2>
+        <button @click="n++">点我n+1</button>
+        <hr>
+        <input type="text" v-fbind="n">
+    </div>
+
+    <hr>
+    <div id="root2">
+        <button @click="x++">点我x+1</button>
+        <hr>
+        <input type="text" v-fbind="x">
+    </div>
+</body>
+<script>
+    // 定义全局指令
+    // Vue.directive('fbind',{
+    //             // 指令与元素成功绑定时（一上来）
+    //             bind(element,binding) {
+    //                 element.value = binding.value
+    //             },
+    //             // 指令所在的元素被插入到页面中 时
+    //             inserted(element,binding) {
+    //                 // 当前 input 标签 聚焦的js方法
+    //                 element.focus()
+    //             },
+    //             // 指令所在的元素被重新解析时
+    //             update(element,binding) {
+    //                 element.value = binding.value
+    //                 // element.focus()
+    //             }
+    //         })
+
+    new Vue({
+        el:'#root',
+        data() {
+            return{
+                n:1
+            }
+        },
+        directives:{
+            // big函数何时会被调用？1.当指令倍调用时（初始化界面或一上来时就会被调用）2.指令所在的模板被重新解析时
+
+            // 当指令名字使用连字符时，则需要遵从对象的写法，前面的需要带引号
+            // "big-number"(element,binding) {
+
+            // },
+            big(element,binding) {
+                // console.log(element,binding);
+             // element 是其所在的标签 span  binding则是一个对象，其中 value 和 innerText 可以操作DOM
+                element.innerText = binding.value * 10 
+            },
+            fbind:{
+                // 指令与元素成功绑定时（一上来）
+                bind(element,binding) {
+                    element.value = binding.value
+                },
+                // 指令所在的元素被插入到页面中 时
+                inserted(element,binding) {
+                    // 当前 input 标签 聚焦的js方法
+                    element.focus()
+                },
+                // 指令所在的元素被重新解析时
+                update(element,binding) {
+                    element.value = binding.value
+                    // element.focus()
+                }
+            }
+        }
+    })
+
+    new Vue({
+        el:'#root2',
+        data() {
+            return {
+                x:1
+            }
+        },
+        directives:{
+            fbind:{
+                // 指令与元素成功绑定时（一上来）
+                bind(element,binding) {
+                    element.value = binding.value
+                },
+                // 指令所在的元素被插入到页面中 时
+                inserted(element,binding) {
+                    // 当前 input 标签 聚焦的js方法
+                    element.focus()
+                },
+                // 指令所在的元素被重新解析时
+                update(element,binding) {
+                    element.value = binding.value
+                    // element.focus()
+                }
+            }
+        }
+    })
+</script>
+</html>

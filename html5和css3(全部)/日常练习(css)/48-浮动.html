@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        /* 网页布局第一准则：多个块级元素纵向排列找标准流（div一类的） 
+                           多个块级元素横向排列的找浮动（float） 
+        */
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+
+        }
+        .left {
+            float: left;
+            /* float分为 left（左浮动） right（右浮动） none（不浮动） */
+        }
+        .right{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">左青龙</div>
+    <div class="right">右白虎</div>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 绝对值方法
+        console.log(Math.abs(2));  // 2
+        console.log(Math.abs(-1));  // 1
+        console.log(Math.abs('-1'));  // 隐式转换 把字符串 -1 转换为 数字型
+        console.log(Math.abs('-5')); // 5
+        console.log(Math.abs('哈哈'));  // NaN
+
+        //  2. 三个取整方法
+        // (1) Math.floor()  向下取整  往最小了取值
+        console.log(Math.floor(0.6));
+        console.log(Math.floor(1.6));
+        console.log(Math.floor(2.4));
+
+        //  (2) Math.ceil()  向上取整  往最大了取值
+        console.log(Math.ceil(0.2));
+        console.log(Math.ceil(1.2));
+        console.log(Math.ceil(2.6));
+
+        // (3) Math.round()  四舍五入取整  其他数字都是四舍五入 但是  .5 特殊 他会往大了取值
+        console.log(Math.round(1.2));
+        console.log(Math.round(1.5));
+        console.log(Math.round(-1.1));  // -1
+        console.log(Math.round(-1.5));  // 这个结果-1
+        console.log(Math.round(-1.6));  // 这个结果是 -2
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

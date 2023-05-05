@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <link rel="stylesheet" href="../案例/css/bootstrap.css">
+</head>
+
+<body style="padding: 15px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新图书</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">书名</span>
+                <input type="text" id="iptBookName" class="form-control" placeholder="请输入书名">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">作者</span>
+                <input type="text" id="iptAuthor" class="form-control" placeholder="请输入作者" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1" >出版社</span>
+                <input type="text" id="iptPublisher" class="form-control" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>出版社</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="tbodyadd">
+            <!-- <tr>
+                <td>1</td>
+                <td>西游记</td>
+                <td>吴承恩</td>
+                <td>北京图书出版社</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>红楼梦</td>
+                <td>曹雪芹</td>
+                <td>上海图书出版社</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>三国演义</td>
+                <td>罗贯中</td>
+                <td>北京图书出版社</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script>
+        $(function () {
+            // 利用接口来渲染数据到 tbody 表格中
+            function getBookList() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', (res) => {
+                    if (res.status !== 200) {
+                        alert('请求失败')
+                    }
+                    // 每次重新渲染时候先清空表格再渲染，
+                    // console.log(res);
+
+                    // $('#tbodyadd').empty()
+                    // $.each(res.data,function(index,item) {
+                    //     // console.log(item.id,item.bookname,item.author,item.publisher);
+                    //     $('#tbodyadd').append(`<tr><td>${item.id}</td>
+                    //         <td>${item.bookname}</td>
+                    //         <td>${item.author}</td>
+                    //         <td>${item.publisher}</td>
+                    //         <td><a href="javascript:;">删除</a></td>
+                    //         </tr>`)
+                    // })
+
+                    // 他和上面的效果一样，就是修改数据的时候他方便一些
+                    let list = []
+                    $.each(res.data, function (index, item) {
+                        // console.log(item.id,item.bookname,item.author,item.publisher);
+                        list.push(`<tr><td>${item.id}</td>
+                            <td>${item.bookname}</td>
+                            <td>${item.author}</td>
+                            <td>${item.publisher}</td>
+                            <td><a href="javascript:;" class="del" data-index=${item.id}>删除</a></td>
+                            </tr>`)
+                    })
+                    $('#tbodyadd').empty().append(list.join(''))
+                })
+            }
+            getBookList()
+
+            // 删除功能
+            // 先通过代理给 a 绑定点击事件
+            $('#tbodyadd').on('click', '.del', function () {
+                let id = $(this).attr('data-index')
+                // 利用get 响应然后如果 status为 200 就可以删除，然后重新渲染一下页面，就可以真正删除了，
+                // 这里的原理是 id 等于 当前的 id 然后 直接删除图书里面的 id 然后重新渲染 导致真正删除该图书
+                $.get('http://www.liulongbin.top:3006/api/delbook', { id: id }, function (res) {
+                    if(res.status !== 200) return alert('请求失败')
+                    getBookList()
+                })
+            })
+
+            // 添加功能
+            $('#btnAdd').on('click',function() {
+                let bookName = $('#iptBookName').val().trim()
+                let bookAuthor = $('#iptAuthor').val().trim()
+                let bookPublisher = $('#iptPublisher').val().trim()
+                if(bookName.length <= 0 || bookAuthor.length <= 0 || bookPublisher.length <= 0  ) {
+                    return alert('请输入完整的图书信息！')
+                }
+                $.post('http://www.liulongbin.top:3006/api/addbook',{
+                    bookname: bookName,
+                    author:bookAuthor,
+                    publisher:bookPublisher
+                },function(res) {
+                    if(res.status !== 201) {
+                        return alert('添加失败，请检查输入格式')
+                    }
+                    getBookList()
+                    $('#iptBookName').val('') 
+                    $('#iptAuthor').val('') 
+                    $('#iptPublisher').val('') 
+                })
+            })
+
+        })
+    </script>
+</body>
+
+
+</html>

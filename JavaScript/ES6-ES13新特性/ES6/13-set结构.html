@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // set 结构 它类似于数组，但成员的值都是唯一的，没有重复的值
+        let s1 = new Set([1,2,3,2,3])
+        console.log(s1); // {1, 2, 3}
+        console.log([...s1]); // [1, 2, 3]
+
+        // 
+        let s2 = new Set()
+        s2.add(1)
+        s2.add(2)
+        s2.add(2)
+        s2.add(3)
+        console.log([...s2]);  // [1, 2, 3]
+
+        // set 实例属性和方法
+        // 数组长度 size
+        console.log(s1.size); // 3
+
+        // add 添加
+        s1.add(4).add(5)
+        console.log(s1);  // {1, 2, 3, 4, 5}
+
+        // has 判断数组中有没有输入的这个数
+        console.log(s1.has(5)); // true
+        console.log(s1.has(6)); // false
+
+        // delete 删除某个数组元素
+        s1.delete(5)
+        console.log(s1); // {1, 2, 3, 4}
+
+        // clear 清空数组
+        s1.clear()
+        console.log(s1);  // {size: 0}
+
+        //  for of 遍历
+        for(let i of s2) {
+            console.log(i);
+        }
+        // entries() 能求键值和键名
+        let s3 = ['aaa','bbb','ccc']
+        for (let [index,item] of s3.entries()) {
+            console.log(index,item);
+        }
+
+        //  面试题
+        // 写一个函数，去掉重复的
+        let list = [1,2,2,'哈哈','哈哈',[1,2],[3,4],{name:'andy'},{age:50},undefined,undefined,NaN,NaN]
+        function noRepeat(arr) {
+            let res = new Set()
+            // filter 用来测试数组中每个元素的函数。返回 true 表示该元素通过测试，保留该元素，false 则不保留
+            return arr.filter((item) => {
+                // 判断是否有重复的，
+                let id = JSON.stringify(item)
+                if (res.has(id)) {
+                    return false
+                } else {
+                    // 如果 res 里面没有这个数值，则加入进去
+                    res.add(id)
+                    return true
+                }
+            })
+        }
+        console.log(noRepeat(list));
+        
+
+    </script>  
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        promise 是异步编程的一种解决方案，比传统的解决方案回调函数，更合理和强大，
+        作用：指定回调函数方式更灵活易懂，解决异步回调地狱的问题
+     -->
+</head>
+<body>
+    <script>
+        // 1- promise 使用
+        // 第一种使用
+        let pro = new Promise(function(resolve,reject) {
+            // 执行器函数
+            setTimeout(() => {
+                resolve(1000)
+                // reject(0)
+                // 带参数就是传给下面 pro.then 里面
+            },2000)
+        })
+
+        // pro.then(function() {
+
+        // },function() {
+
+        // })
+
+        // pro.then 的第一个函数是成功才执行的 第二个函数 是 失败执行的 这和上面那个定时器里面的函数有关
+        // 就是 resolve 对应 pro.then的 第一个函数 reject 对应 第二个函数
+        // pro.then(() => {
+        //     console.log('奖金');
+        // }, () => {
+        //     console.log('无');
+        // })
+
+        // 第二种使用
+        // 相当于 catch 是对应上面的第二个函数
+        pro.then((res) => {
+            console.log('奖金',res);
+        }).catch((err) => {
+            console.log('无',err);
+        })
+    </script>
+    
+</body>
+</html>

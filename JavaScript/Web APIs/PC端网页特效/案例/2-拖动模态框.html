@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .top {
+            height: 30px;
+            width: 200px;
+            text-align: center;
+            line-height: 30px;
+            margin: auto;
+            font-weight: bolder;
+        }
+        .dl {
+            display: none;
+            height: 300px;
+            width: 500px;
+            background-color: #fff;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .dl text {
+            display: inline-block;
+            font-weight: 500;
+            height: 75px;
+            width: 100%;
+            line-height: 75px;
+            cursor: all-scroll;
+            /* padding-top: 25px; */
+        }
+        .usename {
+            /* margin-top: 30px; */
+            margin-bottom: 15px;
+        }
+        .usename,.password {
+            height: 35px;
+            width: 450px;
+            line-height: 30px;
+            /* background-color: skyblue; */
+            text-align: right;
+        }
+        .password {
+            margin-bottom: 40px;
+        }
+        .usename label , .password label {
+            width: 20%;
+        }
+        .usename input,.password input {
+            height: 30px;
+            width: 70%;
+            border: 1px solid #eee;
+            outline: none;
+        }
+
+        button {
+            height: 40px;
+            width: 200px;
+            border: 0;
+            font-weight: 550;
+            /* margin-left: 70px; */
+            background-color: #fff;
+            border: 1px solid #999;
+            /* margin-top: 40px; */
+        }
+        .close {
+            position: absolute;
+            display: inline-block;
+            top: -15px;
+            right: -15px;
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            /* font-weight: 545; */
+            /* margin: 0; */
+            border: 0;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <a href="javascript:;" class="dj">点击，弹出登录框</a>
+    </div>
+    <div class="dl">
+        <text id="title">登陆会员</text>
+        <div class="usename">
+            <label for="">用户名：</label>
+            <input type="text" name="" id="" placeholder="请输入用户名">
+        </div>
+        <div class="password">
+            <label for="">登陆密码：</label>
+            <input type="password" name="" id="" placeholder="请输入登陆密码">
+        </div>
+        <button>登陆会员</button>
+        <a href="javascript:;" class="close">关闭</a>
+    </div>
+    <script>
+        var close = document.querySelector('.close')
+        var a = document.querySelector('.dj')
+        var dl = document.querySelector('.dl')
+        var body = document.querySelector('body')
+        var title = document.getElementById('title')
+        // 1.点击弹出层，模态框和遮挡层就会显示出来 display:block;
+        // 2.点击关闭按钮，模态框和遮挡层就会显示出来 display:none;
+        a.addEventListener('click', function() {
+            dl.style.display = 'block'
+            body.style.backgroundColor = '#bbb'
+        })
+        close.addEventListener('click', function() {
+            dl.style.display = 'none'
+            body.style.backgroundColor = '#fff'
+        })
+        
+        // 3.页面拖拽的原理： 鼠标按下并且移动，之后松开鼠标
+        // 4.触发事件是鼠标按下 mousedown 鼠标移动 mousemove 和鼠标松开 mouseup 
+        // 5.拖拽过程：鼠标移动过程中，获得最新的值赋给模态框的left和top，这样模态框就可以跟着鼠标走了
+        // 6.鼠标坐标减去鼠标在盒子内的坐标，就是模态框真正的位置！！！！！
+        // title.addEventListener('mousedown', function(e) {
+        //     var x = e.pageX - dl.offsetLeft
+        //     var y = e.pageY - dl.offsetTop
+        //     // 鼠标移动的时候，把鼠标在页面中的坐标 减去 鼠标在盒子内的坐标就是模态框的left和top值
+        //     document.addEventListener('mousemove', move)
+        //     function move(e) {
+        //         dl.style.top = e.pageY - y + 'px'
+        //         dl.style.left = e.pageX - x + 'px'
+        //     }
+        //     // 鼠标弹起，就让鼠标移动事件移除
+        //     document.addEventListener('mouseup', function() {
+        //         document.removeEventListener('mousemove',move)
+        //     })
+        // })    
+        title.addEventListener('mousedown',function(e) {
+            var x = e.pageX - dl.offsetLeft
+            var y = e.pageY - dl.offsetTop
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                dl.style.top = e.pageY - y + 'px'
+                dl.style.left = e.pageX - x + 'px'
+            }
+            document.addEventListener('mouseup',function() {
+                document.removeEventListener('mousemove',move)
+            })
+        })
+        
+        
+    </script>
+</body>
+</html>

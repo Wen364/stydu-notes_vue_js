@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .water {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            /* border: 1px solid black; */
+            border-radius: 20% 80% 66% 34% / 50% 59% 41% 50% ;
+            box-shadow: inset 1px 4px 15px rgb(0 0 0 / 50%),
+                              0px 0px 0px rgb(0 0 0 / 30%),
+                              0px 0px 1px rgb(0 0 0 / 5%),
+                        inset -2px -2px 11px rgb(255 255 255 / 80%);
+            animation: action 2.5s linear infinite alternate;
+        }
+        .water::before {
+            content: '';
+            height: 10px;
+            width: 10px;
+            background-color: rgba(255, 255, 255, .65);
+            position: absolute;
+            top: 70px;
+            left: 120px;
+            border-radius: 64% 36% 53% 47% / 79% 57% 43% 21%   ;
+            animation: action 1.5s linear infinite alternate;
+            /* box-shadow: inset 10px 20px 30px rgba(0, 0, 0, .5),
+                              10px 10px 20px rgba(0, 0, 0, .3),
+                              15px 15px 30px rgba(0, 0, 0, .05),
+                        inset -2px -5px 15px rgba(255, 255, 255, .8); */
+        }
+        .water::after {
+            content: '';
+            height: 15px;
+            width: 15px;
+            background-color: rgba(255, 255, 255, .65);
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            border-radius: 17% 83% 68% 32% / 49% 42% 58% 51%  ;
+            animation: action 2s linear infinite alternate;
+
+            /* box-shadow: inset 10px 20px 30px rgba(0, 0, 0, .5),
+                              10px 10px 20px rgba(0, 0, 0, .3),
+                              15px 15px 30px rgba(0, 0, 0, .05),
+                        inset -2px -5px 15px rgba(255, 255, 255, .8); */
+        }
+        @keyframes action {
+            25% {
+                border-radius: 15% 85% 28% 72% / 63% 82% 18% 37% ;
+            }
+            50% {
+                border-radius: 34% 66% 61% 39% / 82% 38% 62% 18%  ;
+            }
+            75% {
+                border-radius: 43% 57% 61% 39% / 71% 13% 87% 29% ;
+            }
+            100% {
+                border-radius: 74% 26% 16% 84% / 61% 69% 31% 39%  ;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="water"></div>
+</body>
+</html>

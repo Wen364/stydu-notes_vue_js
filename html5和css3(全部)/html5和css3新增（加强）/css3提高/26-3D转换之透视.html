@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+             /* 透视要写到被观察元素元素的父元素里面  */
+             /* 透视越小，盒子越大 */
+            perspective: 500px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transform: translate3d(500px,100px,100px);
+            /* 透视不变的情况下，z轴越大，盒子看到的就越大，z轴越小，盒子看到的就越小，z可以为负值 */
+        }
+        body:hover {
+            perspective: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    
+</body>
+</html>

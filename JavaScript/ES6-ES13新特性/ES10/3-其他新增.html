@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组的 flat  数组的 flatMap
+         // 7- flat()方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
+        
+        // let arr = [1,2,3,[4,5,6]]
+        // let arr1 = arr.flat()
+        // console.log(arr,arr1); // [1, 2, 3, [4,5,6]] , [1, 2, 3, 4, 5, 6]
+        // // 就是遍历里面所有数组，然后把遍历完的数组放到一个新的数组里面
+
+        //    flatMap()
+        let arr = [
+           {
+            name:'andy',
+            list:[1,2,3]
+           },
+           {
+            name:'red',
+            list:[5,6,4]
+           }
+        ]
+        let res = arr.flatMap(function(item) {
+            return item.list
+        })
+        console.log(res); // [1, 2, 3, 5, 6, 4]
+        // 因为是对象里面存放的数组，他不能扁平化，所以需要用到 flatMap() 方法，来先找到里面的数组，在扁平化
+
+        // 2-Symbol对象 description属性
+        let s1 = Symbol('name')
+        // 拿到当时放到 Symbol 的值
+        console.log(s1.description); // name
+
+        // 3- try catch(e){}  可以不写 error 了
+        try {
+            
+        } catch {
+            
+        }
+    </script>
+</body>
+</html>

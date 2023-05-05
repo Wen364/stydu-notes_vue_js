@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            .box {
+                height: 50px;
+                width: 600px;
+                /* text-align: center; */
+                line-height: 50px;
+                background-color: #eee;
+                margin: 200px auto;
+            }
+            .left {
+                position: relative;
+                float: left;
+                margin-left: 15px;
+                margin-right: 10px;
+            }
+            .left::before {
+                content: '*';
+                position: absolute;
+                top: 3px;
+                left: -8px;
+                color: red;
+            }
+            .box input {
+                height: 25px;
+                outline: none;
+                border: 1px solid #999;
+            }
+            .right {
+                float: right;
+                font-size: 12px;
+                color: #999;
+                margin-right: 60px;
+            }
+            .right img {
+                vertical-align: middle;
+            }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">
+            设置密码:
+        </div>
+        <input type="password">
+        <div class="right">
+            <img src="../images/mess.png" alt="">
+            <text>6-16位字符(字母、数字、符号)，区分大小写</text>
+        </div>
+    </div>
+    <script>
+        var xx = document.querySelector('input')
+        var ts = document.querySelector('text')
+        var img = document.querySelector('img')
+        xx.onblur = function() {
+            if (xx.value.length > 5 && xx.value.length < 17) {
+                img.src = '../images/right.png'
+                ts.innerHTML = '输入正确'
+                ts.style.color = '#999'
+            }
+            else if (xx.value.length < 6) {
+                img.src = '../images/wrong.png'
+                ts.innerHTML = '密码较短，最短支持6个字符'
+                ts.style.color = 'red'     
+            }
+            else {
+                img.src = '../images/wrong.png'
+                ts.innerHTML = '密码较长，最多支持6~16个字符'
+                ts.style.color = 'red'
+            }
+            
+        }
+    </script>
+</body>
+</html>

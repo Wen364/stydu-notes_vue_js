@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位之相对定位relative</title>
+    <!-- 定位 ：就是将盒子 定 在一个位置，所以定位也是在摆放盒子，按照定位的方式移动盒子 -->
+    <style>
+        /* 定位 = 定位模式 + 边偏移 */
+        /* 定位模式用于指定一个元素在文档中的定位方式，边偏移决定了该元素的最终位置 */
+        /* 定位模式 ： 通过css中的position属性来设置，可以分为以下四种： */
+        /* static（静态定位） relative（相对定位） absolute（绝对定位） fixed（固定定位） */
+        /* 边偏移分为以下四种： */
+        /* top bottom left right */
+        /* 例如： top：80px 意思是该盒子距离顶部有80px距离  */
+
+        .box1 {
+            position: relative;
+            /* 相对定位特点： 1.它是按照自己原来的位置来进行移动的
+                             2.它移动后原来的位置不能被占用，继续保留原来的位置（不脱标） */
+            top: 100px;
+            left: 100px;
+            /* 这个意思是相对于原来的位置向上远离100px，向左远离100px距离 */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box2 {
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+    </div>
+    <div class="box2"></div>
+</body>
+</html>

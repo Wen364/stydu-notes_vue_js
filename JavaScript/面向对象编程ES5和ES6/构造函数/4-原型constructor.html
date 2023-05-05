@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        对象原型 __proto__ 和构造函数prototype原型对象里面都有一个constructor属性，
+        constructor我们称为构造函数，因为他指回构造函数本身
+     -->
+</head>
+<body>
+    
+    <script>
+        function Star (uname,age) {
+            this.uname = uname
+            this.age = age
+        }
+        Star.prototype.sing = function() {
+            console.log('哈哈哈');
+        }
+        Star.prototype.movie = function() {
+            console.log('11');
+        }
+        Star.prototype = {
+            // 自己创建一个constructor让他指向 Star 要不然直接创建对象 会把原来里面带有的 constructor 覆盖掉
+            constructor: Star,
+            sing: function() {
+                console.log('1544');
+            },
+            movie: function() {
+                console.log('哈哈哈');
+            }
+        }
+        var ldh = new Star('刘德华',18)
+        var zxy = new Star('张学友',20)
+        // console.log(ldh.__proto__);
+        // console.log(Star.prototype);
+        // 很多情况下，我们需要手动的利用constructor 这个属性指回 原来的构造函数
+        console.log(ldh.__proto__.constructor); // 返回的是 Star 原型
+        console.log(Star.prototype.constructor); // 返回的是 Star 原型
+    </script>
+</body>
+</html>

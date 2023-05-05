@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>学校名称：{{name}}</h2>
+        <h2>学校地址：{{address}}</h2>
+        <hr>
+        <button @click="addSex">点击我生成性别</button>
+        <h2>学生姓名：{{student.name}}</h2>
+        <h2>学生年龄：{{student.age.rAge}}</h2>
+        <h2 v-if="student.sex">学生性别：{{student.sex}}</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">{{f.name}}-{{f.age}}</li>
+        </ul>
+        <h2>爱好：</h2>
+        <ul>
+            <li v-for="(f,index) of hobby" :key="index">{{f}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return {
+                name:'wen',
+                address:'佳木斯',
+                hobby:['唱','跳','rap','篮球'],
+                student:{
+                    name:'小红',
+                    age:{
+                        sAge:18,
+                        rAge:30
+                    },
+                    friends:[
+                        {name:'jerry',age:35},
+                        {name:'tony',age:36}
+                    ]
+                }
+
+            }
+        },
+        methods: {
+            addSex() {
+                // 这俩效果一样 都是新创建一个data上的数据，并且还能动态响应页面
+                // Vue.set(vm.student,'sex','男')
+                vm.$set(vm.student,'sex','男')
+            }
+        },
+    })
+</script>
+</html>

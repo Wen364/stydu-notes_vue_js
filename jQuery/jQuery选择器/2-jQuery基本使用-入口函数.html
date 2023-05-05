@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入jquery文件 -->
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // $('div').hide()  // 意思就是把div这个盒子隐藏起来
+        // 1.等着页面DOM加载完毕之后再去执行js代码
+        // $(document).ready(function() {
+        //     $('div').hide()
+        // })
+        // 2.等着页面DOM加载完毕之后再去执行js代码
+        $(function() {
+            $('div').hide()
+        })
+        // 1.等着DOM结构渲染完成就可以执行内部代码，不必等到所有外部资源加载完成，jQuery帮我们完成了封装
+        // 2.相当于原生js 中的DOMContentLoaded
+        // 3.不同于原生js中的load事件是等页面文档、外部的js文件、css文件、图片加载完毕才执行内部代码
+    </script>
+    <div></div>
+    
+</body>
+</html>

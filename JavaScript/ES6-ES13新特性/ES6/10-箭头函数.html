@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <ul>
+
+    </ul>
+    <script>
+        //  箭头函数，写法简洁
+        // let test = ()=> {
+        //     console.log('哈哈');
+        // }
+
+        // test()
+        // let test = () => '111111'
+        // console.log( test());
+        // let arr = ['111','222','333']
+        // let newArr = arr.map((item) => `<li>${item}</li>`)
+        // 这俩等价 只有 return时 可以省略大括号
+        // let newArr = arr.map(function(item) {
+        //     `<li>${item}</li>`
+        // }) 
+
+        // 2- 如果返回对象，需要注意
+        // let test = () => {
+        //     return {
+        //         name:'andy',
+        //         age:50
+        //     }
+        // }
+            // 他俩等价，因为对象的大括号系统识别不出来，想省略 return 则需要在外面给他加一个小括号
+        // let test = () => ({
+        //     name:'andy',
+        //     age:50
+        // })
+        // console.log(test());
+
+        // 3- 如果只有一个参数，可以省略 ()
+        // 因为只要 item 一个参数，所以可以省略 item 的小括号
+        // let arr = ['111','222','333']
+        // let newArr = arr.map(item => `<li>${item}</li>`)
+        // // 两个参数 则不能省略小括号
+        // let newArr1 = arr.map((item,index) => `<li>${item}-${index}</li>`)
+        // console.log(newArr);
+        // console.log(newArr1);
+
+        // 4- 无法访问 arguments  无法 new
+        // let arr = [1,2,3]
+        // let test = () => {
+        //     // console.log(arguments); // arguments is not defined
+
+        // }
+        // test()
+        // new test()  // test is not a constructor
+        
+        // 5- 没有 this 指向 或者 this 指向 父级元素
+        // 因为 定时器用的是 箭头函数，所以他的this是没有指向的或者指向父元素，所以this.value是input的值
+        // let input = document.querySelector('input')
+        // input.oninput = function() {
+        //     setTimeout(() => {
+        //         console.log(this.value);
+        //     },1000)
+        // }
+    </script>
+    
+</body>
+</html>

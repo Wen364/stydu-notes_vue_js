@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 123
+        let num1 = 123n
+        console.log(num,num1);
+        // BigInt 函数
+        console.log(BigInt(3)); // 3n
+        import JSONBigInt from 'json-bigint'
+
+        let JSONBigIntNative = JSONBigInt({ useNativeBigInt: true})
+        let jsonstr = `
+            {
+                "id":9007199254740993,
+                "list":[]
+            }
+        `
+        console.log(JSONBigIntNative.parse(jsonstr));
+    </script>
+</body>
+</html>

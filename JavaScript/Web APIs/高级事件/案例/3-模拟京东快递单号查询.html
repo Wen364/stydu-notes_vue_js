@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .box {
+            position: relative;
+            height: 300px;
+            width: 500px;
+            margin: 100px auto;
+            background-color: #ccc;
+            overflow: hidden;
+        }
+        input {
+            height: 30px;
+            width: 200px;
+            outline: none;
+            color: #ccc;
+            /* border: 0; */
+            /* background-color: red; */
+        }
+        .dh {
+            height: 30px;
+            width: 400px;
+            margin: auto;
+            margin-top: 120px;
+            margin-left: 20px;
+        }
+        .con {
+            display: none;
+            z-index: 0;
+            position: absolute;
+            top: 80px;
+            left: 100px;
+            width: 200px;
+            height: 30px;
+            border: 1px solid #999;
+            background-color: #fff;
+            
+        }
+        /* #con_input {
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            outline: none;
+            overflow: hidden;
+        } */
+        .sj {
+            display: none;
+            z-index: 1;
+            left: 130px;
+            top: 109px;
+            position: absolute;
+            height: 0;
+            width: 0;
+            border: 10px solid transparent;
+            border-top-color: #fff;
+            border-style: solid dashed dashed;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="con">
+            <!-- <input type="text" id="con_input" value=""> -->
+        </div>
+        <div class="dh">
+            <text>快递单号：</text>
+            <input type="text" id="dh" placeholder="请输入你的快递单号：">
+        </div>
+        <div class="sj"></div>
+    </div>
+    
+    
+    <script>
+        var text = document.getElementById('dh')
+        // 快递单号输入内容时，上面的大号字体盒子(con)显示
+        // 表单检测用户输入，给表单添加键盘事件
+        // 同时把快递单号里面的值(value)获取过来赋值给 con 盒子 (innerText) 作为内容
+        // 如果快递单号里面内容为空，则隐藏大号字体盒子
+        var sj = document.querySelector('.sj')
+        var con = document.querySelector('.con')
+        text.addEventListener('keyup',function(e) {
+        // 注意：keydown和keypress在文本框里面的特点：他们两个事件触发的时候，文字还没有落入文本框中
+        // keyup事件触发的时候，文字已经落入文本框里面了 
+            if (this.value == ''){
+                con.style.display = 'none'
+                sj.style.display = 'none'
+            }
+            else {
+                con.style.display = 'block'
+                sj.style.display = 'block'
+                con.innerText = text.value
+            }
+        })
+        // 当失去焦点 就让上面的盒子隐藏起来
+        // 获得焦点 并且输入框里变为空的话 就显示出来
+        text.addEventListener('blur',function() {
+                con.style.display = 'none'
+                sj.style.display = 'none'
+        })
+        text.addEventListener('focus',function() {
+            if(text.value != '') {
+                con.style.display = 'block'
+                sj.style.display = 'block'
+            }
+        })
+
+        
+    </script>
+</body>
+</html>

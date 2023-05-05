@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        table {
+            height: 300px;
+            width: 800px;
+            margin: 100px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: skyblue;
+            height: 50px;
+            
+            
+        }
+        tbody tr {  
+            border-bottom: 1px solid #999;
+        }
+        .bg {
+            background-color: red;
+        }
+        .tg {
+            background-color: '';
+        }
+    </style>
+</head>
+<body>
+    <table align ="center"  >
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净值增长率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr class="">
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //  鼠标经过当前行 则变色 超过当前行 则便会原来的颜色03-表格隔行变色.html
+        // 1.获取元素 获取的是 tbody 里面的 tr
+        // 核心思路： 鼠标经过 onmouseover 背景颜色变为红色
+        //  鼠标离开 onmouseout 背景颜色变回来
+        var tr = document.querySelector('tbody').querySelectorAll('tr')
+        // 这句话的意思是 tbody 里面的 tr  这样写更严谨
+        for (var i = 0; i < tr.length; i++) {
+            tr[i].onmouseover = function () {
+                this.className = 'bg'
+                // 尽量用类选择器 这样好改样式
+            }
+            tr[i].onmouseout = function () {
+                this.className = ''
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

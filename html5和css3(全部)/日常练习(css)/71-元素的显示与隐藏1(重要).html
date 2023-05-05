@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display的显示与隐藏</title>
+    <style>
+        /* 元素的隐藏有三种方式：1.display显示隐藏
+                               2.visibility 显示隐藏
+                               3.overflow 溢出显示隐藏
+        */
+        /* display：none 表示隐藏
+        display：block 除了转换为块级元素之外，也表示显示元素的意思
+        */
+        .pq {
+            display: none;
+            /* 隐藏后的元素不再占有原来的位置，可以被别人占用 */
+            /* display: block; */
+            /* 这个会让元素重新显示出来 */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .qz {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="pq">佩奇</div>
+    <div class="qz">乔治</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        img {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+<body>
+    <h1></h1>
+    <img>
+    <script>
+        //  根据 时间的不同 来弹出 不同的问候语 和 图片
+        var h1 = document.querySelector('h1')
+        var img = document.querySelector('img')
+        // 得到当前小时数
+        var date = new Date()
+        var h = date.getHours()
+        //  判断
+        if (h < 12) {
+            h1.innerHTML = '早上好'
+            img.src = '../images/img2.jpg'
+            // 修改 src路径来达到更换图片的效果
+        }
+        else if (h < 18) {
+            h1.innerHTML = '下上好'
+            img.src = '../images/img3.jpg'
+        }
+        else {
+            h1.innerHTML = '晚上好'
+            img.src = '../images/img4.jpg'
+
+        }
+
+        // 封装成一个函数也可以
+        // sayHello()
+        // function sayHello() {
+        //     var date = new Date()
+        //     var h = date.getHours()
+        //     if (h < 12) {
+        //         h1.innerHTML = '早上好'
+        //         img.src = '../../images/img2.jpg'
+        //     }
+        //     else if (h < 18) {
+        //         h1.innerHTML = '下午好'
+        //         img.src = '../../images/img3.jpg'
+        //     }
+        //     else {
+        //         h1.innerHTML = '晚上好'
+        //         img.src = '../../images/img4.jpg'
+        //     }
+        // }
+    </script>
+</body>
+</html>

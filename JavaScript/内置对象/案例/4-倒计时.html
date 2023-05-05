@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 核心算法： 输入的时间减去现在的时间就是剩余的时间（倒计时）
+        // 但是不能直接用时分秒相减，比如05分减取25分，结果会是负数
+        //  所以要用时间戳（总的毫秒数）来做，因为时间戳永远都在增加，不会出现和原来一样的时间戳
+        //   用输入时间的时间戳 减去 现在时间的时间戳，得到的就是剩余时间的时间戳（总的毫秒数）
+        // 再把剩余时间的时间戳转换为 天、时、分、秒
+        //  转换公式如下
+        // d = parseInt(总秒数/60/60/24)  // 计算天数
+        // h = parseInt(总秒数/60/60%24)  // 计算小时
+        // m = parseInt(总秒数/60%60)     // 计算分钟数
+        // s = parseInt(总秒数%60)        // 计算当前秒数
+
+        function countDown(time) {    // 倒计时
+            var date = +new Date() // 返回的是当前时间总的毫秒数
+            var date1 = +new Date(time)   // 用户输入的时间
+            var times = (date1 - date) / 1000     // times 就是剩余时间的总毫秒数  
+                                                  // /1000 就是把毫秒数转换为秒数
+            var d = parseInt(times/60/60/24)  // 计算天数
+            var h = parseInt(times/60/60%24)  // 计算小时
+            var m = parseInt(times/60%60)     // 计算分钟数
+            var s = parseInt(times%60)        // 计算当前秒数
+            d = d < 10 ? '0' + d : d
+            h = h < 10 ? '0' + h : h
+            m = m < 10 ? '0' + m : m
+            s = s < 10 ? '0' + s : s
+            return d + '天' + h + '小时' + m +'分' + s + '秒' 
+        }
+        console.log(countDown('2022-11-5 18:00:00'));  // 最好要用字符串写 这样写省的还得月份加 1
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

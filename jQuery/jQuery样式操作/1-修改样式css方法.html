@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1.参数只写属性名，则是返回属性值
+        console.log($('div').css('width'));  // 200px
+        // 2.参数是属性名，属性之，逗号分隔，是设置一组样式，属性必须加引号，值如果是数字不用跟单位和引号
+        $('div').css('background','skyblue')
+        // 3.参数可以是对象形式，方便设置多组样式、属性名和属性值用逗号隔开，属性可以不加引号
+        $('div').css({
+            background: 'red',
+            height: 300,
+            width: 400
+        })
+    </script>
+</body>
+</html>

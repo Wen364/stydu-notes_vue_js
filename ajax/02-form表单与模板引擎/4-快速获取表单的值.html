@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="/login" id="f1">
+        <input type="text" name="username" id="username">
+        <input type="password" name="password" id="pwd">
+        <button type="submit" id="btn">提交</button>
+    </form>
+    <script>
+        $(function () {
+            // 第一种方式
+            $('#f1').on('submit',function(e) {
+                //  阻止表单默认的提交和页面的跳转
+                e.preventDefault()
+                // 快速获取表单内元素的值   表单元素必须带有 name 属性
+                let str = $(this).serialize()
+                console.log(str);  // username=wen&password=123
+            })
+
+            // 第二种方式
+            // $('#f1').submit(function(e) {
+            //     // 阻止表单默认的提交和页面的跳转
+            //     e.preventDefault()
+            //     // 快速获取表单内元素的值   表单元素必须带有 name 属性
+            //     let str = $(this).serialize()
+            //     console.log(str);  // username=wen&password=11
+            // })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+/* 列表页专有的css */
+.nav {
+    overflow: hidden;
+}
+.sk {
+    position: absolute;
+    top: 35px;
+    left: 190px;
+    border-left: 2px solid #b1191a;
+    padding: 3px 0 0 14px;
+}
+.sk_list {
+    float: left;
+}
+.sk_list ul li {
+    float: left;
+    /* padding-right: 55px; */
+}
+.sk_list ul li a {
+    display: block;
+    height: 47px;
+    line-height: 47px;
+    font-size: 16px;
+    font-weight: 550;
+    color: #000000;
+    padding: 0 30px;
+}
+.sk_con {
+    float: left;
+}
+.sk_con ul li {
+    float: left;
+}
+.sk_con ul li a {
+    display: block;
+    height: 47px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #666666;
+    padding: 0 24px;
+}
+.sk_con ul li:last-child a::after {
+    content: '';
+    margin-left: 5px;
+}
+
+.sk_bd ul li {
+    float: left;
+    height: 460px;
+    width: 290px;
+    border: 1px solid transparent;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+}
+.sk_bd ul li:hover {
+    border: 1px solid #e12228;
+}
+.sk_bd .appraise {
+    padding-left: 12px;
+}
+.sk_bd .info {
+    float: left;
+    margin-top: 3px;
+    padding-left: 12px;
+    color: #e60012;
+}
+.sk_bd .info .hh {
+    float: left;
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #a4a4a4;
+    margin-left: 5px;
+    margin-top: 9px;
+}
+.sk_bd .gd {
+    position: relative;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 36px;
+    padding-left: 12px;
+    
+}
+.sk_bd .gdt {
+    position: absolute;
+    top: 7px;
+    left: 75px;
+    height: 10px;
+    width: 100px;
+    border: 1px solid red;
+    border-radius: 30px;
+}
+.sk_bd .gdt_son {
+    height: 100%;
+    width: 87%;
+    background-color: #ed282e;
+    /* transition: width 0.5s; */
+}
+.sk_bd .hhh {
+    float: right;
+    margin-top: 1px;
+    margin-right: 30px;
+}
+.sk_bd .hhh div {
+    float: left;
+    margin-right: 5px;
+}
+/* .sk_bd .gdt_son:hover {
+    width: 100%;
+} */
+.sk_bd a {
+    display: block;
+    height: 60px;
+    width: 100%;
+    color: #f6eaea;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: #b1191a;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div>我是div</div>
+    <div class="nav">我是nav div</div>
+    <p>我是p</p>
+    <ol>
+        <li>我是ol 的</li>
+        <li>我是ol 的</li>
+        <li>我是ol 的</li>
+        <li>我是ol 的</li>
+    </ol>
+    <ul>
+        <li>我是ul 的</li>
+        <li>我是ul 的</li>
+        <li>我是ul 的</li>
+        <li>我是ul 的</li>
+    </ul>
+    <script>
+        //      名称               用法               描述
+        //   子代选择器           $('ul>li')      使用>号，获取亲儿子层级的元素，注意，并不会获取孙子层级的元素
+        //   后代选择器           $('ul li')      使用空格，代表后代选择器，获取ul下的所有li元素，包括孙子等
+        
+        // $('选择器') // 里面选择器直接写CSS选择器即可，但是要加引号
+        $(function() {
+            console.log($('.nav'));
+            console.log($('ul li'));  // 选取 ul 里面的 li 是以伪数组形式存储的
+        })
+    </script>
+</body>
+</html>

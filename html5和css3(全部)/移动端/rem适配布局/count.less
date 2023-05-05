@@ -1,0 +1,19 @@
+@border: 5px + 5;
+@baseFonts: 50px;
+div {
+    height: 200px - 50;
+    width: (200px + 50) * 2;
+    margin: 200px auto; 
+    border: @border solid red;
+}
+// img {
+//     width: (82 / 50rem);
+//     height: (82 / 50rem);
+// }
+img {
+    width: (82rem / @baseFonts);
+    height: (82rem / @baseFonts);
+}
+// 1.运算符的左右两侧 都要加空格
+// 2.两个数参与运算 如果只有一个数有单位 则最后的结果就以这个单位为准
+// 3.两个数参与运算 如果两个数都有单位 而且不一样的单位？ 最后的结果以第一个数的单位为准

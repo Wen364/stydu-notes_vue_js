@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button>发送</button>
+    <script>
+        var btn = document.querySelector('button')
+        var time = null
+        btn.addEventListener('click',function() {
+            btn.disabled = true 
+            var d = 3
+            btn.innerHTML = '还剩下'+ d +'秒才可以发送短信'
+            time = setInterval(function() {
+                if (d == 0) {
+                    clearInterval(time)  
+                    // 当 d = 0 后 如果不停止定时器他就会一直执行 d--操作 前几次点击没问题，多点击几次就会出现点了一下按钮后，按钮没到3秒就又可以点了的问题
+                    d = 3
+                    btn.disabled = false
+                    btn.innerHTML = '发送'
+                }
+                else {
+                    btn.innerHTML = '还剩下'+ d +'秒才可以发送短信'
+                    d--    
+                }
+            } ,1000)
+            
+        })
+    </script>
+</body>
+</html>

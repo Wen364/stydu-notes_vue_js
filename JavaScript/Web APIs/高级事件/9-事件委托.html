@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+    </ul>    
+    <script>
+        //  事件委托的核心原理 ： 给父节点添加监听器 然后利用冒泡影响每一个子节点 子节点被触发了就会向上冒泡，这样父节点就监听到了子节点 （面试常问考点）
+        // 这样程序会大大提高运行效率
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e) {
+            alert('1111111')
+            //  点击了哪个 li 哪个 li 变色 其他的 li 不变色 （排他思想和 e.target 的联合使用）
+            for (var i = 0; i < ul.children.length; i++) {
+                //  先排除所有的（先让所有的 li 背景颜色 变为空白）
+                ul.children[i].style.background = '' 
+            }
+            // 然后只让自己触发的变色
+            // e.target // 可以得到我们点击的对象
+            e.target.style.background = 'pink'
+        })
+    </script>
+</body>
+</html>

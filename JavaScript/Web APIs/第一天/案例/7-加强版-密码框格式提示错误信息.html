@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 50px;
+            width: 600px;
+            /* background-color: pink; */
+            margin: 100px auto;
+            /* text-align: center; */
+            line-height: 50px;
+        }
+        .pwd {
+            position: relative;
+            font-size: 15px;
+            margin: 0 10px;
+            margin-left: 15px;
+        }
+        .pwd::before {
+            position: absolute;
+            content: '*';
+            left: -11px;
+            top: -11px;
+            color: red;
+        }
+        input {
+            margin-right: 5px;
+        }
+        .message {
+            display: inline-block;
+            font-size: 14px;
+            color: #999;
+            background: url(../images/mess.png) no-repeat left center;
+            padding-left: 20px;
+            /* line-height: 50px; */
+        }
+        .wrong {
+            background: url(../images/wrong.png) no-repeat left center;
+            color: red;
+        }
+        .right {
+            background: url(../images/right.png) no-repeat left center;
+            columns: #999;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <text class="pwd">输入密码:</text>
+        <input type="password" name="" id="">
+        <text class="message">请输入6~16位密码</text>
+    </div>
+    <script>
+        var input = document.querySelector('input')
+        var ts = document.getElementsByClassName('message')  
+        // getElementsByClassName 所得到的是集合 就是伪数组 必须用数组表示 哪怕里面只有一个元素
+        input.onblur = function() {
+            if (input.value.length > 5 && input.value.length < 17) {
+                ts[0].innerHTML = '输入正确'
+                ts[0].className = 'message right'
+            }
+            if (input.value.length < 6) {
+                ts[0].innerHTML = '密码较短，最短支持6个字符'
+                ts[0].className = 'message wrong'
+            }
+            if (input.value.length > 16) {
+                ts[0].innerHTML = '密码较长，最长支持16个字符'
+                ts[0].className = 'message wrong'
+            }
+        }
+    </script>
+</body>
+</html>

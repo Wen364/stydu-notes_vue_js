@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        
+        .tb-promo {
+            position: relative;
+            height: 472px;
+            width: 846px;
+            /* background-color: pink; */
+            margin: 100px auto;
+        }
+        .tb-promo img {
+            height: 472px;
+            width: 846px;
+        }
+        .left {
+            position: absolute;
+            top: 236px;
+            left: 0;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            color: #fff;
+            background: rgba(0, 0, 0, .3);
+            border-radius: 0 30px 30px 0;
+            /* text-align: center; */
+            line-height: 30px;
+        }
+        .right {
+            position: absolute;
+            top: 236px;
+            right: 0;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            color: #fff;
+            background: rgba(0, 0, 0, .3);
+            border-radius: 30px 0 0 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .bottom {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            height: 13px;
+            width: 70px;
+            /* background-color: pink; */
+            background: rgba(255, 255, 255, .3);
+            border-radius: 7px;
+        }
+        .bottom li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 3px;
+        }
+        .bottom .selected {
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <img src="../../images/tb.jpg" alt="">
+        <a href="#" class="left">&lt;</a>
+        <a href="#" class="right">&gt;</a>
+        <ul class="bottom">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

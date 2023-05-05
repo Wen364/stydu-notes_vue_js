@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //  window.setInterval(回调函数,间隔的毫秒数)
+        //  注意: setInterval() 方法会重复调用一个函数，每间隔这个时间就会去调用一次回调函数
+        //        setTimeout() 当延时时间到了，就去调用这个函数，但只调用一次
+        //  1.这里的 window 可以省略
+        //  2.这个调用函数可以 直接写函数，或者函数名 或者 采取字符串'函数名()' 三种形式
+        //  3.间隔的毫秒数默认是 0 如果写的话，必须是毫秒，表示每隔多少毫秒就自动调用这个函数
+        //  4.因为定时器可能有很多，所以我们经常给定时器赋值一个标识符（名字）
+        setInterval(function() {
+            console.log('一秒调用一次');
+        }, 1000)
+        // 意思是每隔一秒钟就调用一次函数
+    </script>
+</body>
+</html>

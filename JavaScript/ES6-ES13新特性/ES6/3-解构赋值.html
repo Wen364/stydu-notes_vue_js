@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 解构赋值就是快速的从对象或者数组中取出成员的一个语法方式
+        // let arr = [1,2,3]
+        // // console.log(arr[0]);
+
+        // let [a,b,c] = arr
+        // // 这就是解构赋值
+
+        // let x = 1
+        // let y = 2
+        // // 交换 x 和 y 的值
+        // [y,x] = [x,y] 
+
+        // console.log(x,y);
+
+        // let arr = [1,2,3]
+        // // console.log(arr[0]);
+
+        // let [,,a] = arr
+        // console.log(a);  // 3
+
+        // let arr = [1,[2,3,4],5,6]
+        // // let [a,b,c] = arr
+        // // console.log(a,b,c);  // 1 [2, 3, 4] 5
+        // // // 其中 a = 1 , b = [2,3,4] , c = 5
+
+        // let [a,[b,c,d],e] = arr
+        // console.log(b);  // 2 这回是 取得是 数组 [2,3,4] 中的第一个值
+        
+        // 如果右侧数组没有传输 值 过来 则默认 数组里面有一个值 为 1 
+        // 如果右侧有数据传输到数组，则默认值取消
+        // let [x=1] = [50]
+        // console.log(x);
+
+        // 对象的解构赋值
+        // const obj = {
+        //     name : 'andy',
+        //     data:{
+        //         list:[1,2,3]
+        //     }
+        // }
+        // let {data:{list:[x,y,z]},name} = obj
+        // console.log(x,name);  // 1  andy
+
+        function setDate() {
+            let data = {
+                name : 'andy',
+                msg: {
+                    name:'red',
+                    age:50
+                }
+            }
+            test(data)
+        }
+        function test({name,msg:{age}}) {
+            console.log(name,age);
+        }
+        setDate()
+     </script>
+    
+</body>
+</html>

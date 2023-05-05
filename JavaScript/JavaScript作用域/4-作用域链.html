@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  作用域链 : 内部函数访问外部函数的变量,采取的是链式擦护照的方式来决定取哪个值,这种结构称为作用域链(就近原则)
+        var num = 10
+        function fn() {  // 外部函数
+            var num = 20
+            function f2() {  // 内部函数
+                console.log(num);   // 站在目标出发,一层一层向外查找
+            }
+            f2()  // 必须调用函数 函数才能运行
+        }
+        var num = 456
+        fn()  // // 必须调用函数 函数才能运行  fn里面嵌套了个f2
+        //  结果是 20
+
+        var a = 1
+        function fn1() {
+            var a = 2
+            var b = '22'
+            fn2()
+            function fn2() {
+                var a = 3
+                fn3() 
+                function fn3() {
+                    var a = 4
+                    console.log(a);   //  a 的值为 4
+                    console.log(b);   //  b 的值为 22
+                }
+            }
+        }
+        fn1()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

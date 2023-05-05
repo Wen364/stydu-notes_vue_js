@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>    
+    <script>
+  //  复制节点 （克隆节点）node.cloneNode() 当括号里面为 空 或者为 false 时 浅拷贝 只复制里面的标签不复制标签里面的内容  
+        var ul = document.querySelector('ul')
+        var li1 = ul.children[0].cloneNode()  // 克隆了第一个 li   浅拷贝
+        var li2 = ul.children[1].cloneNode(true)   // 深拷贝 复制标签里面的元素内容
+        ul.appendChild(li1)  // 把复制的 li1 放到 ul 的最后一个节点后面
+        ul.appendChild(li2)  // 把 复制的 li2 把标签和元素所有都加入到ul最后一个节点后面
+    </script>
+</body>
+</html>

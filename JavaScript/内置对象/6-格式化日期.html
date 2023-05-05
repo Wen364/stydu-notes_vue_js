@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var date = new Date() 
+        console.log(date.getFullYear(date));  // 返回当前日期的年份
+        console.log(date.getMonth(date) + 1);  // 10   返回的月份会小一个月 所以给他加个 一
+        console.log(date.getDate(date));  // 返回的是当前月份的 几号
+        console.log(date.getDay(date));  // 返回当前星期   周一返回1  周六返回6  但是周天返回的是0
+        //  写一个 2022 年 11 月 4 号 星期五
+        var year = date.getFullYear()
+        var month = date.getMonth() + 1
+        var dates = date.getDate()
+
+        var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+        var day = date.getDay()  
+        //  因为直接返回 星期几 他会是阿拉伯数字 所以把他写进数组里面 然后用数组来表示更加好
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日 ' + arr[day]);
+        //  注意： 数组第一个元素是星期日，因为星期日是 0
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

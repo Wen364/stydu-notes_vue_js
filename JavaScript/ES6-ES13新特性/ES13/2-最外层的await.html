@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        // 最顶层 await必须放在 模块化中
+        // 可以不在 async 函数中
+        function ajax() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('data-111')                    
+                }, 2000);
+            })
+        }
+        let res = await ajax()
+        console.log(res);
+    </script>
+</body>
+</html>

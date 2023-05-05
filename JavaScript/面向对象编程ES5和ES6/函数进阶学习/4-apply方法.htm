@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2.apply() 方法
+        //  fun.apply(thisArg,[argsArray])
+        // thisArg: 在fun 函数运行时 指定的 this 值
+        // argsArray: 传递的值,必须包含在数组里面
+        // 返回值就是函数的返回值，因为它就是调用函数
+        var o = {
+            name :'andy'
+        }
+        function fn(arr) {
+            console.log(this);
+            console.log(arr);
+        }
+        fn.apply(o,['pink']) // 还是把this 指向改为 o
+        // 它也能调用函数 能改变 this 指向
+        // 但是他的参数必须是数组 （伪数组）
+        // apply() 的主要应用 我们可以利用 apply 借助于数学内置对象来求最大值
+        var arr = [1,5,6,8,9,55]
+        var max = Math.max.apply(Math,arr)
+        console.log(max); // 55
+    </script>
+    
+</body>
+</html>

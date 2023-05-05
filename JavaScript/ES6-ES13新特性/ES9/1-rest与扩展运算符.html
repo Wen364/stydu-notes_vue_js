@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 这就叫剩余参数
+        let obj = {
+            name: 'andy',
+            age : 100,
+            location: '黑龙江'
+        }
+        // 把name 传给name 剩下的传给obj1
+        let {name,...obj1} = obj 
+        console.log(name,obj1);
+        function test({name,...obj1}) {
+            console.log(name,obj1);
+        }
+        test(obj)
+
+        let obj2 = {
+            name:'red',
+            location:'佳木斯'
+        }
+        let obj3 = {
+            name:'blue'
+        }
+        let obj4 = {...obj2,...obj3}
+        console.log(obj4);  // 相同的会被覆盖
+
+        function ajax(option) {
+            const mr = {
+                methods:'get',
+                async:true
+            } 
+            // 如果ajax直传了一个数值，其他的methods可以使用默认的
+            // 如果ajax传了methods 因为后面的会覆盖前面的，所以也可以
+            option = {...mr,...option}
+            console.log(option);  // {methods: 'get', async: true, url: '1'}
+        }
+        ajax({
+            url:'1'
+        })
+    </script>
+    
+</body>
+</html>

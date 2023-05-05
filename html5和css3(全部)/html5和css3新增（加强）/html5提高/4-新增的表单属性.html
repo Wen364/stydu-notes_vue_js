@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input::placeholder {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="search" name="sear" id="" required="required" placeholder="哈哈嗨"
+         autofocus="autofocus" autocomplete="off"><br>
+         <!-- required表示该表单内容不能为空，必填 -->
+         <!-- placeholder是提示文本的意思，就是搜索时候那个灰色的东西，一往里面输入东西他就不见了 -->
+         <!-- autocomplete默认是打开的，就是会记录你所搜索过的东西（需要放在表单里，同时加入name属性），
+            所以一般都给他关闭 -->
+         <input type="file" multiple="multiple">
+         <!-- multiple可以一次选择多个文件 -->
+        <input type="submit" name="" id="" value="提交">
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var date = new Date()
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        
+
+        // 要求封装一个函数返回当前的时分秒 格式 08:08:08
+        function getTime() {
+            var time = new Date()
+            var hour = time.getHours()   // 获取当前 小时
+            var minutes = time.getMinutes()  // 获取当前 分钟
+            var seconds = time.getSeconds()  // 获取当前 秒数
+            hour = hour < 10 ? '0' + hour : hour  // 当前小时数 小于 10 则在小时前面加 0 否则 返回 当前小时数
+            minutes = minutes < 10 ? '0' + minutes : minutes  
+            seconds = seconds < 10 ? '0' + seconds : seconds
+            return hour + ':' + minutes + ':' + seconds
+        }
+        console.log(getTime());
+        function sj() {
+            var sj = new Date()
+            var h = date.getHours()
+            var m = date.getMinutes()
+            var s = date.getSeconds()
+            h = h > 10 ? h : '0' + h
+            m = m > 10 ? m : '0' + m
+            s = s > 10 ? s : '0' + s
+            return h + ':' + m + ':' + s 
+        }
+        console.log(sj());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

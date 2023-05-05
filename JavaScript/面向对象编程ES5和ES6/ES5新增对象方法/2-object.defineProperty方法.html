@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.defineProperty定义对象中新属性或修改原有的属性
+        // Object.defineProperty(obj,prop,descriptor)
+        // obj: 必须填写，目标对象
+        // prop: 必须填写，需定义或修改的属性的名字
+        // descriptor: 必须填写，目标属性所拥有的特性
+        // 第三个参数 descriptor 说明： 以对象形式() 书写
+        // value: 设置属性的值，默认为undefined
+        // writable：值是否可以重写
+        // enumerable：目标属性是否可以被枚举，true | false 默认为 false
+        // configurable： 目标属性是否可以被删除或是否可以再次修改特性 true | false 默认为 false
+        var date = {
+            id:1,
+            name: 'andy',
+            age: 18,
+        }
+        // // 1.以前的对象添加和修改对象的方式
+        // date.id = 2
+        // date.age = 20
+        // console.log(date); //{id: 2, name: 'andy', age: 20}
+
+        // 2.Object.defineProperty() 定义对象中新属性或修改原有的属性
+        Object.defineProperty(date,'num',{
+            value: 1000
+        })
+        console.log(date); // {id: 1, name: 'andy', age: 18, num: 1000}
+        Object.defineProperty(date,'id',{
+            // 表示不允许修改 id 的值
+            writable: false
+        })
+        date.id = 3
+        console.log(date); // id 还是 1 没有被修改
+
+        Object.defineProperty(date,'address',{
+            // 表示不允许修改 id 的值
+            value: '哈哈哈',
+            writable: false,
+            // 不允许被 遍历
+            enumerable: false
+        })
+
+        Object.defineProperty(date,'id',{
+            // 表示不允许修改 id 的值
+            writable: false,
+            //  不允许被删除
+            configurable: false
+        })
+        delete date.id
+        delete date.name
+        console.log(date);
+
+    </script>
+    
+</body>
+</html>

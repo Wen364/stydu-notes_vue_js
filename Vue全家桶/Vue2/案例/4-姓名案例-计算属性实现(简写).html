@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 
+        计算属性：
+            1.定义：要用的属性不存在，需要通过已有的属性计算得出
+            2.原理：底层借助了Object.defineproperty 方法提供的 getter 和 setter
+            3.get函数什么时候执行？
+                (1).初次读取时会执行一次
+                (2).当依赖的数据发生改变时会被再次调用
+            4.优势：与methods实现相比，内部有缓存机制(复用)，效率更高，调试方便
+            5.备注：
+                1.计算属性最终会出现在 vm 上，直接读取使用即可
+                2.如果计算属性要被修改，则必须写set函数去响应数据，且set中要引起计算时依赖的数据发生改变。
+     -->
+    <div id="root">
+        姓：<input type="text" v-model="name"> <br>
+        名：<input type="text" v-model="name1"> <br>
+        姓名：<span>{{fullName}}</span>
+    </div>
+    
+
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return{
+                name:'张',
+                name1:'三'
+            }
+        },
+        computed:{
+            fullName:{
+                // get有什么作用？ 当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
+                get() {
+                    return this.name + '-' + this.name1
+                },
+                // set什么时候被调用？ 当fullName被修改时
+                set(value) {
+                    console.log(value);
+                    let x = value.split('-') // 把传入的 value 字符串 转化为 数组，且数组的第一项为 姓 第二项为 名
+                    console.log(x);
+                    this.name = x[0]
+                    this.name1 = x[1]
+                }
+            }
+        }
+    })
+</script>
+</html>

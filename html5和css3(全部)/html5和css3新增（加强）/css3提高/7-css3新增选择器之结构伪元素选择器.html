@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 伪元素写法：   ::before{}   (在元素内部的前面插入内容)就是在父元素内容的前面创建元素
+                       ::after{}    (在元素内部的后面插入内容)就是在父元素内容的后面创建元素
+                       伪元素和标签选择器一样，权重都是1
+                       伪元素都是行内元素
+                       伪元素都是行内元素
+                       伪元素都是行内元素
+    -->
+    <style>
+        div::before {
+            width: 30px;
+            height: 40px;
+            content: '在前面';
+            background-color: skyblue; 
+            /* content必须加 ' 
+               必须写content
+            */
+        }
+        div::after {
+            content: '在后面';
+            height: 40px;
+            width: 30px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 20px auto;
+            /* 正常原因 权重小于上面的原本应该执行不了，但是继承性给继承了 */
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        哈哈哈
+    </div>
+</body>
+</html>

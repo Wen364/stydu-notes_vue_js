@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>我是内容 我是内我是内容容 我是内容 我是内容 我是内容 我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</div>
+    <script>
+        // scroll系列属性                  作用
+        // element.scrollTop      返回被卷去的上侧距离，返回数值不带单位  （常用）
+        // element.scrollLeft     返回被卷去的左侧距离，返回数值不带单位   （常用）
+        // element.scrollWidth    返回自身实际的宽度，不含边框，返回数值不带单位
+        // element.scrollHeight   返回自身实际的高度，不含边框，返回数值不带单位
+        var div = document.querySelector('div')
+        console.log(div.scrollWidth);  // 220   不含边框 但是包括内边距
+        console.log(div.scrollHeight); // 返回的是盒子的实际高度 因为文字超出了盒子范围 所以这里返回的是301
+        div.addEventListener('scroll', function() {  // scroll事件 只要滚动就会触发事件
+            console.log(div.scrollTop);  // 返回的是被溢出上去的距离 112  其实就是文字向上走了多少
+        })
+
+
+    </script>
+</body>
+</html>

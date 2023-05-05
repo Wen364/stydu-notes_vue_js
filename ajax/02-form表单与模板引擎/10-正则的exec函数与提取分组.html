@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // exec()函数用来检索字符串中的额正则表达式的匹配
+        // 如果字符串有匹配的值，则返回该匹配值，否则返回 null
+        // let str = 'hello'
+        // let reg = /o/
+        // let reg1 = /x/
+        // console.log(reg.exec(str)); // ['o', index: 4, input: 'hello', groups: undefined]
+        // console.log(reg1.exec(str)); // null
+        let str = '<div>我是{{name}}</div>'
+        let reg = /{{([a-zA-Z]+)}}/
+        console.log(reg.exec(str));
+    </script>
+</body>
+</html>

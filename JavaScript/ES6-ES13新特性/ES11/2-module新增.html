@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>登录</button>
+    <script type="module">
+        // 1.动态导入 
+        let role1 = '管理员'
+        let role2 = '普通用户'
+        function login() {
+            return '管理员'
+        }
+
+        
+        let btn = document.querySelector('button')
+        btn.onclick = function() {
+            let role = login()
+            render(role)
+        }
+
+        async function render(role) {
+            if (role === role1) {
+                // 判断 然后动态导入
+                let res = await import('./1.js')
+                console.log(res);
+            } else {
+                let res1 = await import('./2.js')
+                console.log(res1);
+            }
+        }
+
+        // import.meta  会返回一个对象，有一个 url 属性，返回当前模块的url路径，只能在模块内部使用
+        console.log(import.meta);
+
+        // import * as obj from module  适合于 把一个所有方法都给一个对象，相当于继承
+    </script>
+</body>
+</html>

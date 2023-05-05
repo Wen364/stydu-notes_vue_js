@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        let name = 'andy'
+        // let li = '<li>\
+        //     <b>'+name+'</b>\
+        //     </li>'
+            //   \ 是可以让他不在一行还是可以连接在一起的
+        function test() { 
+            return '函数返回'
+        }
+        let li =  `<li>
+            <b>${name}</b>
+            </li>`
+            console.log(li);
+        let arr = ['red','green','blue']
+        let newArr = arr.map(function(item,index) {
+            // 让只有第一个小 li 的颜色变化
+            // 模板字符串 可以使用 表达式 加减乘除 三元表达式 函数 等等
+            return `<li class="${index == 0 ? 'active' : ''}">
+                <b>${item}</b> 吧 ${test()}
+                </li>`
+        })
+        let ul = document.querySelector('ul')
+        ul.innerHTML = newArr.join('')
+        // 这里加 join 的原因是，如果不加join变成字符串用空来连接，外面的每个li 之间都会有 ，来隔开他们
+
+
+    </script>
+    
+</body>
+</html>

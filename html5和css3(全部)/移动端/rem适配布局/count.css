@@ -1,0 +1,10 @@
+div {
+  height: 150px;
+  width: 500px;
+  margin: 200px auto;
+  border: 10px solid red;
+}
+img {
+  width: 1.64rem;
+  height: 1.64rem;
+}

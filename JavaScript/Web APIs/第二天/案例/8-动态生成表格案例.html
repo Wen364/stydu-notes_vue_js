@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #999;
+        }
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 100px auto;
+        }
+        td,th {    
+            border: 1px solid #333;
+        }
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>科目</td>
+                <td>成绩</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //  1. 先准备好学生数据
+        var obj = [
+        {
+            name: '魏璎珞',
+            subject: 'JavaScript',
+            score: 100
+        },
+        {
+            name: '弘历',
+            subject: 'JavaScript',
+            score: 98
+        },
+        {
+            name: '傅恒',
+            subject: 'JavaScript',
+            score: 95
+        },
+        {
+            name: '明宇',
+            subject: 'JavaScript',
+            score: 90
+        }
+        ]  // 采用数组形式存取 每个数组里面存储的都是 对象
+        
+        var th = document.querySelector('thead')
+        var tb = document.querySelector('tbody')
+        // 2. 向 tbody 里面创建行(跟数据有关系的3个单元格) 有几个人就创建几行
+        for (var i = 0; i < obj.length; i++) { // 这个循环控制的是 tr 先创建总行数
+            var tr = document.createElement('tr') 
+            tb.appendChild(tr)
+            for (var k in obj[i]) {  // 数组循环 就要用 for in  这个循环控制的时 tr 里面的 td
+                var td = document.createElement('td')
+                td.innerHTML = obj[i][k] // obj[i][k] 表示 obj对象里的 第i个 数组元素 里面的 第 k 个的属性值
+                tr.appendChild(td)  // 向 tr 里面加入 td ，每一行里面加入的 td 的数据
+            }
+            // 3.在外面在单独创建一个 td 来存放删除 这个不能放到行的循环外 因为每行都有一个删除
+            var td = document.createElement('td')
+            td.innerHTML = "<a href='javascript:;'>删除</a>"
+            tr.appendChild(td) 
+        }
+        //  4. 删除操作
+        var a = document.querySelectorAll('a')
+        for (var i = 0; i < a.length; i++) {
+            a[i].onclick = function () {
+                // 点击链接 a 删除当前 a所在的行
+                tb.removeChild(this.parentNode.parentNode)
+            }
+        }
+        
+
+
+    </script>
+</body>
+</html>

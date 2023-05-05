@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1- 二进制八进制写法
+        // let num1 = 100   // 100
+        // let num2 = 0x100  // 十六进制写法   256
+        // let num3 = 0b100  // 二进制写法   4
+        // let num4 = 0o110  // 八进制写法   72
+        // console.log(num1,num2,num3,num4);
+
+        // 2- Number.isFinite(value) 检测传入的参数是否是一个有穷数 
+        //       Number.isNaN(value) 判断是否为 NaN
+
+        // let num1 = Number.isFinite(100)   // true
+        // let num2 = Number.isFinite(100/0)   // false
+        // let num3 = Number.isFinite(Infinity)   // false
+        // let num4 = Number.isFinite('100')   // false
+        // console.log(num1,num2,num3,num4);
+        // Number.NaN 则和 Number.isFinite 一样
+
+        // 3- isInteger(value)  判断是否是整数
+        // let num1 = Number.isInteger(100)   // true
+        // let num2 = Number.isInteger(100.0)   // true
+        // let num3 = Number.isInteger(Infinity)   // false
+        // let num4 = Number.isInteger('100')   // false
+        // console.log(num1,num2,num3,num4);
+
+        // 4- 极小常量  Number.EPSILON
+        // function isEqual(x,y) {
+        //     return Math.abs(x,y) < Number.EPSILON
+        // }
+        // console.log(isEqual(5,6)); // false
+        // console.log(isEqual(0.1+0.2,0.3)); // true
+
+        // 5- Math.sign(value)  判断是 正数，负数，还是0 如果是非数值，则会先将其转换为数值
+        console.log(Math.sign(-100));  // -1
+        console.log(Math.sign(100));  // 1
+        console.log(Math.sign(0));  // 0
+
+        // 6- Math.trunc 将小数部分抹掉，返回一个整数
+        console.log(Math.trunc(3.144444));  // 3
+        console.log(Math.trunc(-3.144444));  // -3
+
+
+
+    </script>
+    
+</body>
+</html>

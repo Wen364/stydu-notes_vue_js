@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 200px auto;
+        }
+        .change {
+            font-size: 30px;
+            color: red;
+            margin-top: 150px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">文本</div>
+    <script>
+        //  element.style 行内样式操作
+  // 1.用 element.style 获得修改元素样式 如果要修改的样式特别多 则代码很重复 适合样式比较少 或者功能简单情况下
+        var div = document.querySelector('div')
+        div.onclick = function() {
+            // this.style.background = 'skyblue'
+            // this.style.color = 'red'
+            // this.style.marginTop = '150px'
+            // this.style.fontSize = '30px'
+             
+            //  element.className 类名样式操作
+            // 让元素的当前类名改为 change
+     // 2. 可以通过 修改元素的 className 更改元素方式样式 适合于样式比较多 或者 功能复杂的情况
+    //    注意 ： 如果该元素以前由 类名 则用className 会替换掉原来的类名 ！！！！
+       // 如果想要保留原来的类名 则加个空格即可 
+            this.className = 'first change'
+        }
+    </script>
+</body>
+</html>

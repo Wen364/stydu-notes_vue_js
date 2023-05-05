@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>sessionStorage</h2>
+    <button onclick="saveData()">点击保存一个数据</button>
+    <button onclick="readData()">点击读取一个数据</button>
+    <button onclick="deleteData()">点击删除一个数据</button>
+    <button onclick="clear()">点击清空数据</button>
+    <script>
+        function saveData() {
+            let p = {name:'张三',age:18}
+            window.sessionStorage.setItem('msg','hello')
+            window.sessionStorage.setItem('msg2',JSON.stringify(p)) // JSON.stringify() 是把对象转换为字符串的方法
+        }
+        function readData() {
+            console.log(window.sessionStorage.getItem('msg'));
+            const rs = window.sessionStorage.getItem('msg2') // 
+            console.log(JSON.parse(rs));  // JSON.parse() 是把 字符串 转换为 对象的方法
+         }
+        function deleteData() {
+            window.sessionStorage.removeItem('msg')
+        }
+        function clear() {
+            window.sessionStorage.clear()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise.allSettled 方法返回一个在所有给定的promise都已经 fulfilled 或 rejected 后的 promise，
+        //  并带有一个对象数组，每个对象表示对应的 promise 结果
+ 
+        function ajax(url) {
+            return new Promise((resolve,reject) => {
+                let xhr = new XMLHttpRequest()
+                xhr.open("get",url,true)
+                xhr.send()
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            resolve(JSON.parse(xhr.responseText))
+                        } else {
+                            reject(xhr.responseText)
+                        }
+                    }
+                }
+            })
+        }
+
+        // 他和 Promise.allSettled 的区别是 就算出错他也不会不执行，会把错误和成功分开 然后可以自己过滤出去 利用 status
+        Promise.allSettled([ajax('1.json'),ajax('2.json'),ajax('33.json')]).then(res => {
+            console.log(res);
+            // 筛选出成功的
+            let res1 = res.filter(item => item.status === 'fulfilled')
+            // 最后返回 成功数据里面的 值 
+            console.log(res1.flatMap(item => item.value.data));
+        }).catch(err => {
+            console.log(err);
+        })
+        
+    </script>
+</body>
+</html>

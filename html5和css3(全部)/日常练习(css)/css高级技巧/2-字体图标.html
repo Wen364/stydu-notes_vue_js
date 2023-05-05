@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体图标 iconfont</title>
+    <!-- 字体图标展示的是图标，但本质属于字体 -->
+    <!-- 如果碰到结构和样式比较简单的小图标就用字体图标 -->
+    <!-- 字体图标下载完毕之后，要把fonts文件夹放到页面根目录下，就是挨着要用的 -->
+    <style>
+        /* 字体声明 */
+        @font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?eewka');
+  src:  url('fonts/icomoon.eot?eewka#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?eewka') format('truetype'),
+    url('fonts/icomoon.woff?eewka') format('woff'),
+    url('fonts/icomoon.svg?eewka#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+    span {
+        font-family: 'icomoon';
+        font-size: 20px;
+        color: orange;
+        
+    }
+    </style>
+</head>
+<body>
+    <span>佳木斯</span>
+    <span></span>
+</body>
+</html>

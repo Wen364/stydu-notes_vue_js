@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        位置主要有三个： offset()  position()  scrollTop() / scrollLeft()
+        1.offset() 设置或获取元素偏移
+        (1) offset() 方法设置或返回被选元素相对于‘文档’的偏移坐标，跟父级没有关系
+        2.position() 获取元素偏移
+        (1) position() 方法用于返回被选元素相对于 带有定位的父级偏移坐标 如果父级都没有定位，则以文档为准
+        3. scrollTop() / scrollLeft() 设置或获取元素被卷去的头部和左侧
+        (1) 
+     -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            margin: 100px 0 0 200px;
+        }
+        .son {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        $(function() {
+            // 1.获取设置距离'文档'的位置 (偏移) offset()
+            console.log($('.son').offset()); 
+            console.log($('.son').offset().top); 
+            // $('.son').offset({
+            //     top: 300,
+            //     left: 300
+            // })
+            // 通过对象的形式来修改距离文档的位置大小
+            // 2. 获取带有定位的父级偏移坐标 position()   如果父级都没有定位，则以文档为准
+            console.log($('.son').position()); // 10  相对于父级来说的位置
+            //  position() 只能获取元素 不能设置元素
+        })
+            
+    </script>
+</body>
+</html>

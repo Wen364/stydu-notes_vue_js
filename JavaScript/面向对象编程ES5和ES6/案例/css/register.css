@@ -1,0 +1,128 @@
+.header {
+    position: relative;
+    height: 82px;
+    width: 1200px;
+    margin: 0 auto;
+    border-bottom: 2px solid #b1191a;
+}
+input {
+    outline: none;
+}
+/* .w {
+    border-bottom: 2px solid #b1191a;
+} */
+     /* logo模块 start */
+.logo {
+    position: absolute;
+    top: 18px;      
+    height: 61px;
+    width: 171px;
+}
+.logo a {
+    display: block;
+    height: 61px;
+    width: 171px;
+    background: url(../images/logo.png) no-repeat;
+    font-size: 0;
+}
+
+.registerarea {
+    height: 520px;
+    width: 1200px;
+    border: 1px solid #dfdfdf;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.registerarea_top {
+    height: 41px;
+    background-color: #ececec;
+}
+.registerarea_top h2 {
+    float: left;
+    line-height: 41px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.registerarea_top p {
+    float: right;
+    line-height: 41px;
+    margin-right: 10px;
+}
+.reg_form {
+    width: 600px;
+    /* background-color: pink; */
+    margin: 50px auto 0;
+}
+.reg_form ul li {
+    margin-bottom: 15px;
+}
+.reg_form ul li label {
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+.reg_form ul li .inp {
+    height: 37px;
+    width: 242px;
+    border: 1px solid #ccc;
+}
+.error {
+    /* display: none; */
+    color: #c81523;
+}
+.error_icon,
+.success_icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url(../../images/wrong.png) no-repeat;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+.success {
+    /* display: none; */
+    color: green;
+}
+.success_icon {
+    background: url(../../images/right.png) no-repeat;
+}
+.safe {
+    padding-left: 110px;
+}
+.safe em {
+    color: #ffffff;
+    margin-left: 2px;
+    padding: 0 20px;
+}
+.ruo {
+    background-color: #de1111;  
+}
+.zhong{
+    background-color: #40b83f;
+}
+.qiang{
+    background-color: #f79100;
+}
+.agree {
+    padding-left: 100px;
+}
+.agree input {
+    vertical-align: middle;
+}
+.reg_form .btn {
+    height: 35px;
+    width: 200px;
+    font-size: 14px;
+    color: #ffffff;
+    margin-left: 110px;
+    border: 1px solid transparent;
+    background-color: #c81623;
+    cursor: pointer;
+} 
+.footer {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 0px;
+    background-color: #ffffff;
+}
+

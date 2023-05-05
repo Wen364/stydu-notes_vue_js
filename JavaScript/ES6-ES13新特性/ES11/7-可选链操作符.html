@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 可选链操作符前面的值如果是 null 或 undefined 则不再执行后面的，返回可选链之前的值
+        let obj = {
+            name:'andy'
+            // location:{
+            //     // province:'黑龙江',
+            //     // city:'佳木斯'
+            // }
+        }
+        // console.log(obj.location.city); // 因为没有location 所以会报错
+        console.log(obj?.location?.city ?? '佳木斯');  // undefined
+        // 执行思路：先找obj有的话执行 obj 里面的 location，如果有就继续在obj.location 里面的 city寻找
+    </script>
+</body>
+</html>

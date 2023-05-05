@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>失去焦点 onblur 和得到焦点 onfocus</title>
+    <style>
+        
+        input {
+            color: #999
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 1.获取元素
+        var input = document.querySelector('input')
+        // 2.注册事件  获得焦点 onfocus
+        input.onfocus = function() {
+            console.log('获得焦点');
+        }
+        // 3.注册事件 失去焦点 onblur
+        input.onblur = function() {
+            console.log('失去了焦点');
+        }
+    </script>
+</body>
+</html>

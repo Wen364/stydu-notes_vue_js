@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+     获取元素通常使用两种方式：
+       1.利用DOM 提供的方式获取元素
+       如 document.getElementById()
+          document.getElementsByTagName() 等等 但是逻辑性不强、繁琐
+       2.利用节点层级关系获取元素 
+        利用父子兄节点关系获取元素
+         逻辑性强 但是兼容性较差
+-->
+    <!-- 节点的优点 -->
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="box">
+        <div class="erweima"></div>
+    </div>
+    <script>
+        // 一般的 节点至少拥有nodeType(节点类型)、 nodeName(节点名称)、 nodeValue(节点值) 这三个基本属性
+        //  元素节点 nodeType 为 1
+        //  属性节点 nodeType 为 2
+        //  文本节点 nodeType 为 3 (文本节点包含 文字、空格、换行等)
+        //  我们在实际开发中，节点操作主要操作的是元素节点
+         var box = document.querySelector('.box')
+        console.dir(box)
+    </script>
+</body>
+</html>

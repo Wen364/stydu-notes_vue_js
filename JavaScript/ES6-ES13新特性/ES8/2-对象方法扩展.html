@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  Object.keys(对象名) 获取该对象的 所有键名（以数组形式）
+        let obj = {
+            name: 'andy',
+            age:50
+        }
+        console.log(Object.keys(obj));
+
+        //  Object.values(对象名)  获取该对象的 所有键值（以数组形式）
+        console.log(Object.values(obj));
+
+        //  Object.entries(对象名)  获取该对象的 所有键值和键名（以数组形式）
+        console.log(Object.entries(obj));
+
+        // 把一个对象 快速形成一个 map结构
+        let m = new Map(Object.entries(obj))
+        console.log(m);
+
+        // 能把对象的属性和方法都给获取过来 ，在开发中经常用于 给另一个对象 他的 属性 和方法
+        console.log(Object.getOwnPropertyDescriptors(obj));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择器相同时，使用层叠性 */
+        /* 选择器不同时，看优先级 */
+        /* 继承或者* {}是 0 */
+        /* 元素选择器是 1 */
+        /* 类选择器，伪类选择器是 10 */
+        /* id选择器是 100 */
+        /* 行内样式style=""是 1000 */
+        /* ！important是 10000 */
+        .test {
+            color: pink;
+        }
+        div {
+            color: red!important;
+        }
+        #demo {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="test" id="demo" style="color: blue">哈哈哈哈哈哈哈哈哈</div>
+</body>
+</html>

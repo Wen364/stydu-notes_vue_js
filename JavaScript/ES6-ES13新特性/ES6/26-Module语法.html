@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <!-- 给js引入里面用type 加入 module 模块化 -->
+    <script type="module">
+        // 模块化
+        //  异步加载
+        //  私密不漏
+        //  重名不怕
+        //  依赖不乱
+
+        // 导入 1.js中的方法
+        // 路径必须带 ./  or  ../ or  .../
+        // 这个 A1 是导出的集合名称，如果里面只有一个，则就是当前函数，如果很多，则是对象
+        // import obj1 from "./1.js"
+        // import obj2 from './2.js'
+        // import obj3 from './3.js'
+        // // 虽然这两个 js 文件里都有 test 函数 但是导入的名称不同 ，所以不怕重名
+        // console.log(obj1.test,obj2.test,obj3);
+
+        // 只用 export 导出的 名字必须和导出的名字一样
+        // import {_a1} from "./1.js"
+        // import {_b1} from './2.js'
+        // // 虽然这两个 js 文件里都有 test 函数 但是导入的名称不同 ，所以不怕重名
+        // console.log(_a1,_b1);
+
+        // 两种方式可以一起用
+        import obj1,{_a1} from './1.js'
+        console.log(obj1,_a1);
+    </script>
+    
+</body>
+</html>

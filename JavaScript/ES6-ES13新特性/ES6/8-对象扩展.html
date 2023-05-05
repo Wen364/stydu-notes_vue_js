@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1- 对象简写
+        // let obj = {
+        //     name:'andy',
+        //     test1:function() {
+
+        //     },
+        //     test2:function() {
+                
+        //     }
+        // }
+
+        // 简写
+        // let name = 'andy'
+        // let obj = {
+        //     name,  // 如果 key值和value值一样，则可以写一个就行 name:name
+        //     test1(){
+
+        //     },
+        //     test2(){
+
+        //     }
+        // }
+
+        // 2- 对象属性表达式
+        // let name = 'andy'
+        // let obj = {
+        //     // 在前面的键值加上中括号 ，就可以让他实现字符串拼接
+        //     [name+'哈哈']:1,  // 如果 key值和value值一样，则可以写一个就行 name:name
+        //     test1(){
+
+        //     },
+        //     test2(){
+
+        //     }
+        // }
+        // console.log(obj);
+
+
+        // 3-扩展运算符 ...
+        let obj = {
+            name:'andy'
+        }
+        let obj1 = {
+            ...obj
+        }
+        let obj2 = {
+            name:'red',
+            age:50
+        }
+        console.log(obj1);
+        console.log({...obj,...obj2});
+        // 如果属性名相同还拼接一起，则后面的相同属性值会覆盖掉前面的
+
+        // 4- Object.is() 方法判断两个值是否为同一个值。Object.is(value1, value2) 
+        //  一般都是用来识别是不是NaN的
+        console.log(Object.is(5,5)) // true
+        console.log(Object.is('5',5)) // false
+        console.log(Object.is('5','5')) // true
+        console.log(Object.is({},{})) // false
+        console.log(Object.is(+0,-0)) // false
+        console.log(Object.is(parseInt('哈哈'),NaN)) // true
+    </script>
+    
+</body>
+</html>

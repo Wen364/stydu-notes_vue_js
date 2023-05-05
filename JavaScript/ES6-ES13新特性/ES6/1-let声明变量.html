@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>22222</li>
+        <li>333333</li>
+    </ul>
+    <script>
+        //  1-块级作用域  
+        // {
+        //     let a = 100 
+        //     var b = 20
+        // }
+        // //  使用 let 定义变量 不会造成内部定义的变量跑到外部来进行污染
+        // console.log(b);  // 20
+        // console.log(a);  // a is not defined
+
+        // 点击小 li 打印对应索引号
+        // 1.利用 var 来定义
+        var lis = document.querySelectorAll('ul li')
+        // for (var i = 0; i < lis.length; i++) {
+        //     lis[i].index = i
+        //     lis[i].onclick = function() {
+        //         console.log(this.index);
+        //     }
+        // }
+
+        // 2. 利用 let 定义变量 let定义的变量，会开辟一个内存空间存储着，没被使用就不会释放
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function() {
+                // 因为是 let 定义的变量，所以不需要让当前index值= i 了
+                console.log(i);
+            }
+        }
+
+        // 2-不允许重复声明
+        // let a = 1
+        // let a = 2
+        // 这样是不允许的，不允许有相同的变量名 ，var 则不会报错，导致可能会造成变量过多导致重复命名而造成值的覆盖
+
+        // 3- 变量提升没有
+        // 暂存性死区 
+        let myName = 'andy'
+        function myname() {
+            console.log(myName); 
+// 如果下面没有 let 定义 myName 则在函数内部找不到，就会通过原型链去外部寻找myName，
+// 下面有let 定义了myName 但是没有变量提升，导致暂存性死区，所以报错
+            // let myName = 'red'
+        }
+        myname()
+
+        // 4-不与顶层对象挂钩
+
+        let age = 50
+        console.log(window.age); // undefined
+        // 因为不与顶层对象挂钩，导致 window 获取不了 age 的值
+    </script>
+    
+</body>
+</html>

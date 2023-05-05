@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            height: 40px;
+            width: 60px;
+            border: 0;
+        }
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <script>
+        $(function() {
+            // 1.隐式迭代 给所有的按钮都绑定了点击事件
+            $('button').click(function() {
+                // jQuery排他思想
+                // 当前元素颜色变为红色
+                // $(this).css('background','red')
+                // // 其他兄弟不变色
+                // $(this).siblings().css('background','')
+
+                // 链式编程
+                $(this).css('background','red').siblings().css('background','')
+                // 它和上面那两句代码表示的意思是一样的 这样写代码量更少
+            })
+        })
+    </script>
+</body>
+</html>

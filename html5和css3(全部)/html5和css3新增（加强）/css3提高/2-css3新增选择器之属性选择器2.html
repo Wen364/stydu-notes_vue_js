@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 3.可以选择属性开头的某些元素 */
+        /* 首先选择div 然后具有class属性 并且属性值必须是icon开头的元素 */
+        div[class^=icon] {
+            color: pink;
+        }
+        /* 首先选择div 然后具有class属性的 并且属性值必须是data结尾的元素 */
+        div[class$=data] {
+            color: skyblue;
+        }
+        /* 类选择器 属性选择器 伪类选择器权重都是 10 */
+        /* 类选择器 属性选择器 伪类选择器权重都是 10 */
+        /* 类选择器 属性选择器 伪类选择器权重都是 10 */
+    </style>
+</head>
+<body>
+    <!-- 3.属性选择器可以选择属性开头的某些元素 -->
+    <div class="icon1">哈哈嗨1</div>
+    <div class="icon2">哈哈嗨2</div>
+    <div class="icon3">哈哈嗨3</div>
+    <div class="icon4">哈哈嗨4</div>
+    <div>打酱油</div>
+    <!-- 4.属性选择器可以选择属性结尾的某些元素 -->
+    <div class="icon1-data">哈哈哈哈哈</div>
+    <div class="icon2-data">哈哈哈哈哈哈哈哈哈</div>
+    <div class="icon3-ico">哈哈哈哈哈</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn">发起不带参数的get请求</button>
+    <script>
+        // jQuery中$.get()函数的功能单一，专门用来发起get请求，从而将服务器上的资源请求到客户端来进行使用
+        // $.get(url,[data],[callback])
+        // url 要请求的资源地址
+        // data 请求资源期间要携带的参数   (可以不写）
+        // callback 请求成功时的回调函数  （可以不写）
+
+        // 发起不带参数请求
+        // $(function() {
+        //     $('#btn').on('click',function() {
+        //         $.get('http://www.liulongbin.top:3006/api/getbooks',(res) => {
+        //             console.log(res,'不带参数请求');
+        //         })
+        //     })
+        // })
+
+        // 发起带参数请求  (只获取 id 为 1 的数据)
+        $(function() {
+            $('#btn').on('click',function() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks',{id:1},(res) => {
+                    console.log(res,'只获取 id 为 1 的数据请求');
+                })
+            })
+        })
+    </script>
+</body>
+</html>

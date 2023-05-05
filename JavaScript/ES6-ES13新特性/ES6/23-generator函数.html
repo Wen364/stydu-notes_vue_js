@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        Generator 是ES6提供的一种异步编程解决方案，Generator函数是一个状态机，封装了多个内部状态
+        执行Generator函数会返回一个遍历对象，就是说，Generator函数除了状态机，哈斯hi一个遍历对象生成函数，
+        返回的遍历器对象，可以依次遍历Generator 函数内部的每一个状态
+     -->
+</head>
+<body>
+    <script>
+        // function  *gen () {
+        //     console.log(1);
+        //     yield // 产出
+        //     console.log(2);
+        //     yield
+        //     console.log(3);
+        // }
+        // let g = gen()
+        // g.next()  // 1
+        // g.next()  // 2
+        // g.next()  // 3
+
+        // function  *gen () {
+        //     // console.log(1);
+        //     yield 'aaa' // 产出
+        //     // console.log(2);
+        //     yield 'bbb'
+        //     // console.log(3);
+        // }
+        // let g = gen()
+        // let res1 = g.next()  
+        // console.log(res1);  // {value: 'aaa', done: false}
+        // let res2 = g.next()  
+        // console.log(res2);  // {value: 'bbb', done: false}
+        // let res3 = g.next()  
+        // console.log(res3);  // {value: undefined, done: true}
+
+        function  *gen () {
+           
+            let res1 =  yield 'aaa' // 产出
+            console.log('gen内部',res1);
+            let res2 = yield 'bbb'
+            console.log('gen内部',res2);
+        }
+        let g = gen()
+
+        let res1 = g.next('传入1111')  
+        console.log(res1);  // {value: 'aaa', done: false}
+        let res2 = g.next('传入2222')  
+        console.log(res2);  // {value: 'bbb', done: false}
+        let res3 = g.next('传入3333')  
+        console.log(res3);  // {value: undefined, done: true}
+    </script>
+    
+</body>
+</html>

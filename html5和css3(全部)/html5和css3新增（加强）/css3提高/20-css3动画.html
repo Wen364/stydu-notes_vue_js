@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画animation</title>
+    <!-- 制作动画分两步：
+            1.先定义动画
+            2.再使用（调用）动画
+    -->
+    <!-- 1.用@keyframes定义动画（类似定义类选择器
+          例子：
+        @keyframes 动画名称 {
+            0%{
+                width:100%;
+            }
+            100%{
+                width:200px;
+            }
+        } 
+        2.然后使用动画
+
+    -->
+    <style>
+        @keyframes move {
+            /* 开始状态 */
+            0% {
+                transform: translate(0px);
+            }
+            /* 结束状态 */
+            100% {
+                transform: translate(1000px);
+            }
+        }
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            /* 调用动画 */
+            animation-name: move;
+            /* 持续时间 */
+            animation-duration: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

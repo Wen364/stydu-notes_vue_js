@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>提交</button>
+    <ul></ul>
+    <script>
+        // replace 替换  
+        // replace 可以实现替换字符串操作，用来替换的参数可以是一个字符串或者是一个正则表达式
+        // stringObject.replace(regexp/substr,replacement)
+        //  第一个参数：被替换的字符串 或者 正则表达式
+        //  第二个参数：替换为的字符串
+        //  返回值是一个替换完毕的新字符串
+        var str = 'andy和green'
+        // var newStr = str.replace('andy','Tom')
+        // console.log(newStr); //Tom和green
+        var newStr = str.replace(/andy/,'Alice')
+        console.log(newStr);  // Alice和green
+        // 这两种方式都可以 第一个参数是正则表达式还是字符串都可以替换
+        var text = document.querySelector('textarea')
+        var btn = document.querySelector('button')
+        var ul = document.querySelector('ul')
+        btn.onclick = function() {
+            var li = document.createElement('li')
+            li.innerHTML = text.value.replace(/激情|gay|草|艹 /g,'**') 
+            // 只是替换 激情 这两个字 但是只能匹配第一次找到的 激情 第二个激情就不能替换了
+            // 这时候就需要 在正则表达式后面 加入全局匹配 g 就可以全部匹配替换了
+            ul.append(li)
+            
+        }
+
+    </script>
+    
+</body>
+</html>

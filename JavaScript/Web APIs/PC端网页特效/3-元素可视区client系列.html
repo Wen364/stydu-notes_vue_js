@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // client系列属性            作用
+        // element.clientTop       返回元素上边框的大小
+        // element.clientLeft      返回元素左边框的大小
+        // element.clientWidth     返回自身包括padding 内容区的宽度、不包括边框、返回值不带单位
+        // element.clientHeight    返回自身包括padding、内容区宽度、不包括边框、返回值不带单位
+        var div = document.querySelector('div')
+        console.log(div.clientWidth);  // 返回值不带边框的宽度
+    </script>
+</body>
+</html>

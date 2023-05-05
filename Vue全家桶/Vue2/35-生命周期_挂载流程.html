@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2 :style="{opacity}">你好，哈哈</h2>
+        <h2>当前n值为：{{n}}</h2>
+        <button @click="add()">点击n+1</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#root',
+        data() {
+            return{
+                opacity:1,
+                n:1
+            }
+        },
+        methods: {
+            add() {
+                this.n++
+            }
+        },
+        beforeCreate() {
+            // console.log(this);
+            console.log('beforeCreate');
+            // debugger;
+        },
+        created() {
+            // console.log('-------------------');
+            console.log('create');
+            // console.log(this);
+            // debugger;
+        },
+        beforeMount() {
+            // 页面呈现的是未经Vue编译的DOM结构，所有对DOm的操作，最终都不奏效 
+            // console.log('----------');
+            console.log('beforeMount');
+        },
+        mounted() {
+            // mounted: 发送ajax请求，启动定时器、绑定自定义事件、订阅消息等【初始化操作】
+            console.log('mounted')
+        },
+        // mounted() {
+        //     console.log('mounted',this);
+        //     setInterval(() => {
+        //         this.opacity -= 0.01
+        //         if(this.opacity <= 0) this.opacity = 1
+        //     }, 16);
+        // }
+    })
+</script>
+</html>

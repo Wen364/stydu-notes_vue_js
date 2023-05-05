@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let obj = {
+            name:'andy',
+            age: 50,
+            location:  {
+                province:'黑龙江',
+                city:'佳木斯'
+            },
+
+            get city () {
+                return this.location.city
+            },
+
+            set city(value) {
+                this.location.city = value
+            },
+
+            get uname () {
+                // 首字母大写
+                // console.log(this.name);
+                return this.name.substring(0,1).toUpperCase()+this.name.substring(1)
+            },
+
+            set uname(value) {
+                this.name = value
+            }
+        }
+        let obj1 = {}
+        // 想要把 obj 里面所有的属性和方法 都给 obj
+        // 这时候就需要用到 Object.getOwnPropertyDescriptors()
+        // 需要借助 defineProperty 然后 把 obj 里面的所有属性和方法 都给 obj1
+        Object.defineProperties(obj1,Object.getOwnPropertyDescriptors(obj))
+
+        // Object.assign(obj1,obj)  方法不能复制到 原来的 obj 的方法 只能获取属性 所有是不完整的获取 
+        // Object.assign(obj1,obj)
+    </script>
+</body>
+</html>

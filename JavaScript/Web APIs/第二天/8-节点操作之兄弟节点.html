@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div = document.querySelector('div')
+        //  1.node.nextSibling 返回当前元素 下一个兄弟节点 包含 元素节点 或者 文本节点等 
+        console.log(div.nextSibling);  // #text
+        //  2.node.previousSibling 返回当前元素 上一个兄弟节点 找不到返回 null 也是包含所有节点
+        console.log(div.previousSibling); // #text
+
+        console.log(div.nextElementSibling);  // 返回下一个兄弟元素节点
+        console.log(div.previousElementSibling); // 返回上一个兄弟元素节点
+        // 这两个都有兼容性问题
+        // 可以自己封装一个函数
+        function getNextElementSibling(element) {
+            var el = element
+            while (er == el.nextSibling) {
+                if (el.nodeType == 1) {
+                    return el
+                }
+            }
+            return null
+        }
+    </script>
+</body>
+</html>

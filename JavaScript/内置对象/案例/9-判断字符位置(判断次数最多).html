@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  判断字符串 'abcoefoxyozzopp' 中出现次数最多的字符 并统计其次数
+        //  核心算法: 利用charAt() 遍历整个数组
+        //  把每个字符都存储给对象, 如果对象没有该属性, 就为 1 , 如果对象有该属性,就 +1
+        //  遍历对象 得到最大值和该字符 
+        var obj = new Object()
+        var str = 'abcoefoxyozzopp'
+        //  1.先把字符串存到对象里面去  这样可以统计出来每个元素的出现次数
+        for (var i = 0; i < str.length; i++) {
+            var s = str.charAt(i)  // s是字符串的每一个字符
+            if (obj[s]) {   // obj[s] 得到的是属性值
+                obj[s]++
+            }
+            else {
+                obj[s] = 1
+            }
+        }
+        // 2.遍历对象找出最多的次数并输出
+        var max = 0
+        var a = 0
+        for( var k in obj) {
+            if (obj[k] > max) {  // obj[k] 取出来的才是属性值  k 取出来的是属性名
+                max = obj[k]
+                a = k
+            }
+        }
+        console.log(a,max);
+
+        // function pd(str) {
+        //     var obj = new Object()
+        //     var max = 0
+        //     var a = 0
+        //     for (var i = 0; i < str.length; i++) {  // 统计 str 中每个元素的出现次数,并存入对象中
+        //         var s = str.charAt(i)
+        //         if (obj[s]) {
+        //             obj[s]++
+        //         }
+        //         else {
+        //             obj[s] = 1
+        //         }
+        //     }
+        //     for (var k in obj) {   // 遍历对象
+        //         if (obj[k] > max) {
+        //             max = obj[k]
+        //             a = k
+        //         }
+        //     }
+        //     return '出现次数最多的字符为:' + a + '\n' + '出现次数为:' + max
+        // }
+        // console.log(pd('abcoefoxyozzopp'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

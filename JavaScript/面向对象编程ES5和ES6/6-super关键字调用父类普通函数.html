@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // super 关键字调用父类普通函数
+        class Father {
+            say () {
+                return '哈哈'
+            }
+        }
+        class Son extends Father {
+            say () {
+                // console.log('hi');
+                console.log(super.say() + '父类的');
+                // super.say() 就是调用父类的普通函数 say()
+            }
+        }
+        var son = new Son()
+        son.say()  
+        // 继承中的属性和方法查找原则：就近原则
+        // 1.继承中，如果实例化的子类输出一个方法，则先看自己有没有这个方法，如果有，则输出自己的方法
+        // 2.继承中，如果子类里面没有，则取查找父类里面是否有这个方法，如果有，则执行父类的这个方法(就近原则)
+
+    </script>
+    
+</body>
+</html>

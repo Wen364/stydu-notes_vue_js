@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 高阶函数是对其他函数进行操作的函数，他接收函数作为参数或者将函数作为返回值输出 -->
+</head>
+<body>
+    <script>
+        // 回调函数就是典型的高阶函数
+        function fn(a,b,callback) {
+            console.log(a+b);
+            callback&&callback()
+        }
+        fn(1,2,function() {
+            console.log('最后才调用');
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url() no-repeat  fixed;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 600px;
+            margin: 100px auto;
+            
+        }
+        span {
+            flex: 1;
+            height: 100px;
+            width: 150px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span><img src="../images/1.jpg" alt=""></span>
+        <span><img src="../images/2.jpg" alt=""></span>
+        <span><img src="../images/3.jpg" alt=""></span>
+        <span><img src="../images/4.jpg" alt=""></span>
+    </div>  
+    <script>
+        // 利用排他思想来进行换肤
+        //  这个案例就是当我们点击了一个图片 让我们 body 的背景图片改为当前的图片
+        //  需要 先 循环 点击事件 然后把图片路径给 body 的背景地址
+        //  核心算法 ：把当前图片的 src路径 取过来 给body当作背景即可
+
+        //  1.获取元素
+        var imgs = document.querySelectorAll('img')
+        var body = document.querySelector('body')
+        //  2.循环注册事件
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                // this.src 就是我们点击图片的路径  
+                // 把这个路径 this.src 给 body 就可以了
+                // body.style.backgroundImage = 'url(' + this.src + ')'  
+                body.style.background = 'url('+ this.src +')'
+                // 他俩意思一样 主要是 this.src 这个不好想
+            } 
+        }
+    </script>
+</body>
+</html>

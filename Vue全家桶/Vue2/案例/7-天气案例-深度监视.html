@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+    <!-- 在案例里面 -->
+</head>
+<body>
+    <!-- 
+        深度监视:
+            (1). Vue中的watch默认不监测对象内部值得改变(一层)
+            (2). 配置deep:true 可以监测对象内部值改变(多层)
+        备注:
+            (1).Vue自身可以监测对象内部值得改变,但Vue提供的watch默认不可以!
+            (2).使用 watch 时根据数据的具体结构,觉得是否采用  深度监测
+     -->
+    <div id="root">
+        <h2>今天天气很{{weather}}</h2>
+        <button @click="change">点击切换</button>
+        <hr>
+        <h3>a的值是{{numbers.a}}</h3>
+        <button @click="numbers.a++">点击让a+1</button>
+        <h3>b的值是{{numbers.b}}</h3>
+        <button @click="numbers.b++">点击让b+1</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return {
+                isHot:true,
+                numbers:{
+                    a:1,
+                    b:1
+                }
+            }
+        },
+        computed:{
+            weather() {
+                return this.isHot ? '炎热' : '凉爽'
+            }
+        },
+        methods: {
+            change() {
+                this.isHot = !this.isHot
+            }
+        },
+       
+        watch:{
+            isHot:{
+                // handler什么时候调用? 当 isHot 发生改变时
+                handler(newValue,oldValue) {
+                    console.log('isHot被修改了',newValue,oldValue);
+                },
+                immediate:true // 初始化时让 handler 调用一下
+            },
+            
+            // 想要监视多级结构中的某个属性的变化
+            /*
+            'numbers.a':{
+                handler(newValue,oldValue) {
+                    console.log('a被监视了');
+                }
+            },
+            */
+
+            // 监视多级属性中所有属性的变化
+            numbers:{
+                deep:true, // 必须开启 深度监视才可以监视所有属性的变化,否则只能检测 numbers 这个整体的变化
+                handler(newValue,oldValue) {
+                    console.log('numbers被监视了',newValue,oldValue);
+                }
+            }
+        }
+
+        })
+        
+</script>
+</html>

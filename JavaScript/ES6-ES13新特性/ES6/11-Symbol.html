@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  Symbol 是新的数据类型 表示独一无二的 可以用于给对象定义，这样不会被后来的所覆盖
+        // let obj = Symbol()  // 生成了 Symbol 类型数据
+        // console.log(typeof obj); // symbol
+
+        // 1- 不能进行运算
+        // console.log(obj+'11'); // Cannot convert a Symbol value to a string
+
+        // 2- 隐式转换 boolean
+        // if (obj) {
+        //     console.log('11'); // 11
+        // }
+
+        // let obj = {
+        //     name:'andy',
+        //     age:50
+        // }
+        // let name = Symbol()
+        // obj[name] = 'red'
+        // console.log(obj[name]);
+        // console.log(obj.name);
+        // console.log(obj); 
+
+        // let name = Symbol()
+        // let age = Symbol()
+        // let obj = {
+        //     // 加上中括号才代表这是上面symbol类型的name 和 age 如果不加，则是对象里面新创建的 name 和 age
+        //     [name]:'andy',
+        //     [age]:50
+        // }
+
+        // let keys = {
+        //     name:Symbol(),
+        //     age:Symbol(),
+        //     add:Symbol(),
+        //     test:Symbol()
+        // }
+        // let obj = {
+        //     [keys.name] : 'andy',
+        //     [keys.age] : 50,
+        //     [keys.test]() {
+        //         console.log(11);
+        //     }
+        // }
+        // obj[keys.test]() // 11
+
+        // 常量
+        const video = Symbol()
+        const image = Symbol()
+        function play(type) {
+            switch(type) {
+                case video:
+                    console.log('视频');
+                    break
+                case image:
+                    console.log('图片');
+                    break
+            }
+        }
+        play(image)
+    </script>
+    
+</body>
+</html>

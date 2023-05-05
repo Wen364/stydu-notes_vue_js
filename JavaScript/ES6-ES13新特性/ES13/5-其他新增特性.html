@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // 1- findLast()  findLastIndex()  从后面开始查找
+        // // let res = arr.findLast(function(item) {
+        // //     return item > 4  // 7  
+        // //     // 返回大于 4 的 第一个数 从后面开始查找
+        // // })
+        // let res = arr.findLastIndex(function(item) {
+        //     return item > 4  // 6
+        //     // 返回大于 4 的 第一个数的 索引号  从后面开始查找
+        // })
+        // console.log(res);
+
+        // Error 对象的 cause 属性
+        function getData() {
+            try {
+                console.log(aaaa);
+            } catch (error) {
+                // console.log('error');
+                throw new Error('传入的参数不符合规格',{cause:'参数a没有上传'})
+            }
+        }
+        try {
+            getData()
+        } catch (error) {
+            console.log(error,error.cause);
+        }
+        // getData()
+    </script>
+</body>
+</html>

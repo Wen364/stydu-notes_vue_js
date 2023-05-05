@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浮动的元素互相贴靠在一起（不会有缝隙），
+           如果父级宽度装不下这些浮动的盒子，多出的盒子会令其一行对齐
+        */
+        div{
+            height: 200px;
+            width: 200px;
+            float: left;
+        }
+        .one {
+            background-color: greenyellow;
+        }
+        .two {
+            background-color: skyblue;
+            height: 249px;
+            
+        }
+        .three {
+            background-color: pink;
+        }
+        .four {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+</body>
+</html>

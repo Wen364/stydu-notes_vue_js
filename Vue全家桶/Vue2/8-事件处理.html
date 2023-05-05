@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 总结
+            事件的基本使用:
+                1.使用v-on:xxx 或 @xxx 绑定事件,其中 xxx 是事件名
+                2.事件的回调需要配置在methods对象中,最终会在 vm 上
+                3.methods中配置的函数,不要用 箭头函数,否则 this指向 就不是 vm 了
+                4.methods中配置的函数,都不是被 Vue 所管理的函数,this的指向 是 vm 或者 组件实例对象
+                5.@click="demo" 和 @click="demo($event)" 效果一致,只是一个不传参数,一个传参数
+                注意: 当 函数中有参数时,还想要不丢失 event 事件 则需要用 $event 占位,然后再把要传的参数放进去
+                例如:
+                @click=show($event,number)
+    -->
+    <div id="root">
+        <h3>欢迎来到{{name}}旅游</h3>
+        <button v-on:click="showInfo1">点击提示信息1(不传参数)</button>
+        <button @click="showInfo2($event,66)">点击提示信息2(传参数)</button>
+    </div>
+</body>
+    <script>
+        const vm = new Vue({
+            el:'#root',
+            data(){
+                return{
+                    name:'佳木斯'
+                }
+            },
+            methods:{
+                showInfo1(event) {
+                    console.log(event);
+                    // console.log(event.target.innerText);  // 点击提示信息
+                    // console.log(this);  // 此处的 this 是 vm 
+                    alert('欢迎来到佳木斯')
+                },
+                showInfo2(event,number) {
+                    // console.log(event.target.innerText);
+                    console.log(event,number);
+                    alert('欢迎来到佳木斯!'+number)
+                }
+            }
+        })
+    </script>
+</html>

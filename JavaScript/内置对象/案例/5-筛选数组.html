@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  数组[1500,1900,1800,2000,2100,1700]中 要求把超过 2000 的删除 剩下的放到新数组里面
+        function shaixuan(arr) {
+            // var arr = new Array(1500,1900,1800,2000,2100,1700)
+            var newArr = new Array()
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < 2000) {
+                     newArr.push(arr[i])
+                }
+                
+            }
+            return newArr
+        }
+        console.log(shaixuan([1500,1900,1800,2000,2100,1700]));
+       
+        function sx(arr) {
+            var newArr = new Array()
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] > 2000) {
+                     arr.splice(i,1)  //  如果用 arr[i] > 2000 来  pop() 数组元素  则会把原来数组最后一位先删除，所以最后筛选不到最后一位
+                    //  所以用到 splice(数组下标,删除个数) 来把第i位的数组元素删除
+                    // arr[i] = arr[i+1]
+                }
+                else {
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr
+        }
+        console.log(sx([1500,2100,3600,1200]));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

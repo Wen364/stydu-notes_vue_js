@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            height: 500px;
+            width: 500px;
+            background-color: pink;
+            margin: 200px auto;
+        }
+        .son {
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // 当鼠标移动到元素上时就会触发mouseenter事件
+        // 类似于mouseover 他们之间的区别是:
+        // 1.当父盒子包含子盒子时,给父盒子添加mouseover事件,当鼠标移动到子盒子上面时也会触发
+        // 2.而mouseenter则不会这样,只会给父盒子触发,当碰到子盒子不触发
+        // 总结: mouseenter 只会经过自身盒子触发
+        //  mouseover鼠标经过自身盒子会触发,经过子盒子还会触发
+
+        // mouseleave 适合mouseenter搭配的 是鼠标离开会触发 和mouseenter效果一样,只经过自身盒子才会触发
+        var father = document.querySelector('.father')
+        var son = document.querySelector('.son')
+        father.addEventListener('mouseover',function() {
+            console.log(11);  // 当鼠标碰到子盒子时还会触发一次
+        })
+        father.addEventListener('mouseenter',function() {
+            console.log(22); // 当鼠标碰到子盒子时不会触发
+        })
+    </script>
+</body>
+</html>

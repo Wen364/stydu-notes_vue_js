@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆角边框</title>
+    <style>
+        .yuanxing {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* 意思是宽度和高度的一半 */
+        }
+        .juxing {
+            background-color: skyblue;
+            width: 300px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        .test {
+            background-color: pink;
+            width: 200px;
+            height: 100px;
+            border-radius: 30px 20px 10px 40px;
+            /* 分别对应左上 右上 右下 左下 */
+        }
+
+    </style>
+</head>
+<body>
+    1. 如果是矩形，想要有圆角边框，那就把圆角边框大小设置为高度的一半（圆角矩形的做法）
+    <div class="juxing"></div>
+    2.如果是正方形，想要变成圆形，那就把圆角边框大小设置为高度或者宽度的一半（圆形的做法)
+    <div class="yuanxing"></div>
+    3.不同圆角的做法
+    <div class="test"></div>
+</body>
+</html>

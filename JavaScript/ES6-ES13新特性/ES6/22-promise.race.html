@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //  promise.race
+        //  这个就是 执行最快的
+         let pro = new Promise(function(resolve,reject) {
+            setTimeout(() => {
+                resolve(1000)
+            },1000)
+        })
+        let pro1 = new Promise(function(resolve,reject) {
+            setTimeout(() => {
+                resolve(2000)
+            },2000)
+        })
+        let pro2 = new Promise(function(resolve,reject) {
+            setTimeout(() => {
+                resolve(3000)
+            },3000)
+        })
+        let pro3 = new Promise(function(resolve,reject) {
+            setTimeout(() => {
+                resolve(4000)
+            },4000)
+        })
+
+        //  showloading
+
+        // 这几个数值 需要用数组表示
+        Promise.race([pro,pro1,pro2,pro3]).then((res) => {
+            // hidelaoding
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        }) 
+    </script>
+    
+</body>
+</html>

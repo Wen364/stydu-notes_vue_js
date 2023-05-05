@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>转换 transform</title>
+    <!-- 转换可以是实现元素的位移、旋转、缩放等效果
+         也可以简单理解为变形 
+    -->
+       <!-- 移动 translate  语法
+            transform: translate(x,y);   可以分开写
+            x就是x轴上移动位置
+            y就是y轴上移动位置（y轴是向下移动的）
+            transform: translateX(n);
+            只移动x轴坐标
+            transform: translateY(n);
+            只移动y轴的坐标
+        -->
+    <style>
+        /* 移动盒子的位置：定位 盒子外边距 2d转换移动 */
+        .yi {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            transform: translate(100px,100px);
+            /*        下面两个只能一次使用一个         */
+            /* transform: translateX(100px); */
+            /* transform: translateY(100px); */
+        }
+        /*    translate不影响其他盒子的位置     */
+        /*    translate不影响其他盒子的位置     */
+        /*    translate不影响其他盒子的位置     */
+        /* translate对行内元素无效  */
+        /* translate对行内元素无效  */
+        /* translate对行内元素无效  */
+        .er {
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="yi"></div>
+    <div class="er"></div>
+</body>
+</html>

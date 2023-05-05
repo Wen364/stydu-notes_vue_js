@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 堆叠顺序用z-index：；来解决
+           谁的数值大，谁就在上面
+        */
+
+        /* 只有定位的盒子才有z-index属性 */
+        
+        .box {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+        }
+        .xiongda {
+            z-index: 4;
+            background-color: red;
+            
+        }
+        .xionger {
+            z-index: 3;
+            background-color: greenyellow;
+            top: 50px;
+            left: 50px;
+        }
+        .qiangge {
+            z-index: 2;
+            background-color: pink;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box xiongda">熊大</div>
+    <div class="box xionger">熊二</div>
+    <div class="box qiangge">强哥</div>
+</body>
+</html>

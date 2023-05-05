@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* nth-child()会把所有的盒子都排列序号
+           执行的时候首先看 :nth-child() 之后回去看 前面的div 
+           简单点就是说 第一个元素是div的，都没有符合的 */
+        section div:nth-child(1) {
+            background-color: skyblue;
+        }
+        section div:nth-of-type(2) {
+            background-color: red;
+        }
+        /* nth-of-type()会把所有的盒子都排列序号
+           执行的时候首先看 div 之后回去看 nth-of-type
+           就是先对每个不同的元素排序，然后再找 */
+    </style>
+</head>
+<body>
+    <section>
+        <p>哈哈哈哈哈哈哈</p>
+        <div>哈哈哈哈</div>
+        <div>哈哈嗨</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        li {
+            /* display: block; */
+            color: palevioletred;
+            width: 200px;
+            background-color: pink;
+            margin-top: 30px;
+        }
+        textarea {
+            color: black;
+            font-weight: bold;
+            border: 1px solid pink;
+            outline: none;
+        }
+        li a {
+            float: right;
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button id="fb">发布</button>
+        <!-- <button id="sc">删除留言</button> -->
+        <ul>
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+    </div>
+    <script>
+        var btn_fb = document.getElementById('fb')
+        var text = document.querySelector('textarea')
+        var ul = document.querySelector('ul')
+        //  添加留言
+        btn_fb.onclick = function () {
+            if (text.value == '') {
+                alert('请输入内容')
+            }
+            else {
+                // 1.创建元素
+                var li = document.createElement('li')
+                //  必须先有 li 才能赋值
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>" 
+                // 在链接里面 写入了 javascript:;  意思是 阻止链接跳转 这样地址栏就不会有 ' # '！！！
+
+                // 2. 添加元素
+                ul.insertBefore(li,ul.children[0]) // 在 ul 里面 子节点的 第一个元素前 插入节点
+                text.value = ''  // 清空 文本域 里面的文字
+
+                // 3.删除元素 删除的是当前链接的 li 他的父类 (必须放在点击事件里面才能获取到数组的值！！！)
+                var a = document.querySelectorAll('a')
+                for (var i = 0; i < a.length; i++) {
+                    a[i].onclick = function () {
+                        ul.removeChild(this.parentNode)
+                        // this.parentNode.remove()  // 他和上面的是等价的
+                        //  因为 this 指向的是 链接a， 链接a 在li里面 所以 li 是 链接a 的 父类
+                    }
+                }
+            }
+        }
+        // btn_sc.onclick = function () {
+        //     ul.removeChild(ul.children[ul.children.length - 1]) // 从最后一个li节点开始删除
+        //     ul,removeChild(ul.children[0]) //  从第一个li节点开始删除
+        // }
+    </script>
+
+</body>
+</html>

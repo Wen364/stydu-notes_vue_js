@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jquery.min.js"></script>
+    <link rel="stylesheet" href="../../案例/css/bootstrap.css">
+</head>
+
+<body style="padding: 15px;">
+    <form class="panel  panel-primary" id="formAdd">
+        <div class="panel-heading">
+            <h3 class="panel-title">发表评论</h3>
+        </div>
+        <div class="panel-body">
+            <div style="margin: 5px;">评论人：</div>
+            <input type="text" class="form-control" id="plPerson" name="username">
+            <div style="margin: 5px;">评论内容：</div>
+            <textarea class="form-control" id="plContent" name="content"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin: 5px;" id="fbBtn">发表评论</button>
+        </div>
+    </form>
+    <!-- 评论列表 -->
+    <ul class="list-group" id="plList">
+        <!-- <li class="list-group-item">
+            <span class="badge" style="background-color: #f0ad4e;">评论时间：</span>
+            <span class="badge" style="background-color: #5bc0de;">评论人：</span>
+            item1
+        </li> -->
+    </ul>
+    <script>
+        $(function () {
+            // 获取评论列表
+            function getCommentList() {
+                $.ajax({
+                    method: 'get',
+                    url: ' http://www.liulongbin.top:3006/api/cmtlist',
+                    data: {},
+                    success: function (res) {
+                        if (res.status !== 200) return alert('获取失败')
+                        // console.log(res);
+                        let list = []
+                        $.each(res.data, function (index, item) {
+                            list.push(`<li class="list-group-item">
+            <span class="badge" style="background-color: #f0ad4e;">评论时间：${item.time}</span>
+            <span class="badge" style="background-color: #5bc0de;">评论人：${item.username}</span>
+            ${item.content}
+        </li>`)
+                            $('#plList').empty().append(list)
+                        })
+                    }
+                })
+            }
+            getCommentList()
+
+            // 发表评论列表
+            // 不用表单的方式
+            // $('#fbBtn').on('click',function() {
+            //     // 获取评论内容和评论人
+            //     let username = $('#plPerson').val().trim()
+            //     let content = $('#plContent').val().trim()
+            //     $.ajax({
+            //         method:'post',
+            //         url:'http://www.liulongbin.top:3006/api/addcmt',
+            //         data:{
+            //             username:username,
+            //             content:content
+            //         },
+            //         success:function(res) {
+            //             if(res.status != 201) return alert('发表评论失败')
+            //             // 否则就重新获取评论列表
+            //             getCommentList()
+            //             // 然后让输入内容清空
+            //             $('#plPerson').val('')
+            //             $('#plContent').val('')
+            //         }
+            //     })
+            // })
+
+            // 用表单的方式
+            $('#formAdd').on('submit', function (e) {
+                // 阻止表单默认行为和跳转页面
+                e.preventDefault()
+                // 获取表单内容 必须有 name 属性
+                let list = $(this).serialize()
+                console.log(list);
+                $.post('http://www.liulongbin.top:3006/api/addcmt', list, function (res) {
+                    if (res.status != 201) return alert('发表评论失败')
+                    // 否则就重新获取评论列表
+                    getCommentList()
+                    // 然后让输入内容清空
+                    // 需要把jQuery对象转换为 DOM对象 这是固定写法 然后使用reset() 来重置表单数据
+                    $('#formAdd')[0].reset()
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

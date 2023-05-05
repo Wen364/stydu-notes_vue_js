@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-flow</title>
+    <style>
+        div {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+            justify-content: center;
+            align-content: center;
+               /* 侧轴居中 */
+            flex-flow: row wrap;
+            /* flex-flow 是flex-direction和flex-wrap 属性的 复合属性 */
+            
+            
+        }
+        span {
+            height: 100px;
+            width: 150px;
+            background-color: skyblue;
+            margin: 10px;   
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transform-style:
+             要给父级写
+        */
+            /* body {
+                perspective: 500px;
+            } */
+        .father {
+            perspective: 500px;
+        }
+        .father {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin: 100px auto;
+            transition: all 2s;
+            transform-style: preserve-3d;
+            /* 要给父级写 */
+            /* 表示开启3d空间 
+                默认是不开启false
+             */
+        }
+        .father:hover {
+            transform: rotateY(60deg);
+        }
+        .father div:first-child {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+        }
+        .father div:last-child {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            transform: rotateX(60deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

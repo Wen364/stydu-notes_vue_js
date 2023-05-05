@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .hah {
+            height: 100px;
+            width: 50px;
+            margin: 200px auto;
+
+        }
+        .box {
+            /* float: left; */
+            /* background-color: skyblue; */
+            /* width: 100px; */
+            text-align: center;
+        }
+        .box_1 li{
+            display: none;
+            /* float: left; */
+            /* background-color: pink; */
+            /* width: 120px; */
+            /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+    <div class="hah" id="hh">
+        <div class="box_1" id="father">
+            别碰我
+            <!-- <div class="box" >  </div> -->
+            <ul>
+                <li><a href="#">123</a></li>
+                <li><a href="#">253</a></li>
+                <li><a href="#">你摊</a></li>
+                <li><a href="#">哈哈哈</a></li>
+                <li><a href="#">哈哈哈</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        var fir = document.getElementById('father')
+        // var boxs = document.getElementsByClassName('box_1')
+        var ul = document.querySelector('ul')
+        var lis = ul.children
+        console.log(lis);
+        fir.onmousemove = function() {
+            for(var i = 0; i < lis.length; i++) {
+                lis[i].style.display = 'block'
+            }
+        }
+        fir.onmouseout = function() {
+            for(var i = 0; i < lis.length; i++) {
+                lis[i].style.display = 'none'
+            }
+        }
+        // fir.onmouseover = function() {
+        //     for (var i = 0; i < lis.length; i++) {
+        //         lis[i].style.display = 'block'
+        //     }
+        // }
+        // fir.onmouseout = function() {
+        //     for (var i = 0; i < lis.length; i++) {
+        //         lis[i].style.display = 'none'
+        //     }
+        // }
+    </script>
+
+</body>
+</html>

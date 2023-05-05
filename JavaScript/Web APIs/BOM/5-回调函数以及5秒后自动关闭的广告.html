@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/ad.jpg" alt="">
+    </div>
+    
+    <script>
+        // window.setTimeout(调用函数,延迟的毫秒数)
+        // 其中这个调用函数我们也称为 回调函数(callback)
+        // 普通函数是按照代码顺序直接调用的，而这种函数需要等待时间，时间到了才去调用这个函数，因此称为回调函数
+        // 简单理解：回调，就是回头调用的意思 上一件事干完了 在回头调用这个函数
+
+        // 5秒后自动关闭的广告
+        var div = document.querySelector('div')
+        setTimeout(function () {
+            div.style.display = 'none'
+        }, 5000)
+    </script>
+</body>
+</html>

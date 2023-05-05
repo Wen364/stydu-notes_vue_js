@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise.any 只要参数实例有一个变成 fulfilled 状态，包装实例就会变成fulfilled状态，
+        // 如果所有参数实例都是rejected状态，包装实例就会变成rejected状态
+        let ajax = function () {
+            return new Promise((resolve,reject) => {
+                reject(1111)
+            })
+        }
+        let ajax1 = function () {
+            return new Promise((resolve,reject) => {
+                reject(2222)
+            })
+        }
+        let ajax2 = function () {
+            return new Promise((resolve,reject) => {
+                reject('error')
+            })
+        }
+        Promise.any([ajax(),ajax1(),ajax2()]).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        })
+        // 如果全错误 则执行catch 否则返回成功的那个
+    </script>
+</body>
+</html>

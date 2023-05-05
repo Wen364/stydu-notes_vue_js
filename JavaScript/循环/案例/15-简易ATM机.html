@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var j = 1
+        var num = 100
+        while(j <= 5) {
+            var i = prompt('请输入您要的操作：'+'\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出')
+            if(i == 1) {
+                var money = prompt('请输入存入的钱数：')
+                num = num + parseFloat(money) 
+                alert('现有余额' + num  + '元')
+                continue
+            }
+            if(i == 2) {
+                var qu = prompt('请输入取走的钱数：') 
+                num = num - parseFloat(qu)
+                alert('现有余额' + num + '元')
+                continue
+            }
+            if(i == 3) {
+                alert('现有余额' + num + '元')
+                continue
+            }
+            if(i == 4) {
+                alert('正在退出')
+                break
+        }
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

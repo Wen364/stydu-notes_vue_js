@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            width: 100;
+            height: 100px;
+            background-color: pink;
+            /* 把行内元素 a 转换为 块级元素  */
+            display: block;
+        }
+        div {
+            /* width: 100;
+            height: 100px; */
+            background-color: red;
+            /* 把块级元素转换为行内元素 */
+            display: inline;
+        }
+        /* a.link { 
+            background-color: black;
+        }
+        a:hover {
+            background-color: red;
+        } */
+        span {
+            /* 行内元素转换为行内块元素 */
+            display: inline-block;
+            width:100;
+            height: 100px;
+            background-color: greenyellow;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- 特殊情况下我们需要把元素转换为块级元素，比如<a>
+         -->
+    <a href="#">金星</a>
+    <a href="#">金星</a>
+    <div>我是块级元素</div>
+    <div>我是块级元素</div>
+    <span>行内元素转换为行内块元素</span>
+    <span>行内元素转换为行内块元素</span>
+
+</body>
+</html>

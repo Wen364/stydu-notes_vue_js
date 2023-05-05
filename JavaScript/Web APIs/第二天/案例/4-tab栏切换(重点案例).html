@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .box {
+            height: 500px;
+            width: 1000px;
+            margin: 100px auto;   
+        }
+        .box_up {
+            height: 45px;
+            width: 800px;
+            text-align: center;
+            line-height: 45px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+
+        }
+        .box_up  li {
+            float: left;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        .box_down {
+            height: 200px;
+            width: 800px;
+            /* background-color: pink; */
+        }
+        .box_down li {
+            display: none;
+        }
+        .dj {
+            background-color: red;
+            color: #fff;
+        }
+        .gq {
+            background-color: '';
+            color: '';
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box_up">
+            <ul>
+                <li class="dj">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价(50000)</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="box_down">
+            <li class="box_down_1" style="display: block;">商品介绍模块</li>
+            <li class="box_down_2">规格与包装模块</li>
+            <li class="box_down_3">售后保障模块</li>
+            <li class="box_down_4">商品评价模块</li>
+            <li class="box_down_5">手机社区模块</li>
+        </div>
+    </div>
+    <script>
+        var lis = document.querySelector('.box_up').querySelectorAll('li')
+        var lis_down = document.querySelector('.box_down').querySelectorAll('li')
+        // 鼠标点击变色  利用排他思想（1.清除所有样式 2.只留下自己）
+        for (var i = 0; i < lis.length; i++) {
+            // 让上面的每一个都有一个 index 值
+            lis[i].setAttribute('index',i)
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = ''
+                }
+                this.className = 'dj'
+                // 设置一个 变量 index 来记录当前点击的 index 值 好让下面来和他对应
+                var index = this.getAttribute('index')
+                // 继续使用排他思想，干掉所有的，只让自己和对应的 index 显示
+                for (var i = 0; i < lis.length; i++) {
+                    lis_down[i].style.display =  'none'
+                }
+                // 留下自己 让他和对应的元素显示出来
+                lis_down[index].style.display = 'block' 
+            }
+        }
+        
+    </script>
+</body>
+</html>

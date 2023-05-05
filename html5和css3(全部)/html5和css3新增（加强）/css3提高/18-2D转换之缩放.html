@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transform:scale(x,y); */
+        /* 注意：
+                1.x和y 之间用 “逗号” 隔开
+         */
+         /* scale的优势之处：不会影响其他的盒子，而且可以设置缩放的中心点
+            他是等比例放大或者缩小     不像直接改变盒子大小那样，改变盒子高度后盒子会向下扩大
+         */
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 1s;
+            
+        }
+        div:hover {
+            /* 
+            transform: scale(2,2);
+            长和宽都变为原来的二倍
+            transform: scale(1,2);
+            长度不变，宽度变为原来的二倍
+            transform: scale(2);
+            长和宽都变为原来的二倍 
+            */
+            transform: scale(0.5);  
+            /* 长和宽都缩小为原来的一倍 */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D移动</title>
+    <style>
+        /* transform的 z轴 是指向屏幕的 而且一般单位都用px */
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            /* transform: translateX(100px);
+            transform: translateY(100px);
+            这样写有两个transform 他会重叠掉上面那个
+            */
+            transform: translateX(100px) translateY(100px) translateZ(100px);
+            /* 这种就不会 */
+            /* transform: translateZ(100px); 
+                          他是向外移动100px
+            */
+            /* transform: ;的简单写法 */
+            transform: translate3d(x,y,z);
+            /*     前面必须有个3d  
+                 x y z都是不能省略的 
+                 transform:translate3d(0,100px,100px);
+            */
+
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        axios 是 专注于 网络数据请求 的库
+     -->
+
+     <!-- 
+        1.axios 发起 get 请求的语法：
+        axios.get('url',{params: {/*参数*/} }).then(callback)
+
+        2.axios 发起 post 请求的语法：
+        axios.post('url', {/*参数*/} ).then(callback)
+      -->
+     <!-- 导入 axios 库 -->
+     <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js"></script>
+</head>
+<body>
+    <button id="btn">发送get请求</button>
+    <button id="btn1">发送post请求</button>
+    <script>
+
+        // 使用 axios 发起 get 请求
+
+        document.querySelector('#btn').addEventListener('click',function() {
+            let url = 'http://www.liulongbin.top:3006/api/get'
+            let parmaObj = {name : 'zs', age: 20}
+            axios.get(url, {params : parmaObj}).then(function(res) {
+                let result = res.data
+                console.log(result);
+            })
+        })
+
+
+        //  使用 axios 发起 post 请求
+
+        document.querySelector('#btn1').addEventListener('click',function() {
+            let url = 'http://www.liulongbin.top:3006/api/post'
+            let dataObj = {location : '北京' , address : '顺义'}
+            axios.post(url,dataObj ).then(function(res) {
+                let result = res.data
+                console.log(result);
+            })
+        }) 
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        function $(ele) {  // 自己封装的$函数 不是jQuery的
+            return document.querySelector(ele)
+        }
+        console.log($('div'));
+        // 1.当其他的库里面也有 $ 符号时，会发生符号冲突，我们就可以使用 jQuery
+        // 这个时候不能用$，因为上面定义了一个 $的函数，会发生符号冲突，导致报错
+        console.log(jQuery('div'));
+        // 2.让 jQuery 释放 $ 控制权， 让用户自己决定
+        var hh = jQuery.noConflict()  // 让 hh 变成 $ 符号
+        console.log(hh('span'));
+    </script>
+</body>
+</html>

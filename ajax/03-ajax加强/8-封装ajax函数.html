@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 处理 data 参数方法
+        // 先设置一个空数组，然后 使用 for in 来遍历对象 然后 使每个对象的key 和 value 都再一个 str 里
+        // 然后再加入空数组里面 最后 使用 join 来用 & 拼接 每个元素
+        function resolveData(data) {
+            let arr = []
+            for (var k in data) {
+                var str = k + "=" + data[k]
+                arr.push(str)
+            }
+            return arr.join('&')
+        }
+        // var res = resolveData({name:'zs',age:20})
+        // console.log(res);
+        // name=zs&age=20
+
+        function ajax(options) {
+            let xhr = new XMLHttpRequest()
+            
+            // 外界传递的参数对象转化为查询字符串
+            let qs = resolveData(options.data)
+
+            // 判断发起请求的类型
+            if (options.method.toUpperCase() === 'GET') {
+                // 发起 get 请求
+                xhr.open(options.method,options.url + '?' + qs)
+                xhr.send()
+            }
+            else if(options.method.toUpperCase() === 'POST') {
+                // 发起 post 请求
+                xhr.open(options.method,options.url)
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+                xhr.send(qs)
+            }
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    let str = JSON.parse(xhr.responseText)
+                    options.success(str)
+                }
+            }
+        }
+
+        // ajax({
+        //     method:'get',
+        //     data:{
+        //         id:1
+        //     },
+        //     url:'http://www.liulongbin.top:3006/api/getbooks',
+        //     success: function(res) {
+        //         console.log(res);
+        //     }
+        // })
+        ajax({
+            method:'post',
+            url:'http://www.liulongbin.top:3006/api/addbook',
+            data:{
+                bookname:'水浒传',
+                author:'施耐庵',
+                publisher:'哈哈哈哈'
+            },
+            success : function(res) {
+                console.log(res);
+            }
+        })
+      
+    </script>
+</body>
+</html>

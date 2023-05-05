@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        span {
+            position: absolute;
+            top: 250px;
+            left: 0;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button>点击了下面的盒子才会走</button>
+    <div class="box"></div>
+    <span></span>
+    <script>
+        // var obj = {}
+        // obj.name = 'andy'
+        // 封装的动画函数需要两个参数，动画对象obj和移动的距离distance  要求对象obj必须是有定位的
+        // 我们可以给不同的元素指定不同的定时器，利用对象来操作
+
+        function animate(obj,distance) {
+            // 当我们不断点击按钮后，下面的span盒子就会速度越来越快，则是因为点击一次就给他加一个定时器
+            // 想要解决这个问题，就要只给它一个定时器
+            // 方法就是 在每次判断前先清除定时器，这样就能保证只要一个定时器了
+            clearInterval(obj.timer)
+            //  obj.timer 相当于给当前对象自己创建了一个定时器，开发中经常这样写
+            obj.timer = setInterval(function() {    
+                if (obj.offsetLeft >= distance) {
+                    clearInterval(obj.timer)  // 想要清除计时器也只需要清除当前对象里面的timer就可以了
+                } else {
+                    obj.style.left = obj.offsetLeft + 5 + 'px'
+                }
+            },30)
+        }
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        var btn = document.querySelector('button')
+        // 调用函数
+        animate(div,500)
+        btn.addEventListener('click', function() {
+            animate(span,500)
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Car(weight,color,brand,zr,lh,gt) {
+            this.weight = weight
+            this.color = color
+            this.brand = brand
+            this.zr = function(zrs) {
+                console.log(zrs);
+            }
+            this.lh = function(lhs) {
+                console.log(lhs);
+            }
+            this.gt = function(gts) {
+                console.log(gts);
+            }
+        }
+        var bm = new Car('200kg','red','宝马')
+        console.log(bm['brand']);
+        console.log(bm.color);
+        bm.zr('可以载人')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

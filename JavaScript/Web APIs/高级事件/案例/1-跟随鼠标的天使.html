@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            cursor: none;   
+            /* 隐藏鼠标光标 */
+        }
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="../images/angel.gif" alt="">
+    <script>
+        // 案例分析：
+        // 1.移动鼠标事件： mousemove
+        // 2.因为在页面中移动，所以给document注册事件
+        // 3.因为图片不能占位置，所以需要使用绝对定位
+        // 4.核心原理：鼠标每次移动，都能获得鼠标不同的坐标，把这个x和y 的坐标作为图片的left和top值就可以移动图片
+        var img = document.querySelector('img')
+        document.addEventListener('mousemove',function(e) {
+            img.style.top =  e.pageY - 50 + 'px'  
+            img.style.left =  e.pageX -40 + 'px' 
+        })
+
+    </script>
+</body>
+</html>

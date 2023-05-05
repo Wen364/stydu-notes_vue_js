@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div getTime="20" data-index="5" data-list-name="andy"></div>
+    <script>
+        var div = document.querySelector('div')
+        console.log(div.getTime);  //  因为是自定义属性 所以不能被识别 结果为 undefined
+         
+        console.log(div.getAttribute('getTime')); // 20
+
+        //   H5规定了自定义属性 需要用 data-  开头
+        div.setAttribute('data-time',12)
+        console.log(div.getAttribute('data-time'));
+        console.log(div.getAttribute('data-index'));
+
+        //  H5 新增了 element.dataset.index 或者 element.dataset['index'] 
+        console.log(div.dataset.time);
+        console.log(div.dataset); // dataset 其实就是一个集合里面包含了  存放了所有以data开头的属性
+        console.log(div.dataset['index']);
+
+        console.log(div.getAttribute('data-list-name'));
+        console.log(div.dataset.listName);  
+        // 如果自定义属性里面有多个链接单词 我们获取时候 需要采取驼峰命名法
+        console.log(div.dataset['listName']);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Father (uname,age) {
+            this.uname = uname
+            this.age = age
+        }
+        Father.prototype.money = function() {
+            console.log(1000);
+        }
+        // 这样直接赋值有问题，如果修改了子原型对象，父原型对象也会被修改
+        // Son.prototype = Father.prototype 
+
+        Son.prototype = new Father ()
+        // 如果利用对象的形式修改了原型对象，一定要利用constructor 指回原来的构造函数
+        Son.prototype.constructor = Son
+
+        // 2.子构造函数
+        function Son(uname,age,score) {
+            // 把 this指向子构造函数的对象实例
+            Father.call(this,uname,age)
+            this.score = score
+        }
+        Son.prototype.exam = function() {
+            console.log('要考试');
+        }
+        var son = new Son('刘德华',18,50)
+        console.log(son);
+        console.log(Father.prototype);
+        console.log(Son.prototype.constructor);
+    </script>
+    
+</body>
+</html>

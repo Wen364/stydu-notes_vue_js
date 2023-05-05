@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #father {
+            color: red;
+        }
+        p {
+            color: pink;
+        }
+        /* 继承的权重是 0 */
+        /* 所以我么你以后看标签到底选择哪个样式，就看这个标签是否被直接选出来 */
+        /* 子类继承父类的权重为0，不管父类权重多大，子类的是0 */
+        body {
+            color: green;
+        }
+        /* a链接 浏览器默认指定了一个样式 蓝色 有下划线 a{color: blue} */
+        a {
+            /* 需要专门给 a 写一个样式，才会改变 a 的颜色 */
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <p>给哈哈哈</p>
+    </div>  
+    <a href="#">我是单独的样式</a>
+
+</body>
+</html>

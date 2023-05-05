@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  数组删除 splice(从第几个开始,要删除个数) 
+        
+        var arr = ['angel', 'clown', 'trumpet', 'sturgeon'];
+
+        arr.splice(1,1,'green')  // 表示 从索引为 1 的位置 删除一个元素 然后插入 'green'
+
+        console.log(arr);  // ['angel', 'green', 'trumpet', 'sturgeon']
+
+        arr.splice(0,2) // 表示从索引为 0 的位置开始 删除两个元素
+
+        console.log(arr); // ['trumpet', 'sturgeon']
+
+        var arr1 = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+
+        arr1.splice(-2,1)  // 表示从数组中倒数第二个元素 的位置 删除一个元素 
+
+        console.log(arr1);  // ['angel', 'clown', 'drum', 'sturgeon']
+
+        arr1.splice(1,0,'哈哈','嘻嘻')  // 表示从索引为 1 的位置删除 0 个元素 然后插入 '哈哈','嘻嘻'
+
+        console.log(arr1);  // ['angel', '哈哈', '嘻嘻', 'clown', 'drum', 'sturgeon']
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

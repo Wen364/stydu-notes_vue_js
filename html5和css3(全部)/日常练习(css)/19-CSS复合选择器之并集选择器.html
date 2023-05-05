@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>并集选择器（重要）</title>
+    <style>
+        /* 要求1：请将熊大翠花选出来改为粉色 */
+        div,p {
+            color: pink;
+        }
+        /* 要求2：请将熊大和翠花改为粉色，还有小猪佩奇和下面的改为粉色 */
+        div,p, .pig li {
+            color: pink;
+        }
+        /* 约定的语法规范：并集选择器喜欢竖着写 */
+        /* 一定要注意，最后一个选择器 不需要加逗号 */
+    </style>
+</head>
+<body>
+    <!-- 并集选择器可以选择多组标签 -->
+    <div>熊大</div>
+    <p>翠花</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪猪侠</li>
+        <li>超级飞侠</li>
+    </ul>
+</body>
+</html>

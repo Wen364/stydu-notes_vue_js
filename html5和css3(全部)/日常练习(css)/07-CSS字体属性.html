@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体属性练习</title>
+    <style>
+        h2 {
+            font-family: '微软雅黑';
+        }
+        p {
+            font-family: 'Microsoft YaHei';
+            /* 一般字体都用英文来书写，比如微软雅黑=Microsoft YaHei */
+        }
+        .shuai {
+            font-family: Arial, "Microsoft YaHei", "微软雅黑";
+            /* 多个字体的选择是依次选择，如果第一种字体系统没有，那就选择第二种，如果第二种没有，那就第三种 */
+            /* 多个单词的用引号标记，单个单词的用英文的逗号,隔开就行 */
+        }
+
+    </style>
+</head>
+<body>
+    <h2>黄鹤楼送孟浩然之广陵</h2>
+    <p>唐</p>
+    <p>李白</p>
+    <p class="shuai">故人西辞黄鹤楼，</p>
+    <p>烟花三月下扬州。</p>
+    <p>孤帆远影碧空尽，</p>   
+    <p>唯见长江天际流。</p>        
+</body>
+</html>

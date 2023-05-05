@@ -1,0 +1,25 @@
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    a {
+        color: skyblue;
+        &:hover {
+            color: blue;
+            // 如果有伪类 交集选择器 伪元素选择器 我们内层选择器的前面需要加 &
+        }
+    }
+    // 1. less嵌套 子元素的样式直接写道父元素里面就行
+}
+.nav {
+    height: 300px;
+    width: 300px;
+    background-color: red;
+    .logo {
+        color: green;
+    }
+    &::before {
+        content: '';
+        
+    }
+}

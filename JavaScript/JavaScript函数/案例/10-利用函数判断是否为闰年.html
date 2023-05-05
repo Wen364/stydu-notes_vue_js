@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function isR(year) {
+        //     var year = prompt('请输入一个年份：')
+        //     if (year % 4 ==0 && year % 100 != 0 || year % 400 == 0) {       
+        //         return alert( year +'是闰年')
+        //     }
+        //     return alert(year + '不是闰年')
+        // }
+        // isR()
+        function isRunYear(year) {
+            var flag = false
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                flag = true
+            }
+            return flag
+        }
+        console.log(isRunYear(2000));
+        console.log(isRunYear(1999));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 现有标准的父元素排列上下位置,之后内部子元素采取浮动排列左右位置,符合网页布局第一准则 */
+        div {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: purple;
+            /* text-align: center; */
+            /* line-height: 100px;      */
+            /* margin: 100px auto; */
+        }
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .two {
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+        }
+        .three {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="one"></div>
+        <div class="two"></div>
+    </div>
+    <div class="three"></div>
+</body>
+</html>

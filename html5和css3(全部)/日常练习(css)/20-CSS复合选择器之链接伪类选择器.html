@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器(重要）</title>
+    <!-- 伪类选择器用：表示    例如  :hover，:first-hood -->
+    <!-- a:link   未被点击过的 -->
+    <!-- 选择所有未被访问的链接 -->
+    <!-- a:visited   已被点击过的 -->
+    <!-- 选择所有已被访问的链接 -->
+    <!-- a:hover  鼠标经过的 -->
+    <!-- 选择鼠标指针位于其上的链接 -->
+    <!-- a:active  鼠标按下还没有弹起鼠标的那个链接 -->
+    <!-- 选择活动链接（鼠标按下未弹起的链接） -->
+    <style>
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+        a:visited {
+            color: blue;
+        }
+        a:hover {
+            color: red;
+        }
+        a:active {
+            color: green;
+        }
+        /* 顺序不能变！！！ */
+
+        
+
+    </style>
+</head> 
+<body>
+    <a href="#">小猪佩奇</a>
+    <a href="#">百度一下</a>
+    <a href="#">哈啊哈</a>
+    
+</body>
+</html>

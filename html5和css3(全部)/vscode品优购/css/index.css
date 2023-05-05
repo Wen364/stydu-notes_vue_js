@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?yhujfl');
+    src:  url('../fonts/icomoon.eot?yhujfl#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?yhujfl') format('truetype'),
+      url('../fonts/icomoon.woff?yhujfl') format('woff'),
+      url('../fonts/icomoon.svg?yhujfl#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+.main {
+    height: 455px;
+    width: 980px;
+    margin-left: 220px;
+    margin-top: 10px;
+    /* background-color: pink; */
+
+}
+.main .focus {
+    position: relative;
+    float: left;
+    height: 455px;
+    width: 721px;
+    overflow: hidden;  /* 把其他几张图片溢出隐藏起来 */
+}
+.focus ol {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: .9;
+}
+.current {
+    background: #fff;
+}
+.focus ol li {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #999;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.focus ul {
+    position: absolute;
+    left: 0;
+    width: 500%;
+}
+.main .focus li {
+    float: left;
+}
+.main .focus .leftarrowhead a, .rightarrowhead a{
+    display: none;
+    display: inline-block;
+    height: 50px;
+    width: 30px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    background-color: #ccc ;
+    opacity: .5;
+    z-index: 1;
+}
+.leftarrowhead {
+    position: absolute;
+    left: 0;
+    top: 200px;
+}
+.rightarrowhead {
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+.main .newsflash {
+    float: right;
+    height: 455px;
+    width: 250px;
+    /* margin-left: 10px; */
+    border: 1px solid #e4e4e4;
+    /* background-color: skyblue; */
+}
+.main .news {
+    height: 165px;
+    width: 250px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.newsflash .news h3 {
+    height: 35px;
+    width: 250px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 35px;
+    border-bottom: 1px dashed #e8e8e7;
+}
+.newsflash h3::after {
+    content: '更多  >';
+    float: right;
+    margin-right: 15px;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: 'icomoon';
+}
+.newsflash .news ul li,h3 {
+    padding-left: 15px;
+    margin: 0 auto;
+}
+.newsflash .news ul li {
+    /* text-align: center; */
+    padding-top: 6px;
+}
+.newsflash .news ul li a:nth-child(2n+1):before {
+    content: '[特惠]';
+    font-weight: 700;
+    margin-right: 5px;
+
+}
+.newsflash .news ul li a:nth-child(2n):before {
+    content: '[公告]';
+    font-weight: 700;
+    margin-right: 5px;  
+}
+.lifeservice {
+    overflow: hidden;
+    height: 209px;
+    width: 250px;
+    border-top: 0;
+}
+.lifeservice ul {
+    width: 252px;
+}
+.lifeservice ul li {
+    float: left;
+    height: 69px;
+    width: 63px;
+    border-bottom: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    text-align: center;
+}   
+.lifeservice ul li i {
+    display: inline-block;
+    height: 28px;
+    width: 24px;
+    text-align: center;
+    margin-top: 12px;
+    /* margin-left: 5px; */
+    background-color: pink;
+}
+.bargain {
+    margin-top: 4px;
+}
+
+    /* 推荐模块 star */
+.recom {
+    height: 163px;
+    background-color: #ebebeb;
+    margin-top: 10px;
+}    
+.recom_left {
+    float: left;
+    height: 163px;
+    width: 205px;
+    background-color: #5c5251; 
+    padding-top: 40px;
+    text-align: center;
+    
+}
+.recom_right {
+    float: left;
+}
+.recom_right ul li {
+    position: relative;
+    float: left;
+}
+.recom_right ul li:nth-child(2n-1)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    height: 145px;
+    width: 2px;
+    background-color: #ddd;
+}
+        /* 电梯导航 */
+.fixedtool {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 80px;
+    /* margin-left: -676px; */
+    width: 66px;
+    background-color: #fff;
+}
+.fixedtool li {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-style: 12px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+.current1 {
+    background-color: red;
+    color: #fff;
+}
+       /* 电梯导航end */
+
+         /* floor楼层区域 start */
+.floor_top {
+    height: 38px;
+    line-height: 38px;
+    /* background-color: pink; */
+    margin-top: 20px;
+    border-bottom: 2px solid #c81623;
+}         
+.floor_top span {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+}
+.tab_list {
+    float: right;
+    margin-right: 10px;
+}
+.tab_list ul li {
+    float: left;    
+} 
+.tab_list ul li:nth-child(2n)::after {
+    content: '|';
+    margin: 0 15px;
+}
+.floor_bottom {
+    height: 361px;
+    background-color: #ffffff;
+}
+.tab_list_item >div {
+    float: left;
+}
+.col_210 {
+    width: 210px;
+    background-color: #f9f9f9;
+}
+.col_210 ul {
+    padding-left: 12px;
+}
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 34px;
+    margin-right: 10px;
+}
+.col_329 {
+    width: 329px;
+}
+.col_221 {
+    width: 221px;
+}
+.col_219 {
+    width: 219px;
+}

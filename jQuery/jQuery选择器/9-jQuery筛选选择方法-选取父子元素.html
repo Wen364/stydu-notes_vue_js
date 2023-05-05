@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery筛选选择方法-选取父子元素(重点)</title>
+    <script src="../jquery.min.js"></script>
+    <!--
+         //     语法                          用法                                说明
+        //  parent()                  $('li').parent()                  查找父级
+        //  children(selector)        $('ul').children('li')            相当于$('ul>li'),最近一级(亲儿子)
+        //  find(selector)            $('ul').find('li')                相当于$('ul li'),后代选择器
+        //  siblings(selector)        $('.first').siblings('li')        查找兄弟节点，不包括自己本身
+        //  nextAll([expr])           $('.first').nextAll()             查找当前元素之后的同辈元素
+        //  pretAll([expr])           $('.last').pretAll()              查找当前元素之前的同辈元素
+        //  hasClass(class)           $('div').hasClass('protected')    检查当前的元素是否含有某个特定的类，
+                                                                        如果有，则返回 true
+        //  eq(index)                 $('li').eq(2)                     相当于$('li:eq(2)') index从0开始 
+    -->
+</head>
+<body>
+    <div class="yeye">
+        <div class="father">
+            <div class="son">儿子</div>
+        </div>
+    </div>
+    
+    <div class="nav">
+        <p>我是1</p>
+        <div>
+            <p>我是p</p>
+        </div>
+    </div>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li class="item">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <ul>
+        <li>6</li>
+        <li>7</li>
+        <li class="bro">8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <h1 class="current"></h1>
+    <h1></h1>
+    <script>
+        //  都是方法 所以带括号
+        $(function() {
+            // 1.父  parent()  返回的是 最近一级 的 父级元素
+            console.log($('.son').parent());
+            // 2.子
+            // (1) 只选最亲一级的 子级  (只选亲儿子) children()
+            console.log($('.nav').children('p').css('background','red'));
+            // (2) 可以选里面所有的孩子 包括 儿子 和 孙子
+            console.log($('.nav').find('p').css('color','red'));
+            // 3.兄弟元素
+            console.log($('ol .item').siblings('li').css('color','red')); //查找除了自己以外的兄弟节点
+            // 4.第n个元素
+            $('ol li:eq(1)').css('background','red')
+            $('ol li').eq(2).css('background','pink')  // 这两个方式等价
+            // 5.判断是否有某个类名
+            console.log($('h1:first').hasClass('current'));  // 判断第一个 h1 是否有current类名  有的话返回 true 没有就是false
+            console.log($('h1:last').hasClass('current'));  // false
+            // 6.同辈之前的所有元素 $('.first').prevAll() 和同辈之后的所有元素 $('.first').nextAll()  都不包括自己本身
+            $('.bro').prevAll().css('background','pink')
+            $('.bro').nextAll().css('background','red')
+        })
+    </script>
+</body>
+</html>

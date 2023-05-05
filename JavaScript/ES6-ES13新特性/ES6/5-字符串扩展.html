@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1- includes(obj,start)
+        // obj 是 要判断的字符  start 是从哪位开始   
+        let name = 'andy'
+        //  判断 name字符串里，是否包含 n 如果包含则返回 true 否则返回 false
+        console.log(name.includes('n'));  // true
+        console.log(name.includes('nd')); // true
+        
+        // 2- startsWith(obj,start)  判断是否有改字符开头
+        console.log(name.startsWith('a')); // true
+
+        // 3- endsWith(obj,start)  判断是否以 该字符结尾
+        //  这里的 start 是以 最后一个字符往前数的
+        console.log(name.endsWith('y'));  // true
+
+        // 4- repeat(number)  重复字符串
+        //  number 是重复的次数  如果重复 0 次 则会返回空字符串
+        console.log(name.repeat(2));  // andyandy  就是把 字符串andy 重复两次
+
+        // 5- 
+        </script>
+    
+</body>
+</html>

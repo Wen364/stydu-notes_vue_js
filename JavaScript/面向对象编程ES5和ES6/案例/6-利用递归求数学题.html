@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 利用递归函数求 1~n 的阶乘 1*2*3*...n
+        var sum = 0
+        function fn(n) {
+            if (n == 1) {
+                return 1
+            }
+            return n * fn(n - 1)
+            // 就是依次递减相乘，当 n == 1 时 就停止递归 重复触发函数，自己调用自己，就是递归
+        }
+        console.log(fn(5));
+
+        // 兔子序列 1、1、2、3、5、8、13、21 ...
+        // 利用递归函数 用户输入一个 n 就可以求出这个数字对应的兔子序列值
+        function fun(n) {
+            if (n == 1 || n == 2) {
+                return 1
+            }
+            return fun(n - 1) + fun(n - 2)
+        } 
+        
+        console.log(fun(6));
+    </script>
+    
+</body>
+</html>

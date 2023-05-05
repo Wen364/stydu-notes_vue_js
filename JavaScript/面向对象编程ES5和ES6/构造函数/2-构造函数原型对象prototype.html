@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        构造函数每次创建方法都会新开辟一个内存空间来存储这个function，非常浪费内存空间，所以出现了原型
+
+        构造函数通过原型分配的函数是所有对象所共享的 prototype
+
+        原型是什么？ 原型就是一个对象 是每个 实例对象都带有的
+        原型的作用？  共享相同的方法
+
+     -->
+</head>
+<body>
+    <script>
+        function Star (uname,age) {
+            this.uname = uname
+            this.age = age
+            //  这样创建的方法每次创建function都会占用一个内存空间，非常浪费
+            // this.sing = function() {
+            //     console.log('哈哈哈');
+            // }
+        }
+        // 所以我们把相同的方法放到 原型对象 prototype 里面去，这样可以共享方法
+        Star.prototype.sing = function() {
+            console.log('哈哈哈哈哈哈哈');
+        }
+        var ldh = new Star('刘德华',18)
+        var zxy = new Star('张学友',20)
+        ldh.sing()// 哈哈哈哈哈哈哈
+        zxy.sing() // 哈哈哈哈哈哈哈
+        console.log(ldh.sing() === zxy.sing()); 
+        // true 说明他俩完全相等，因为都是在一个构造函数Star原型对象prototype里面
+    </script>    
+</body>
+</html>

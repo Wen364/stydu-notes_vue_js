@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+        // class Person {
+        //     constructor(name,age) {
+        //         this.name = name
+        //         this.age = age
+        //     }
+        //     say() {
+        //         console.log(this.name,this.age);
+        //     }
+        // }
+        // let obj = new Person('刘德华',100)
+        // console.log(obj);
+
+        //  get set 拦截
+
+        class Person {
+            // static 静态的 只能该 类 自己使用
+            static myname = 'Person自己的'
+            static mymethod = function() {
+                console.log('Person自己的方法');
+            }
+            constructor(name,age,id) {
+                this.name = name
+                this.age = age
+                this.ele = document.querySelector(`#${id}`)
+            }
+
+            get location() {
+                console.log('get');
+            }
+
+            set location(data) {
+                console.log('set',data);
+            }
+
+            get html() {
+                return this.ele.innerHTML
+            }
+
+            set html(data) {
+                this.ele.innerHTML = data.map((item) => {
+                    return `<li>${item}</li>`
+                }).join('')
+            }
+        }
+        let obj = new Person('hh',50,'list')
+        obj.html = ['111','222','333']
+
+        //  只能 Person 自己调用的  obj 调用不了 只存在于类自己身上
+        console.log(Person.myname);
+        Person.mymethod()
+    </script>
+    
+</body>
+</html>

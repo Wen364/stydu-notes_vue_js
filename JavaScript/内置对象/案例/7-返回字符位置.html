@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 查找字符串 'abcoefoxyozzopp' 中所有 o 出现的位置以及次数
+
+        //  for 循环写的
+        // var str = 'abcoefoxyozzopp'
+        // var count = 0
+        // var s = str.indexOf('o')
+        // for(var i = 0; i < str.length; i++) {
+        //     if(s != -1) {
+        //         console.log(s);
+        //         count++
+        //         s = str.indexOf('o', s + 1)
+        //     }
+        // }
+        // console.log('出现次数为:' + count);
+
+        //  while 循环写的
+        // var str = 'abcoefoxyozzopp'
+        // var count = 0
+        // var s = str.indexOf('o')
+        // while (s != -1) {
+        //     console.log(s);
+        //     count++ 
+        //     s = str.indexOf('o',s + 1)
+        // }
+        // console.log('出现次数为:' + count);
+
+        //  封装了一个查找字符串出现位置和次数的函数
+        function cz(str,a) {
+            var newArr = []
+            var count = 0
+            var s = str.indexOf(a)
+            for (var i = 0; i < str.length; i++) {
+                if(s != -1 ) {
+                    // console.log(a);
+                    newArr.push(s)  // newArr[newArr.length] = s
+                    count ++ 
+                    s = str.indexOf(a,s + 1)
+                }
+            }
+            return a +'出现的位置有:' + newArr + '\n' + '出现次数为:' + count  
+        }
+        console.log(cz('abcoefoxyozzopp','o'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

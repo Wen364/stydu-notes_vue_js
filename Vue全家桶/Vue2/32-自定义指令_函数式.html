@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 需求：定义一个 v-big指令，和v-text功能类似，但会把绑定的数值放大10倍 -->
+    <div id="root">
+        <h2>当前n值是：{{n}}</h2>
+        <h2>放大10倍后的n值是：<span v-big="n"></span></h2>
+        
+        <button @click="n++">点我n+1</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#root',
+        data() {
+            return{
+                n:1
+            }
+        },
+        directives:{
+            // big函数何时会被调用？1.当指令被调用时（初始化界面或一上来时就会被调用）2.指令所在的模板被重新解析时
+            big(element,binding) {
+                console.log(element,binding);
+             // element 是其所在的标签 span  binding则是一个对象，其中 value 和 innerText 可以操作DOM
+                element.innerText = binding.value * 10 
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box {
+            height: 110px;
+            width: 110px;
+            border: 1px solid #ccc;
+            margin: 200px auto;
+        } */
+        .box {
+            position: relative;
+            height: 110px;
+            width: 95px;
+            border: 1px solid #ccc;
+            margin: 200px auto;
+        }
+        .h {
+            height: 15px;
+            width: 95px;
+            font-size: 5px;
+            text-align: center;
+            line-height: 15px;
+        }
+        .x {
+            width: 95px;
+            height: 95px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            left: -19px;
+            width: 15px;
+            height: 17px;
+            text-align: center;
+            line-height: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="h">二维码</div>
+        <div class="x">
+            <img src="../images/erweima.png" alt="">
+        </div>
+        <div class="close-btn">x</div>
+    </div>
+    <script>
+        var btn = document.querySelector('.close-btn')
+        var box = document.getElementById('box')
+        btn.onclick = function() {
+            box.style.display = 'none'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 新增的选择器：1.属性选择器 2.结构伪类选择器 3.伪元素选择器 -->
+    <style>
+        /* 1.必须是input并且里面包含value属性的时候，选择这个元素 必须用[] */
+        /* input[value] {
+            color: pink;
+        } */
+        /* 2.只选择type=text 文本框的input 选择出来 */
+        input[type=text] {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.利用属性选择器就可以不要借助于类或者id选择器 -->
+    <!-- <input type="text" value="请输入用户名" name="" id="">
+    <input type="text"> -->
+    <!-- 2.属性选择器还饿可以选择属性=值得某些元素  （重点） -->
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+</body>
+</html>

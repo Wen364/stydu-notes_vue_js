@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双伪元素清除浮动</title>
+    <style>
+        .clearfix::before,.clearfix::after {
+            content: "";
+            display: table;
+        }
+        .clearfix::after {
+            clear: both;
+        }
+        .clearfix {
+            *zoom:1;
+        }
+        .box {
+            width: 300px;
+            background-color: pink;
+            margin: auto;
+        }
+        .a {
+            height: 50px;
+            background-color: skyblue;
+            float: left;
+           
+        }
+        .b {
+            background-color: purple;
+            height: 50px;
+            float: left;
+            
+        }
+        .footer {
+            height: 50px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clearfix" >
+        <div class="a">haha</div>
+        <div class="b">hahaha</div>
+        
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

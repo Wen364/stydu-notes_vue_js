@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>搜索</button><button>搜索</button><button>搜索</button>
+    <script>
+        //  bind() 绑定 捆绑的意思
+        var o = {
+            name: 'andy'
+        }
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+        var f = fn.bind(o, 1, 2)
+        f()
+        // 1.bind方法 不会调用原来的函数，  但是可以改变原来函数内部的 this 指向
+        // 2.返回的是原函数改变 this 之后产生的新函数
+        // 3.如果有的函数我们不需要立即调用，但是又想改变这个函数内部的this指向，此时我们用bind
+        // 4.我们有一个按钮，当我们点击了之后，就禁用这个按钮，2秒钟之后开启
+        var btns = document.querySelectorAll('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                this.disabled = true // 这个this 指向 btn
+                setTimeout(function () {
+                    this.disabled = false  // 这个this指向 window 所以需要用bind来改变它的this指向
+                }.bind(this), 2000)
+                // 这里用bind 改变了 this指向，然后让这个定时器的this指向了按钮，而且还不会直接调用
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>

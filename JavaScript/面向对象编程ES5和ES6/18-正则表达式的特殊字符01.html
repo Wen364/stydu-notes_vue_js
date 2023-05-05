@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 边界符 ^表示从他开始   $表示到他结束
+        var re = /abc/ // 正则表达式里面不需要加 引号
+        //  / abc/ 只要包含有 abc 这个字符串返回的值 都是 true
+        console.log(re.test('abc')); // true
+        console.log(re.test('abcd')); // true
+        console.log(re.test('aabc')); // true
+        console.log(re.test(123)); // false
+        console.log('------------------');
+
+        var reg = /^abc/
+        console.log(reg.test('abc')); // true
+        console.log(reg.test('abcd')); // true
+        console.log(reg.test('aabc')); // false
+        console.log('------------------');
+
+        var re1 = /^abc$/  // 精确匹配，要求必须是 abc字符串 才符合规范
+        console.log(re1.test('abc')); // true
+        console.log(re1.test('abcd')); // false
+        console.log(re1.test('aabc')); // false
+        console.log(re1.test('abcabc')); // false     
+        console.log('------------------');
+        
+        
+    </script>
+    
+</body>
+</html>

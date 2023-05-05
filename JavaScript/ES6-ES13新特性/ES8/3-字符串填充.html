@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  padStart(targetLength,string) 从原字符串前面开始填充
+        // targetLength是达到目标长度  string是要填充的字符
+
+        let str = 'andy'
+        console.log(str.padStart(10,'x')); // xxxxxxandy
+
+        //  padEnd(targetLength,string) 从原字符串后面开始填充
+        // targetLength是达到目标长度  string是要填充的字符
+
+        console.log(str.padEnd(10,'a')); // andyaaaaaa
+
+        console.log(str.padStart(3,'x')); // andy 如果目标长度小于原来长度，则不改变
+
+        console.log(str.padEnd(3,'x'))  // andy 如果目标长度小于原来长度，则不改变
+
+        // 一个数组中 小于10的 数字 前面加 0
+        let list = []
+        for  (let i = 0; i < 13; i ++ ) {
+            list.push(String(i).padStart(2,0))
+        }
+        console.log(list); // ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+    </script>
+    
+</body>
+</html>

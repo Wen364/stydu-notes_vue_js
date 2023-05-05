@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?uhs1qn');
+  src:  url('fonts/icomoon.eot?uhs1qn#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?uhs1qn') format('truetype'),
+    url('fonts/icomoon.woff?uhs1qn') format('woff'),
+    url('fonts/icomoon.svg?uhs1qn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+        div {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            border: 1px solid skyblue;
+            margin: 100px auto;
+        }
+        div::after {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            /* float: right;
+               margin: 15px 10px 15px 0; 
+               利用浮动这么做也行，但是占地方
+               所以推荐子绝父相，因为不占用位置
+            */
+            content: '';
+            color: skyblue;
+            font-family: 'icomoon';
+            font-size: 18px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>

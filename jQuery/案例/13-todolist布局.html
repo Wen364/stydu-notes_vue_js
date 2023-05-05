@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/tudolist.css">
+
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+    </header>
+    <section>
+        <h2>每日任务(正在进行) <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todolist.cn
+
+    </footer>
+    <script>
+        // 1.文本框里面输入内容，按下回车，就可以生成代办时间
+        // 2.点击待办事件复选框，就可以把当前数据添加到已完成事项里面
+        // 3.点击已完成事项复选框，就可以把当前数据添加到代办事项里面
+        // 4.但是本页面刷新内容不会丢失
+        // 核心思路：不管按下回车，还是点击复选框，都是把本地存储的数据加载到页面中，这样保证刷新关闭页面不会丢失数据
+        // 存储的数据格式： var todolist = [{title: 'xxx'， done: false}]
+        // 注意1：本地存储里面只能存储字符串格式，所以需要把数组形式转化为字符串格式  JSON.stringify(data)
+        // 注意2：获取本地存储数据时，还需要把里面的字符串格式转换为对象形式才能读取出来  JSON.parse(data)
+
+        load()
+        $('#title').on('keyup', function (e) {
+            if (e.keyCode === 13) {
+                if ($(this).val().length === 0) {
+                    alert('请输入您要输入的操作')
+                } else {
+                    var local = getData()  // 拿原来里面的数据
+                    local.push({ title: $(this).val(), done: false }) // 把local数组进行更新数据，把最新的数据追加给local数组
+
+                    // 把这个数据local 存储给本地存储
+                    saveDate(local)
+                    // 渲染加载数据
+                    load()
+                    // 清空输入框内容
+                    $(this).val('')
+                }
+
+            }
+        })
+
+        // 删除操作
+        remove()
+        // 复选框 改变 已完成还是未完成
+        check()
+
+
+        // 读取本地存储数据
+        function getData() {
+            var data = localStorage.getItem('todolist')
+            if (data != null) {
+                // 本地存储里面的数据是字符串格式的， 但是我们需要的是对象格式的
+                return JSON.parse(data)
+            } else {
+                return []
+            }
+        }
+
+        // 保存本地存储数据
+        function saveDate(data) {
+            localStorage.setItem('todolist', JSON.stringify(data))
+        }
+
+        // 渲染加载数据
+        function load() {
+            var todoCount = 0  // 正在进行的数量
+            var doneCount = 0  // 完成的数量
+            // 读取本地数据
+            var data = getData()
+            // 每次渲染前先清空ol里面的数据，这样就不会导致内容重复渲染
+            $('ol,ul').empty()
+            // 遍历读取的每一个数据 然后让ol加上li
+            $.each(data, function (i, ele) {
+                if (ele.done) {
+                    $('ul').prepend("<li><input type='checkbox' checked='checked' >  <p>" + ele.title + "</p>  <a href='#' id=" + i + "></a> </li>")
+                    // 记得把复选框改为选中，要不然重新渲染还是false
+                    doneCount++
+                } else {
+                    $('ol').prepend("<li><input type='checkbox' >  <p>" + ele.title + "</p>  <a href='#' id=" + i + "></a> </li>")
+                    todoCount++
+                }
+            })
+            $('#todocount').text(todoCount)  // 把值赋给 外面的span标签
+            $('#donecount').text(doneCount)  //  // 把值赋给 外面的span标签
+        }
+
+        // 删除操作
+        // 点击里面的a链接，不是删除的li，而是删除本地存储对应的数据
+        // 核心原理：先获取本地存储数据，删除对应的数据，保存给本地存储，然后重新渲染数据
+        function remove() {
+            $('ol,ul').on('click', 'a', function () {
+                // 先获取本地存储
+                var data = getData()
+                // 获取当前 id的 数值
+                var index = $(this).attr('id')
+                // 从当前索引号开始删除，只删除一个
+                data.splice(index, 1)
+                // 删除完再保存本地存储，这样就彻底删除了 
+                saveDate(data)
+                // 再重新渲染一下页面
+                load()
+            })
+        }
+        // 正在进行和已完成选项操作
+        // 1.当我们点击了小的复选框，修改本地数据，再重新渲染数据列表
+        // 2.点击之后，获取本地存储数据
+        // 3.修改对应数据属性，为当前复选框的checked状态
+        // 4.之后保存到本地数据
+        // 5.load加载函数里面，新增一个条件，如果当前数据的done为true时，就是已经完成的，就把数据渲染到ul里面去
+        // 6.如果当前done为false 则是未完成的，就把数据渲染到ol里面去
+        function check() {
+            $('ol,ul').on('click', 'input', function () {
+                // 获取本地数据
+                var data = getData()
+                // 获取它当前的兄弟 索引号 
+                var index = $(this).siblings('a').attr('id')
+                // 当前复选框的属性 等于 当前数据 done 的值
+                data[index].done = $(this).prop('checked')
+                // 保存数据
+                saveDate(data)
+                // 渲染数据
+                load()
+            })
+        }
+        // 正在进行的个数，和已经完成的个数
+
+    </script>
+</body>
+
+</html>

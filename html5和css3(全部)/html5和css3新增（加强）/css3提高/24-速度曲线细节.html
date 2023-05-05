@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: hidden;
+            font-size: 20px;
+            height: 30px;
+            width: 0;
+            background-color: pink;
+            white-space: nowrap;
+            /* 让文字强制一行内显示 */
+            animation: move 4s steps(10) infinite forwards;
+            /* steps 就是分几步来完成我们的动画 有了steps 就不要再写 ease 或者 linear 了 */
+        }
+
+        @keyframes move {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>这个东西挺好玩的哈</div>
+</body>
+</html>

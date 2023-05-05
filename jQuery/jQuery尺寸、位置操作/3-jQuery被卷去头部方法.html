@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        3. scrollTop() / scrollLeft() 设置或获取元素被卷去的头部和左侧
+        (1) 
+     -->
+    <script src="../jquery.min.js"></script>
+    <style>
+        body {
+            height: 2000px;
+            scroll-behavior: smooth;
+            transition: all .5s;
+        }
+        .contianer {
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            margin: 200px auto;
+        }
+        .back {
+            display: none;
+            position: absolute;
+            right: 20px;
+            bottom: 50px;
+            height: 50px;
+            width: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">返回顶部</div>
+    <div class="contianer"></div>
+    <script>
+        $(function() {
+            // 页面滚动事件
+            $(window).scroll(function() {
+                // 如果文档被卷去的距离大于等于粉色盒子的top值，则让隐藏的显示出来
+               if ($(document).scrollTop() >= $('.contianer').offset().top){
+                    // $('.back').show()
+                    $('.back').stop().fadeIn()
+               }else {
+                // $('.back').hide()
+                $('.back').stop().fadeOut()
+               }
+            })
+            // 返回顶部
+            $('.back').click(function() {
+                // 当被点击之后，让window的被卷去距离为0
+                // $(document).scrollTop({
+                //     top: 0
+                // })
+                // 带有动画的返回顶部
+                // animate动画函数里面有个 scrollTop属性，可以设置位置
+                // 注意：是元素的动画，因此$('body,html').animate({scrollTop:0})
+                $('body,html').stop().animate({
+                    scrollTop:0
+                })
+            })
+        })
+    </script>
+</body>
+</html>

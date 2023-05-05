@@ -1,0 +1,15 @@
+table,td,th {
+    border: 1px solid pink;
+    border-collapse: collapse;
+    /* 表示相邻边框合并 */
+    font-size: 12px;
+    text-align: center;
+}
+table {
+    width: 500px;
+    height: 249px;
+    border: 1px solid pink;
+}
+th {
+    height: 50px;
+}

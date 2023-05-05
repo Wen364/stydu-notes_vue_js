@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            height: 30px;
+            width: 70px;
+            
+        }
+    </style>
+</head>
+<body>
+    <button>跳转页面</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+        var time = 5
+        var temp = null
+        btn.addEventListener('click', function () {
+            fn()
+            temp = setInterval(fn, 1000)
+        })
+        function fn() {
+            if (time == 0) {
+                location.href = 'http://www.itcast.com'
+                clearInterval(temp)
+            }else {
+                div.innerHTML = '还有'+ time +'秒后自动跳转页面'
+                time--
+            }
+        }
+        // fn()
+        
+    </script>
+</body>
+</html>

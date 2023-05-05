@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="username">
+    <input type="checkbox" name="" id="remember"> 记住用户名
+    <script>
+        var username = document.getElementById('username')
+        var remember = document.getElementById('remember')
+        // 判断 是否有这个人的数据 如果有就在输入框内自动放入，并且选上复选框
+        if (localStorage.getItem('username')) {  
+            username.value = localStorage.getItem('username')
+            remember.checked = 'true'
+        }
+        // change事件 是用来监听 事物是否被改变的
+        remember.addEventListener('change',function() {
+            if (this.checked) { // 当复选框被选上时 存储这个人的数据
+                localStorage.setItem('username',username.value)
+            } else {  // 当复选框被取消时， 删除这个人的数据
+                localStorage.removeItem('username')
+            }
+        })
+    </script>
+</body>
+</html>

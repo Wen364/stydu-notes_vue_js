@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name:'张三',
+            age:18
+        }
+        //#region 
+        // 模拟Vue3中实现响应式
+        const p = new Proxy(person,{
+            // 有人读取了p的某个属性的时候调用
+            get(target,propName){
+                console.log(`有人读取了p身上的${propName}属性`);
+                return Reflect.get(target,propName)
+            },
+            // 有人修改了p的某个属性的时候调用
+            set(target,propName,value){
+                console.log(`有人修改了p身上的${propName}属性,现在去更新页面`);
+                Reflect.set(target,propName,value)
+            },
+            deleteProperty(target,propName){
+                console.log(`有人删除了p身上的${propName}属性`);
+                return Reflect.deleteProperty(target,propName)
+            }
+        })
+        //#endregion
+    </script>
+</body>
+</html>

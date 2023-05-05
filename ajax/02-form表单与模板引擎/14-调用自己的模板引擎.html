@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/html" id="tpl-user">
+        <div>姓名：{{name}}</div>
+        <div>年龄：{{age}}</div>
+        <div>性别：{{gender}}</div>
+        <div>住址：{{address}}</div>
+    </script>
+    <script>
+        // 定义数据
+        let data = {
+            name:'andy',
+            age:20,
+            gender:'男',
+            address:'黑龙江佳木斯桦川'
+        }
+        // 调用模板引擎
+        let str = template('tpl-user',data)
+
+        // 渲染 html 结构
+        document.getElementById('box').innerHTML = str
+
+        // 封装 template 函数
+        function template(id,data) {
+            let str = document.getElementById(id).innerHTML 
+            let reg = /{{\s*([a-zA-Z]+)\s*}}/
+            let result = null 
+            while(result = reg.exec(str)) {
+                str = str.replace(result[0],data[result[1]])
+            }
+            return str
+        }
+        template('box',data)
+
+    </script>
+</body>
+</html>

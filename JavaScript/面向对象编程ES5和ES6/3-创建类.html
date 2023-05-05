@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1.创建类 class 创建一个明星类
+        class Star {
+            constructor(uname,age) {
+                this.uname = uname
+                this.age = age
+            }
+        }
+        // 2.利用类来创建对象 new
+        var ldh = new Star('刘德华',22)
+        var hh = new Star('哈哈',50)
+        console.log(ldh); // Star {uname: '刘德华', age: 22}
+        console.log(hh);  // Star {uname: '哈哈', age: 50}
+        // (1) 通过class 关键字创建类，类名还是习惯性的首字母大写
+        // (2) 类里面有个 constructor 函数，可以接收传递而来的参数，同时返回实例对象 不需要return就可以返回
+        // (3) constructor 函数 只要 new 生成实例，就会同时调用这个函数，如果我们不写这个函数，类也会自动生成这个函数
+        // (4) 生成实例的 new 不能省略 必须写！！！
+        // (5) 语法规范：创建类 类名后面不能加小括号，生成的实例后面需要加小括号 构造函数不需要加 function
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 立即执行函数:不需要调用，就能立即执行的函数
+        function fn() {
+            console.log(1);
+        }
+        fn();
+
+        // 2.写法
+
+        // 1.(function() {})()   或者 2.(function() {}())
+        (function() {
+            console.log(2);
+        })();
+        // 每个立即执行函数结尾必须用 分号结束 要不会报错
+        (function() {
+            console.log(3);
+        }());
+        
+        // 也可以往括号里放参数 第二个小括号可以看作调用函数
+        (function(a,b){  // 这个括号里的相当于形参
+            console.log(a,b);   // 1,2
+            var num = 10
+        })(1,2);  // 这个相当于实参
+
+        (function sum(c,d) {  // 还是可以给函数命名
+            console.log(c+d);  // 6
+            var num = 10 // 局部变量 所以不会产生命名冲突的问题
+        }(2,4))
+        // 3.立即执行函数最大的作用就是 独立创建了一个作用域 里面所有的变量都是局部变量 不会有命名冲突的问题
+     </script>
+</body>
+</html>

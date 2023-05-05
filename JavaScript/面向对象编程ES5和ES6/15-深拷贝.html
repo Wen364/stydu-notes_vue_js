@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            id:1,
+            name:'哈哈哈',
+            goods:[
+                {
+                    id:3,
+                    name:'呵呵'
+                }
+            ]
+        }
+        var p = {}
+        // 递归方法深拷贝
+        function deepCopy(target,obj) {
+            for(var k in obj) {
+                // 判断属性值属于简单还是复杂数据类型
+                // 1.先获取属性值
+                var item = obj[k]
+                // 2.当属于数组
+                if (item instanceof Array) {
+                    target[k] = []
+                    deepCopy(target[k],item)
+                } else if (item instanceof Object) {
+                    // 3.当属于对象时
+                    target[k] = {}
+                    deepCopy(target[k],item)
+                }else {
+                    // 4.当为简单数据类型时
+                    target[k] = item
+                }
+            }
+        }
+        deepCopy(p.obj)
+    </script>
+    
+</body>
+</html>

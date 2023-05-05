@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 语法规范: width:calc(100%-80px);   括号里面可以 + - * /
+         calc就是让声明css属性时执行一些计算 -->
+    <style>
+        .father {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        .son {
+            /* height: 100px; */
+            height: calc(100% - 100px);
+               /* 高度永远比父亲的小 100px */
+            /* width: 100px; */
+            width: calc(100% - 30px);
+            /* 这个的意思是永远比父亲的宽度小30px */
+            background-color: skyblue;
+            margin: 250px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 需求我们的子盒子宽度永远比父盒子小30像素 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

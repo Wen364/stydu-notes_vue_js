@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- filter: 函数（）;   例如： filter: blur(5px)  blur模糊处理 数值越大越模糊 -->
+    <style>
+        img {
+            filter: blur(5px);
+            transition: 0.5s;
+            /* 这个是模糊到不模糊的时间，这个是过渡 */
+        }
+        img:hover {
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+    <img src="../../images/banner2.png" alt="">
+</body>
+</html>

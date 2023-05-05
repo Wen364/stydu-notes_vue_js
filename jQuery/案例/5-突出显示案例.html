@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 380px;
+            width: 610px;
+            margin: 100px auto;
+            border: 1px solid #eee;
+            
+        }
+        span {
+            width: 200px;
+            height: 186px;
+            border: 1px solid #000;
+            padding-top: 3px;
+            padding: 2.5px 2.5px;
+
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span><img src="../images/01.jpg" alt=""></span>
+        <span><img src="../images/02.jpg" alt=""></span>
+        <span><img src="../images/03.jpg" alt=""></span>
+        <span><img src="../images/04.jpg" alt=""></span>
+        <span><img src="../images/05.jpg" alt=""></span>
+        <span><img src="../images/06.jpg" alt=""></span>
+    </div>
+    <script>
+        $(function() {
+            $('span').hover(function() {
+                // 开启动画前先停止动画，这样可以避免快速滑动导致的动画重叠
+                $(this).siblings().stop().fadeTo(100,.5)
+            }, function() {
+                $(this).siblings().stop().fadeTo(100,1)
+            })
+        })
+    </script>
+</body>
+</html>

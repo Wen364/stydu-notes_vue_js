@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <Li>我是li1</Li>
+        <Li>我是li2</Li>
+        <Li>我是li3</Li>
+        <Li>我是li4</Li>
+        <Li>我是li5</Li>
+    </ol>
+    <script>
+        //  1.获取 最后一个子元素 parentNode.lastChild 和 第一个子元素 parentNode.firstChild
+        var ol = document.querySelector('ol')
+        ol.firstChild  // 获取父元素的 第一个子节点 找不到则返回 null 他也是包含'所有节点'
+        ol.lastChild  // 获取父元素的 最后一个子节点 找不到则返回 null 他也是包含'所有节点'
+        console.log(ol.firstChild);  // #text
+        console.log(ol.lastChild);  // #text
+        // 2. parentNode.firstElementChild 获取第一个元素子节点 
+        //  3. parentNode.lastElementChild 获取最后一个元素子节点 
+
+        // 4. 实际开发中的写法 既没有兼容性问题又可以返回第一个子元素节点
+        console.log(ol.children[0]);  // 返回第一个元素子节点
+        console.log(ol.children[ol.children.length - 1]);  // 返回最后一个元素子节点
+    </script>
+</body>
+</html>

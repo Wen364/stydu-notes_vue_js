@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1- 常量， 不能变化的量
+        // const myname = 'andy'
+        // myname = 'red'
+        // //  const 定义的值 不能被改变
+        // console.log(myname);
+
+        // // 2.不能重复定义
+        // const myname = 'green'
+        // // 这是不允许的
+
+        // // 3.块级作用域
+        // {
+        //     const h = '哈哈'
+        // }
+        // console.log(h);
+        // // 和let一样，在内部定义的不能在外部访问
+
+        // 4-声明不提升
+        // 暂存性死区
+        // const myname = 'andy'
+        // function myname () {
+        //     console.log(myname);
+        //     //  和 let 一样 都有 暂存性死区
+        //     const myname = 'red'
+        // }
+
+        // 5-不与顶层对象挂钩
+        const age = 20
+        console.log(window.age); // undefined
+
+        const myObj = {
+            name:'andy',
+            age:50
+        }
+        // const 定义的变量不会被修改值，但是数字和对象里面存储的都是地址，是可以被修改的
+        // 但是 myObj 不可以修改
+        // myObj里面的内容可以修改
+        myObj.age = 20
+        console.log(myObj);
+    </script>
+    
+</body>
+</html>

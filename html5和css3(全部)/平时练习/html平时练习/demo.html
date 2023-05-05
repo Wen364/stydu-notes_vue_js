@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px auto; 
+            box-sizing: border-box;
+            text-indent: 2em;
+            margin-top: 2px;
+        }
+        .box {
+            float: right;
+            height: 10px;
+            width: 100px;
+            border: 1px solid red;
+            border-radius: 30px;
+            background-color: pink;
+            margin-top: 5px;
+            margin-right: 195px;
+            padding: 1px;
+        }
+        .left, .right {
+            color: red;
+        }
+        .son {
+            float: right;
+            margin-top: -20px;
+            margin-right: 120px;
+        }
+        .jdt {
+            height: 100%;
+            width: 87%;
+            background-color: red;
+            transition: width 0.5s;
+        }
+        .box:hover .jdt {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        已售<span class="left">87%</span>
+        <div class="box">
+            <div class="jdt"></div>
+        </div>
+        <div class="son"> 
+        剩余<span class="right">29件</span>
+        </div>
+    </div>
+</body>
+</html>

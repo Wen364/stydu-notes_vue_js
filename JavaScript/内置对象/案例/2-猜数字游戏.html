@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  先需要自己写个随机数字的函数
+        //  然后在用while循环来让他一直循环
+        //  然后在while里写条件 当猜对的时候就结束循环（break）
+        function getRandom(min,max) {
+           return Math.floor(Math.random() * (max - min + 1)) + min 
+        }
+        var i = getRandom(1,100)
+        while(true) {
+            var j = prompt('请输入一个1~100之间的数字：')
+        if (j > i) {
+            alert('数字猜大了，请继续猜')
+        }
+        else if (j < i) {
+            alert('数字猜小了，请继续猜')
+        }
+        else {
+            alert('恭喜你猜对了')
+            break
+        }
+        }
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

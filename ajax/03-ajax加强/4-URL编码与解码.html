@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        encodeURI() 编码的函数
+        decodeURI() 解码的函数
+     -->
+</head>
+<body>
+    <script>
+        let str = '哈哈'
+        let str1 = encodeURI(str)
+        console.log(str1);
+        // %E5%93%88%E5%93%88
+        let str2 = decodeURI('%E5%93%88%E5%93%88')
+        console.log(str2);
+        // 哈哈
+    </script>
+</body>
+</html>

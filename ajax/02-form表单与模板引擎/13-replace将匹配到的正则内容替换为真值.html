@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = {
+            name:'andy',
+            age:20
+        }
+        let str = '<div>我是{{name}}今年{{age}}岁了</div>'
+        let reg = /{{\s*([a-zA-Z]+)\s*}}/
+        let result = null 
+        while(result = reg.exec(str)){
+            str = str.replace(result[0],data[result[1]])
+        }
+        console.log(str);  // <div>我是andy今年20岁了</div>
+    </script>
+</body>
+</html>

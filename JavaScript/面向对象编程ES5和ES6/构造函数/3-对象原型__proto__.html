@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        对象都会有一个属性 __proto__ 指向构造函数的 prototype原型对象
+         我们对象之所以能够使用构造函数的prototype原型对象的属性和方法，就是因为对象有 __proto__原型的存在
+         __proto__对象原型 和 原型对象prototype 是等价的
+         __proto__对象原型的意义在于为对象查找机制提供一个方向他只是内部指向 原型对象prototype
+     -->
+</head>
+<body>
+    <script>
+        function Star (uname,age) {
+            this.uname = uname
+            this.age = age
+            //  这样创建的方法每次创建function都会占用一个内存空间，非常浪费
+            // this.sing = function() {
+            //     console.log('哈哈哈');
+            // }
+        }
+        // 所以我们把相同的方法放到 原型对象 prototype 里面去，这样可以共享方法
+        Star.prototype.sing = function() {
+            console.log('哈哈哈哈哈哈哈');
+        }
+        var ldh = new Star('刘德华',18)
+        var zxy = new Star('张学友',20)
+        console.log(ldh);  // 对象身上自己添加一个 __proto__ 指向我们构造函数的原型对象prototype
+        console.log(Star.prototype === ldh.__proto__); // true
+        // 是等价的
+        // 方法的查找规则：首先先看ldh对象身上是否有 sing 方法 如果有就执行这个对象上的sing
+        // 如果没有sing这个方法，就通过 __proto__ 去构造函数原型对象prototype 身上去查找sing这个方法
+    </script>
+</body>
+</html>

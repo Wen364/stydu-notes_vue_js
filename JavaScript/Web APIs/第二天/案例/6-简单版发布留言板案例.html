@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        li {
+            /* display: block; */
+            color: palevioletred;
+            width: 200px;
+            background-color: pink;
+            margin-top: 30px;
+        }
+        textarea {
+            color: black;
+            font-weight: bold;
+            border: 1px solid pink;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul>
+            
+        </ul>
+    </div>
+    <script>
+        var text = document.querySelector('textarea')
+        var ul = document.querySelector('ul')
+        var btn = document.querySelector('button')
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert ('请输入内容')
+            }
+            else {
+                // 1.创建元素
+                var li = document.createElement('li')
+                // 先创建 li 才能赋值
+                li.innerHTML = text.value
+                // 2.添加元素
+                // ul.appendChild(li) // 依次在 ul 里面 向后 放入 新插入的 li 节点
+                ul.insertBefore(li,ul.children[0]) // 在 第一个 li 前面 一次放入 新插入的节点
+            }
+            
+        }
+    </script>
+</body>
+</html>

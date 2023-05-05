@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="name"></span>
+        <text>欢迎你     </text>
+    </div>
+    <script>
+        var div = document.querySelector('.name')
+        var parma = location.search  // ?uname=andy 得到参数
+        console.log(parma);
+        parma = parma.substr(1)  // uname=andy  去除了？
+        console.log(parma);
+        parma = parma.split('=')  // 把字符串变为数组 等号左右
+        console.log(parma);
+        div.innerHTML = parma[1]    // 数组第二个元素
+    </script>
+</body>
+</html>

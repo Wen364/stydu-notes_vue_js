@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        防抖策略是 当事件被触发后，延迟 n 秒 后再执行回调，如果在这 n 秒内事件又被触发，则要重新计时
+        这样可以防止一次事件同一时间被多次点击而被触发多次 这样只会跟随最后一次 点击 然后 等待 n 秒后再触发回调函数
+        例如 王者荣耀的 回城 回城被打断 还需要重新回城
+
+        防抖的应用场景：
+        当输入框连续输入一串字符时，可以通过加入防抖函数，让他只有在输入完，才执行查询的请求，这样可以有效减少请求次数，
+        节约请求资源
+     -->
+</head>
+<body>
+    <input type="text" id="ipt">
+    <button >搜索</button>
+    <script>
+        // 防抖代码
+
+        // 1.防抖动的 timer 
+        var timer = null 
+        // 定义防抖的函数
+        function debounceSearch(keyword) {
+            timer = setTimeout(function() {
+                // 发起 JSONP 请求
+                // getSuggestList(keyword)
+                console.log(keyword);
+            },2000)
+        }
+
+        // 当输入框触发keyup 事件时 就清空 timer
+        document.querySelector('#ipt').addEventListener('keyup',function() {
+            // 先清空 timer 然后再放入数据
+            clearTimeout(timer)
+            var keywords = this.value
+            debounceSearch(keywords)
+        })
+    </script>
+</body>
+</html>

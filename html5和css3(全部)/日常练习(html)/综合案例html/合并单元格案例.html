@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 跨行合并：rowspan="合并单元的个数"
+         跨列合并：colspan="合并单元的个数" 
+         跨行：想合并的单元格最上测单元格为目标单元格
+         跨列：想合并的单元格最右侧单元格为目标单元格
+    -->
+    <table align="center" border ="1" cellspacing="0" width="500" height="249">
+            <tr>
+                <td></td>
+                <td colspan="2"></td>
+                <!-- 因为把第一行的第二列和第三列合并了，所以删除第三列 -->
+            </tr>
+            <tr>
+                <td rowspan="2"></td>
+                <!-- 因为把第二行和第三行第一列合并了，所以第三行第一列删除 -->
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+    
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</body>
+</html>

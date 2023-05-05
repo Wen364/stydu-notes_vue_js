@@ -1,0 +1,7 @@
+{
+    "name": "zs",
+    "age" : 20,
+    "gender": "男",
+    "address": null,
+    "hobby" : ["吃饭","睡觉","打豆豆"]
+}

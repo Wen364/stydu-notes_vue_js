@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 60px;
+        }
+
+        .search {
+            height: 50px;
+            width: 600px;
+            margin: 20px auto 0;
+        }
+
+        table {
+            /* height: 200px; */
+            width: 400px;
+            margin: auto;
+            border: 1px solid #000;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        thead {
+            font-weight: bolder;
+        }
+
+        thead td,
+        tbody td {
+            height: 50px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照当前价格查询<input type="text" class="start">- <input type="text" class="end">
+        <button class="search-price">搜索</button>按照商品名称查询: <input type="text" class="product"><button
+            class="search-pro">搜索</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>产品名称</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 利用新增数组方式操作数据
+        var data = [{
+            id: 1,
+            pname: '小米',
+            price: 3999
+        }, {
+            id: 2,
+            pname: 'oppo',
+            price: 999
+        },
+        {
+            id: 3,
+            pname: '荣耀',
+            price: 1299
+        },
+        {
+            id: 4,
+            pname: '华为',
+            price: 1999
+        }]
+        // 1.渲染数据到页面中
+        var tbody = document.querySelector('tbody')
+        setData(data)
+        // 封装个函数，后面得用
+        function setData(myData) {
+            myData.forEach(function (value) {
+                var tr = document.createElement('tr')
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>'
+                tbody.append(tr)
+            })
+        }
+
+        // 2. 通过价格查询商品
+        var start = document.querySelector('.start')
+        var end = document.querySelector('.end')
+        var search_price = document.querySelector('.search-price')
+        search_price.addEventListener('click', function () {
+            // 获取通过价格能得到的向对应的数组
+            var newData = data.filter(function (value) {
+                return value.price >= start.value && value.price <= end.value
+            })
+            // 把筛选完的数组里面的数据渲染到页面上
+            // 1.先清空原来得数据
+            tbody.innerHTML = ''
+            // 2.再把数据渲染到页面上
+            setData(newData)
+        })
+        // 3.通过商品名称查询
+        var product = document.querySelector('.product')
+        var search_pro = document.querySelector('.search-pro')
+        search_pro.addEventListener('click', function () {
+            var information = product.value
+            // 可以用filter来 遍历数据
+            // var arr = data.filter(function(value) {
+            //     return value.pname === information
+            // })
+            // console.log(arr);
+            // 也可以用some 但是用some更加高效率
+            var arr = []
+            data.some(function (value) {
+                if (value.pname === information) {
+                    // console.log(value);
+                    arr.push(value)
+                    return true // return 后面必须写 true 这样就可以 直接 停止some遍历了 ，比较高效率
+                }
+            })
+            // 先清空数据
+            tbody.innerHTML = ''
+            // 再重新渲染数据
+            setData(arr)
+        })
+
+    </script>
+
+</body>
+
+</html>

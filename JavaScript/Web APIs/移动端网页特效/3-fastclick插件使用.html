@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="fastclick.js"></script>
+    <!-- 把 fastclick 这个js文件引入 -->
+</head>
+<body>
+    <div></div>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+        }, false);
+        } // 添加完这个语句后，移动端再点击就不会有点击延迟了
+        var div = document.querySelector('div')
+        div.addEventListener('click',function() {
+            alert(11)
+        })
+    </script>
+</body>
+</html>

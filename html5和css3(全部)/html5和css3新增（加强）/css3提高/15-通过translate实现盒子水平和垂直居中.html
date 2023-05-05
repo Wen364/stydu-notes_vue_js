@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        div {
+            position: relative;
+            height: 500px;
+            width: 500px;
+            background-color: pink;
+            /* 这里的50%是根据盒子自己的大小来移动的 */
+            /* transform: translate(50%,50%); */
+        }
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 200px;
+            width: 200px;
+            background-color: skyblue;
+            transform: translate(-50%,-50%);
+            /* 利用定位加上移动 就可以实现 居中 这样的方法不怕盒子的值改变从而去调整内部盒子的位置 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+</html>

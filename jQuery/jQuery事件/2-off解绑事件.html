@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>哈哈哈啊哈</li>
+        <li>哈哈哈啊哈</li>
+        <li>哈哈哈啊哈</li>
+    </ul>
+    <script>
+        $('div').on({
+            mouseenter: function() {
+                console.log(111);
+            },
+            click: function() {
+                console.log(222);
+            }
+        })
+        $('ul').on('click','li',function() {
+            alert(11)
+        })
+        // 1.事件解绑
+        // $('div').off()  // 这个是解除了div身上的所有事件
+        $('div').off('mouseenter')  // 只是解除了经过事件
+
+        // 2.解除事件委托
+        $('ul').off('click','li') // 解除了 ul 上的 事件委托
+
+        // 3.one() 只能触发一次   同一类型的事件，只能触发一次
+        $('ul').one('click',function() {
+            alert(22222)
+        })
+    </script>
+</body>
+</html>

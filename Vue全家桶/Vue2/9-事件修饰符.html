@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .demo{
+            height: 50px;
+            background-color: skyblue;
+        }
+        .box1{
+            padding: 5px;
+            background-color: skyblue;
+        }
+        .box2{
+            padding: 5px;
+            background-color: red;
+        }
+        ul{
+            height: 200px;
+            width: 200px;
+            background-color: orange;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 
+        Vue中的事件修饰符：
+            1.prevent：阻止默认事件（常用）
+            2.stop：阻止事件冒泡（常用）
+            3.once：事件只触发一次（常用）
+            4.capture：使用事件的捕获模式
+            5.self：只有event.target 是当前操作的元素时才触发的
+            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+     -->
+    <div id="root">
+
+        <!-- 阻止事件默认行为（常用） -->
+        <a href="http://atguigu.com" @click.prevent="showInfo">点击提示信息</a>
+
+        <!-- 阻止事件冒泡（常用） -->
+        <div class="demo" @click="showInfo">
+            <button @click.stop="showInfo">点击触发事件</button>
+        </div>
+
+        <!-- 事件只触发一次（常用） -->
+        <button @click.once="showInfo">事件只有第一次点击才能触发</button>
+
+        <!-- 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- 只有event.target 是当前操作的元素时才触发的 -->
+        <div class="demo" @click.self="showInfo">
+            <button @click.stop="showInfo">点击触发事件</button>
+        </div>
+
+        <!-- 事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+        <ul @wheel.passive="scroll"> 
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+        <div class="demo" @click="showInfo">
+            <a href="http://atguigu.com" @click.stop.prevent="showInfo">点击触发事件</a>
+            <!-- 可以使用链式结构写，和 jQuery 类似 -->
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#root',
+        data() {
+            return {
+
+            }
+        },
+        methods:{
+            showInfo() {
+                alert('提示信息')
+            },
+            showMsg(msg) {
+                console.log(msg);
+            },scroll() {
+                for(let i = 0; i < 10000; i++) {
+                    console.log(i);
+                }
+                console.log('完成');
+            }
+        }
+    })
+</script>
+</html>

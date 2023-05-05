@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function jsq() {
+            var j = 1
+            while(j) {
+                var i = prompt('欢迎使用简易计算器:' + '\n' + '1.加法运算:' + '\n' + '2.减法运算' +'\n' + '3.乘法运算: ' + '\n' + '4.除法运算:' + '\n' + '5.退出' + '\n' + '请输入您的选项:' )
+                if (i == 5) {
+                    break
+                }
+                else if (i == 1) {
+                    js('+')
+                }
+                else if (i == 2) {
+                    js('-')
+                }
+                else if (i == 3) {
+                    js('*')
+                }
+                else if (i == 4) {
+                    js('%')
+                }
+            }
+        }
+        jsq()
+        function js(type) {
+            var num1 = prompt('请输入第一个数：')
+            var num2 = prompt('请输入第二个数：')
+            var result = 0
+            if (type == '+') {
+                result = parseFloat(num1) + parseFloat(num2)
+            }
+            else if (type == '-') {
+                result = parseFloat(num1) - parseFloat(num2)
+            }
+            else if (type == '*') {
+                result = parseFloat(num1) * parseFloat(num2)
+            }
+            else if (type == '%') {
+                result = parseFloat(num1) / parseFloat(num2)
+            }
+            return alert(result)
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

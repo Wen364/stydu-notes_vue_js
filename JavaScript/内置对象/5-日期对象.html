@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  Date对象是构造函数， 他需要 new 来使用
+        //  Date() 日期对象
+        var arr = new Array()  // 创建一个数组对象
+        var obj = new Object()  // 创建一个对象实例
+        //  1.使用Date
+        var date = new Date()
+        console.log(date);   
+        //  2. 参数常用的写法 （1）数字型 2019，02，25  或者是 字符串型 '2019-05-21'
+        var date1 = new Date(2019,02,05)  // 用数字型的 月份会比原来输入的加了一个月，不准
+        console.log(date1); 
+        var date2 = new Date('2019-05-21')  // 字符串型正常，输入什么就是什么
+        console.log(date2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

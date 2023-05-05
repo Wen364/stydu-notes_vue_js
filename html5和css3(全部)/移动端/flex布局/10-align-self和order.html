@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> align-self 和 order</title>
+    <style>
+        div {
+            display: flex;
+            height: 400px;
+            width: 80%;
+            background-color: pink;
+            /* align-items: flex-end; */
+            /* 让三个盒子都沿着侧轴底测对齐 */
+        }
+        div span {
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            margin: 5px;
+        }
+        span:nth-child(2) {
+            align-self: flex-end;
+            /* 单独让第二个盒子沿着侧轴底测对齐 */
+            order: -1;
+            /* 默认是0，-1比0小，所以在前面
+                这个和z-index 正好相反
+            */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>

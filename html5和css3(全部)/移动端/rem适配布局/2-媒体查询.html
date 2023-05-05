@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询(Media Query)</title>
+        <!-- 媒体查询是css3的新语法 -->
+           <!-- 使用@media查询，可以针对不同屏幕尺寸设置不同的样式 -->
+             <!-- 当重置浏览器大小过程中，页面也会根据浏览器宽度和高度重新渲染页面 -->
+    <style>
+        @media screen and (max-width: 800px) {
+            body {
+                background-color: pink;
+            }
+        }
+        /* 这句话的意思就是：在我们的屏幕上 并且 最大宽度时 800像素 设置我们想要的样式 */
+          /* max-width 相当于小于等于800像素  */
+        @media screen and (max-width: 500px) {
+            body {
+                background-color: purple;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

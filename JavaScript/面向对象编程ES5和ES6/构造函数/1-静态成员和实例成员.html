@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Star(uname,age) {
+            this.uname = uname
+            this.age = age
+            this.sing = function () {
+                console.log('哈哈哈');
+            }        
+        }
+        var ldh = new Star('刘德华',20)
+        console.log(ldh);  //  {uname: '刘德华', age: 20, sing: ƒ}
+        // 1.实例成员就是构造函数内部通过 this添加的成员， uname 和 age sing 就是实例成员
+        // 实例成员只能通过实例化的对象来访问
+        console.log(ldh.uname); // 刘德华
+        // console.log(Star.uname); // 不可以通过构造函数来访问实例成员
+
+        // 静态成员就是构造函数直接写的,没有通过this指向
+        Star.sex = '男'
+        console.log(Star.sex);  // 男
+        console.log(ldh.sex); /// undefined 
+        // 可以看出,静态成员只能通过构造函数调用, 实例对象不能调用它
+    </script>
+</body>
+</html>
+        

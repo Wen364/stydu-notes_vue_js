@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="begin">开启定时器</button>
+    <button class="close">关闭定时器</button>
+    <script>
+        // 清除定时器 clearInterval(定时器名称)
+        var begin = document.querySelector('.begin')
+        var close = document.querySelector('.close')
+        var time = null  // 全局变量 null 是一个空对象
+        // 如果不赋值的话 会返回undefined 容易出错 所以一般都给一个 null
+        begin.addEventListener('click', function() {
+             time = setInterval(function() {  
+      // 在函数里面给 time定义的话是局部变量 下一个函数接收不到 所以要在外面定义 time 为空 然后里面赋值
+                    console.log('定时器触发了');
+        }, 1000)
+        })
+        close.addEventListener('click', function() {
+            clearInterval(time)
+        })
+    </script>
+</body>
+</html>
